@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EF97964-4237-4A78-8C27-8FA0E2B681A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MWLite.Symbology</RootNamespace>
+    <AssemblyName>MWLite.Symbology</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsInputBox.cs" />
+    <Compile Include="Classes\ColorSchemes.cs" />
+    <Compile Include="Classes\FormHelper.cs" />
+    <Compile Include="Classes\Globals.cs" />
+    <Compile Include="Classes\LabelStyle.cs" />
+    <Compile Include="Classes\LabelUtilities.cs" />
+    <Compile Include="Classes\mwSymbology.cs" />
+    <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Controls\ColorPicker\Office2007ColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorPicker\Office2007ColorPicker.Designer.cs">
+      <DependentUpon>Office2007ColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorPicker\Office2007ColorPlate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorPicker\Office2007ColorPlate.Designer.cs">
+      <DependentUpon>Office2007ColorPlate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorPicker\Office2007MenuHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorPicker\Office2007MenuHelper.designer.cs">
+      <DependentUpon>Office2007MenuHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ListControls\CharacterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ListControls\IconControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ListControls\IconControl.Designer.cs">
+      <DependentUpon>IconControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListControls\LinePatternControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ListControls\LinePatternControl.Designer.cs">
+      <DependentUpon>LinePatternControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListControls\ListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ListControls\ListControl.Designer.cs">
+      <DependentUpon>ListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListControls\SymbolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ListControls\SymbolControl.Designer.cs">
+      <DependentUpon>SymbolControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericUpDownExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericUpDownExt.Designer.cs">
+      <DependentUpon>NumericUpDownExt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaleControl.Designer.cs">
+      <DependentUpon>ScaleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolStripEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparencyControl.Designer.cs">
+      <DependentUpon>TransparencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TransparentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparentControl.Designer.cs">
+      <DependentUpon>TransparentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Categories\AddCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categories\AddCategoriesForm.Designer.cs">
+      <DependentUpon>AddCategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Categories\CategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categories\CategoriesForm.Designer.cs">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Categories\frmGenerateLabelCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categories\frmGenerateLabelCategories.Designer.cs">
+      <DependentUpon>frmGenerateLabelCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Categories\GenerateCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Categories\GenerateCategoriesForm.Designer.cs">
+      <DependentUpon>GenerateCategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Charts\AddChartsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Charts\AddChartsForm.Designer.cs">
+      <DependentUpon>AddChartsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Charts\ChartStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Charts\ChartStyleForm.Designer.cs">
+      <DependentUpon>ChartStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labels\AddLabelsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Labels\AddLabelsForm.Designer.cs">
+      <DependentUpon>AddLabelsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labels\FontGradientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Labels\FontGradientForm.Designer.cs">
+      <DependentUpon>FontGradientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labels\LabelStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Labels\LabelStyleForm.Designer.cs">
+      <DependentUpon>LabelStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProsperityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProsperityForm.Designer.cs">
+      <DependentUpon>ProsperityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Symbology\LinesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\LinesForm.Designer.cs">
+      <DependentUpon>LinesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Symbology\PointsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\PointsForm.Designer.cs">
+      <DependentUpon>PointsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Symbology\PolygonsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\PolygonsForm.Designer.cs">
+      <DependentUpon>PolygonsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmAddOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmAddOptions.Designer.cs">
+      <DependentUpon>frmAddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmColorScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmColorScheme.Designer.cs">
+      <DependentUpon>frmColorScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmColorSchemes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmColorSchemes.Designer.cs">
+      <DependentUpon>frmColorSchemes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptions2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptions2.Designer.cs">
+      <DependentUpon>frmOptions2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptionsChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptionsChooser.Designer.cs">
+      <DependentUpon>frmOptionsChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptionsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmOptionsManager.Designer.cs">
+      <DependentUpon>frmOptionsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmQueryBuilder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\frmQueryBuilder.Designer.cs">
+      <DependentUpon>frmQueryBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LegendControl\Group.cs" />
+    <Compile Include="LegendControl\Groups.cs" />
+    <Compile Include="LegendControl\Layer.cs" />
+    <Compile Include="LegendControl\Layers.cs" />
+    <Compile Include="LegendControl\Legend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LegendControl\LegendEventHandler.cs" />
+    <Compile Include="LegendControl\LegendObjects.cs" />
+    <Compile Include="LegendControl\ShapefileBinding.cs" />
+    <Compile Include="LegendControl\SymbologySettings.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="obj\x64\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\x64\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\x64\Debug\MWLite.Symbology.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\x64\Debug\MWLite.Symbology.csproj.GenerateResource.cache" />
+    <None Include="obj\x64\Debug\MWLite.Symbology.csproj.ResolveComReference.cache" />
+    <None Include="obj\x64\Debug\MWLite.Symbology.csprojAssemblyReference.cache" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\x86\Debug\MWLite.Symbology.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\x86\Debug\MWLite.Symbology.csproj.ResolveComReference.cache" />
+    <None Include="obj\x86\Debug\MWLite.Symbology.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxMapWinGIS">
+      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MapWinGIS">
+      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ColorPicker\Office2007ColorPlate.resx">
+      <DependentUpon>Office2007ColorPlate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ColorPicker\Office2007MenuHelper.resx">
+      <DependentUpon>Office2007MenuHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ListControls\CharacterControl.resx">
+      <DependentUpon>CharacterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ListControls\IconControl.resx">
+      <DependentUpon>IconControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ListControls\LinePatternControl.resx">
+      <DependentUpon>LinePatternControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ListControls\ListControl.resx">
+      <DependentUpon>ListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ListControls\SymbolControl.resx">
+      <DependentUpon>SymbolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ScaleControl.resx">
+      <DependentUpon>ScaleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TransparencyControl.resx">
+      <DependentUpon>TransparencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Categories\AddCategoriesForm.resx">
+      <DependentUpon>AddCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Categories\CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Categories\frmGenerateLabelCategories.resx">
+      <DependentUpon>frmGenerateLabelCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Categories\GenerateCategoriesForm.resx">
+      <DependentUpon>GenerateCategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Charts\AddChartsForm.resx">
+      <DependentUpon>AddChartsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Charts\ChartStyleForm.resx">
+      <DependentUpon>ChartStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labels\AddLabelsForm.resx">
+      <DependentUpon>AddLabelsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labels\FontGradientForm.resx">
+      <DependentUpon>FontGradientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labels\LabelStyleForm.resx">
+      <DependentUpon>LabelStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProsperityForm.resx">
+      <DependentUpon>ProsperityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\LinesForm.resx">
+      <DependentUpon>LinesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\PointsForm.resx">
+      <DependentUpon>PointsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\PolygonsForm.resx">
+      <DependentUpon>PolygonsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmAddOptions.resx">
+      <DependentUpon>frmAddOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmColorScheme.resx">
+      <DependentUpon>frmColorScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmColorSchemes.resx">
+      <DependentUpon>frmColorSchemes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmOptions2.resx">
+      <DependentUpon>frmOptions2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmOptionsChooser.resx">
+      <DependentUpon>frmOptionsChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmOptionsManager.resx">
+      <DependentUpon>frmOptionsManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\frmQueryBuilder.resx">
+      <DependentUpon>frmQueryBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LegendControl\Legend.resx">
+      <DependentUpon>Legend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.ListControls.CharacterControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.ListControls.IconControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.ListControls.LinePatternControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.ListControls.ListControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.ListControls.SymbolControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.ScaleControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Controls.TransparencyControl.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Categories.AddCategoriesForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Categories.CategoriesForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Categories.frmGenerateLabelCategories.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Categories.GenerateCategoriesForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Charts.AddChartsForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Charts.ChartStyleForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.frmSymbologyMain.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Labels.AddLabelsForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Labels.FontGradientForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Labels.LabelStyleForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Symbology.LinesForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Symbology.PointsForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Symbology.PolygonsForm.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmAddOptions.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmColorScheme.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmColorSchemes.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmOptions.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmOptions2.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmOptionsChooser.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmOptionsManager.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Forms.Utilities.frmQueryBuilder.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.LegendControl.Legend.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\MWLite.Symbology.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\Owf.Controls.Office2007ColorPlate.resources" />
+    <EmbeddedResource Include="obj\x64\Debug\Owf.Controls.Office2007MenuHelper.resources" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\x64\Debug\MWLite.Symbology.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\x64\Debug\MWLite.Symbology.dll" />
+    <Content Include="obj\x64\Debug\MWLite.Symbology.pdb" />
+    <Content Include="obj\x64\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\x86\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="Resources\application_add.png" />
+    <Content Include="Resources\application_delete.png" />
+    <Content Include="Resources\application_edit.png" />
+    <Content Include="Resources\application_link.png" />
+    <Content Include="Resources\application_view_tile.png" />
+    <Content Include="Resources\Arrow2 - Down.png" />
+    <Content Include="Resources\Arrow2 - Up.png" />
+    <Content Include="Resources\Calc.png" />
+    <Content Include="Resources\Clipboard Paste.png" />
+    <Content Include="Resources\colorschemes.xml" />
+    <Content Include="Resources\door_open.png" />
+    <Content Include="Resources\down.png" />
+    <Content Include="Resources\filter.png" />
+    <Content Include="Resources\folder.png" />
+    <Content Include="Resources\folder_open.png" />
+    <Content Include="Resources\Gear.png" />
+    <Content Include="Resources\label-mover.png" />
+    <Content Include="Resources\labels.xml" />
+    <Content Include="Resources\label_edit.png" />
+    <Content Include="Resources\layer-categories.png" />
+    <Content Include="Resources\layer-more.png" />
+    <Content Include="Resources\layer-query.png" />
+    <Content Include="Resources\layer-remove.png" />
+    <Content Include="Resources\layer-vector-thematic-add.png" />
+    <Content Include="Resources\linepatterns.xml" />
+    <Content Include="Resources\Minus.png" />
+    <Content Include="Resources\No.png" />
+    <Content Include="Resources\ok2.png" />
+    <Content Include="Resources\palette.bmp" />
+    <Content Include="Resources\Plus_orange.png" />
+    <Content Include="Resources\tag_blue.png" />
+    <Content Include="Resources\tag_gray.png" />
+    <Content Include="Resources\up.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
