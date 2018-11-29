@@ -20,6 +20,7 @@ namespace MapWinGis_Demo_zhw
 
     /// <summary>
     /// 主窗口
+    /// zhong
     /// </summary>
     public partial class MainForm : Form
     {
