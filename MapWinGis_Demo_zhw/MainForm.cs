@@ -606,6 +606,7 @@ namespace MapWinGis_Demo_zhw
             action(zoomIn_btn);
             action(zoomOut_btn);
             action(select_btn);
+            //just for test
         }
 
 
