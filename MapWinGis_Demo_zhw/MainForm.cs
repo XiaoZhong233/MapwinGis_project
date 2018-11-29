@@ -18,6 +18,9 @@ namespace MapWinGis_Demo_zhw
 {
 
 
+    /// <summary>
+    /// 主窗口
+    /// </summary>
     public partial class MainForm : Form
     {
 
@@ -606,7 +609,6 @@ namespace MapWinGis_Demo_zhw
             action(zoomIn_btn);
             action(zoomOut_btn);
             action(select_btn);
-            //just for test
         }
 
 
