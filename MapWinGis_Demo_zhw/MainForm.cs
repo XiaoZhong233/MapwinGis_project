@@ -20,12 +20,10 @@ namespace MapWinGis_Demo_zhw
 
     /// <summary>
     /// 主窗口
-    /// zhong
     /// </summary>
     public partial class MainForm : Form
     {
-
-
+        
         #region 变量
         /// <summary>
         /// 图层命令管理器，用于管理图层树
@@ -89,7 +87,6 @@ namespace MapWinGis_Demo_zhw
         //当前选中的图层
         private Layer curLayer = null;
         #endregion
-
 
         #region 公共属性
         /// <summary>
