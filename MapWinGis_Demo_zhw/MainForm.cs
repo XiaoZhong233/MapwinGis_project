@@ -1,4 +1,5 @@
 ﻿using AxMapWinGIS;
+using MapWinGis.ShapeEditor.Forms;
 using MapWinGIS;
 using MWLite.Symbology.Forms;
 using MWLite.Symbology.LegendControl;
@@ -147,6 +148,8 @@ namespace MapWinGis_Demo_zhw
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
+            axMap1.ShapeIdentified += axMap1_ShapeIdentified;
+            axMap1.ShapeHighlighted += axMap1_ShapeIdentified;
         }
 
         private void RegisterEventHandlers()
@@ -388,6 +391,43 @@ namespace MapWinGis_Demo_zhw
                 form.ShowDialog();
             }
 
+        }
+
+        //TODO:待完善
+        /// <summary>
+        /// 右键表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void table_Click(object sender, EventArgs e)
+        {
+            axMap1.CursorMode = MapWinGIS.tkCursorMode.cmIdentify;
+        }
+
+        //TODO:待完善
+        private void axMap1_ShapeIdentified(object sender, _DMapEvents_ShapeHighlightedEvent e)
+        {
+            var sf = axMap1.get_Shapefile(e.layerHandle);
+            if (sf != null)
+            {
+                using (var form = new AttributesForm(axMap1, sf, e.shapeIndex, e.layerHandle))
+                {
+                    form.ShowDialog(MainForm.Instance);
+                }
+            }
+        }
+
+        //TODO:待完善
+        private void axMap1_ShapeIdentified(object sender, _DMapEvents_ShapeIdentifiedEvent e)
+        {
+            var sf = axMap1.get_Shapefile(e.layerHandle);
+            if (sf != null)
+            {
+                using (var form = new AttributesForm(axMap1,sf, e.shapeIndex, e.layerHandle))
+                {
+                    form.ShowDialog(MainForm.Instance);
+                }
+            }
         }
 
         /// <summary>
@@ -773,8 +813,9 @@ namespace MapWinGis_Demo_zhw
 
 
 
+
         #endregion
 
-     
+
     }
 }

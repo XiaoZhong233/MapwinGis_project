@@ -34,6 +34,7 @@
             this.removeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.symbolItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prosperityItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axMap1 = new AxMapWinGIS.AxMap();
             this.legend1 = new MWLite.Symbology.LegendControl.Legend();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -50,7 +51,7 @@
             this.zoomIn_btn = new System.Windows.Forms.ToolStripButton();
             this.zoomOut_btn = new System.Windows.Forms.ToolStripButton();
             this.select_btn = new System.Windows.Forms.ToolStripButton();
-            this.prosperityItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.table = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -65,9 +66,10 @@
             this.removeItem,
             this.symbolItem,
             this.labelItem,
-            this.prosperityItem});
+            this.prosperityItem,
+            this.table});
             this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(211, 128);
+            this.ContextMenu.Size = new System.Drawing.Size(211, 152);
             this.ContextMenu.Text = "符号设置";
             // 
             // removeItem
@@ -90,6 +92,13 @@
             this.labelItem.Size = new System.Drawing.Size(210, 24);
             this.labelItem.Text = "标注设置";
             this.labelItem.Click += new System.EventHandler(this.lableItem_Click);
+            // 
+            // prosperityItem
+            // 
+            this.prosperityItem.Name = "prosperityItem";
+            this.prosperityItem.Size = new System.Drawing.Size(210, 24);
+            this.prosperityItem.Text = "属性";
+            this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
             // 
             // axMap1
             // 
@@ -140,7 +149,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.openToolStripMenuItem.Text = "打开";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -260,12 +269,12 @@
             this.select_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.select_btn.Click += new System.EventHandler(this.select_btn_Click);
             // 
-            // prosperityItem
+            // table
             // 
-            this.prosperityItem.Name = "prosperityItem";
-            this.prosperityItem.Size = new System.Drawing.Size(210, 24);
-            this.prosperityItem.Text = "属性";
-            this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
+            this.table.Name = "table";
+            this.table.Size = new System.Drawing.Size(210, 24);
+            this.table.Text = "表";
+            this.table.Click += new System.EventHandler(this.table_Click);
             // 
             // MainForm
             // 
@@ -319,6 +328,7 @@
         private System.Windows.Forms.ToolStripMenuItem symbolItem;
         private System.Windows.Forms.ToolStripMenuItem labelItem;
         private System.Windows.Forms.ToolStripMenuItem prosperityItem;
+        private System.Windows.Forms.ToolStripMenuItem table;
     }
 }
 
