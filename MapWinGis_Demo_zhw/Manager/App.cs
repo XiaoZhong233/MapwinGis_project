@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MapWinGis_Demo_zhw
 {
-    class App
+    public class App
     {
 
         public static AxMap Map

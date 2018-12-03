@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form\AttributesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\AttributesForm.Designer.cs">
+      <DependentUpon>AttributesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\App.cs" />
     <Compile Include="Manager\APPCommand.cs" />
     <Compile Include="Manager\CommandDispatcher.cs" />
@@ -62,6 +68,9 @@
     <Compile Include="Model\Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\AttributesForm.resx">
+      <DependentUpon>AttributesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
