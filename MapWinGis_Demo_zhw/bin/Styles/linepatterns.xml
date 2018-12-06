@@ -1,0 +1,22 @@
+<MapWindow version="" FileVersion="0" FileType="LinePatterns">
+  <LinePatters>
+    <Pattern>&lt;LinePatternClass Key="" Transparency="255"&gt;
+  &lt;LineSegments&gt;
+    &lt;LineSegmentClass LineType="0" Color="255" MarkerOutlineColor="7895160" LineWidth="1.000000" MarkerSize="12.000000" MarkerInterval="16.000000" MarkerOffset="0.000000" LineStyle="0" Marker="2" MarkerOrientation="1" MarkerFlipFirst="-1" /&gt;
+  &lt;/LineSegments&gt;
+&lt;/LinePatternClass&gt;
+</Pattern>
+    <Pattern>&lt;LinePatternClass Key="" Transparency="255"&gt;
+  &lt;LineSegments&gt;
+    &lt;LineSegmentClass LineType="1" Color="5273447" MarkerOutlineColor="7895160" LineWidth="4.000000" MarkerSize="12.000000" MarkerInterval="16.000000" MarkerOffset="0.000000" LineStyle="3" Marker="1" MarkerOrientation="1" MarkerFlipFirst="-1" /&gt;
+  &lt;/LineSegments&gt;
+&lt;/LinePatternClass&gt;
+</Pattern>
+    <Pattern>&lt;LinePatternClass Key="" Transparency="255"&gt;
+  &lt;LineSegments&gt;
+    &lt;LineSegmentClass LineType="1" Color="5273447" MarkerOutlineColor="7895160" LineWidth="4.000000" MarkerSize="12.000000" MarkerInterval="16.000000" MarkerOffset="0.000000" LineStyle="3" Marker="2" MarkerOrientation="1" MarkerFlipFirst="-1" /&gt;
+  &lt;/LineSegments&gt;
+&lt;/LinePatternClass&gt;
+</Pattern>
+  </LinePatters>
+</MapWindow>
