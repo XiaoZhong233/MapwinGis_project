@@ -532,7 +532,7 @@ namespace MapWinGis_Demo_zhw
                                     }
                                     //默认图例
                                     axMap1.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
-                                    axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
                                     axMap1.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
 
                                     //缩放至第一个图层
