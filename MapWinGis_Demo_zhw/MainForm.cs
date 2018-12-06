@@ -530,6 +530,10 @@ namespace MapWinGis_Demo_zhw
                                         }
 
                                     }
+                                    //默认图例
+                                    axMap1.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
+                                    axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    axMap1.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
 
                                     //缩放至第一个图层
                                     axMap1.ZoomToLayer(Legend.Layers.First().Handle);
@@ -637,6 +641,16 @@ namespace MapWinGis_Demo_zhw
         #endregion
 
         #region 私有方法
+
+        /// <summary>
+        /// 颜色转RGB
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        private uint ParseRGB(Color color)
+        {
+            return (uint)(((uint)color.B << 16) | (ushort)(((ushort)color.G << 8) | color.R));
+        }
 
         /// <summary>
         /// 重置工具栏button
