@@ -148,9 +148,34 @@ namespace MapWinGis_Demo_zhw
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
-            axMap1.ShapeIdentified += axMap1_ShapeIdentified;
-            axMap1.ShapeHighlighted += axMap1_ShapeIdentified;
+            //axMap1.ShapeIdentified += axMap1_ShapeIdentified;
+            //axMap1.ShapeHighlighted += axMap1_ShapeIdentified;
+
+            //bug? 在tkCursorMode.cmIdentify下无法触发ShapeIdentified
+            //axMap1.ShapeIdentified += (s, e) =>
+            //{
+            //    MessageBox.Show("alert");
+            //};
+            axMap1.ShapeHighlighted += (s, e) =>
+            {
+                if (click)
+                {
+                    MessageBox.Show("alert "+e.layerHandle+e.shapeIndex);
+                    click = false;
+                }
+                
+            };
+
+            axMap1.MouseUpEvent += (s, e) =>
+            {
+                if (e.button == 1 && axMap1.CursorMode == tkCursorMode.cmIdentify)
+                {
+                    click = true;
+                }
+            };
         }
+
+        bool click = false;
 
         private void RegisterEventHandlers()
         {
@@ -630,7 +655,8 @@ namespace MapWinGis_Demo_zhw
                 resetAllToolStripBtn(s => s.Checked = false);
                 btn.Checked = true;
             }
-            axMap1.CursorMode = MapWinGIS.tkCursorMode.cmSelection;
+            //axMap1.CursorMode = MapWinGIS.tkCursorMode.cmSelection;
+            axMap1.CursorMode = tkCursorMode.cmIdentify;
         }
 
         private void recover_btn_Click(object sender, EventArgs e)
