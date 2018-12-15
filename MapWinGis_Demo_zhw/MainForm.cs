@@ -667,7 +667,7 @@ namespace MapWinGis_Demo_zhw
             DialogResult result;
             String[] files;
             //Shapefile shapefile = new Shapefile();
-            MapWinGIS.ICallback call = null;
+            
             using (OpenFileDialog openDialog = new OpenFileDialog())
             {
                 openDialog.Multiselect = true;
