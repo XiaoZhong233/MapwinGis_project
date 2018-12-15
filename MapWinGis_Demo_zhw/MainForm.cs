@@ -644,6 +644,7 @@ namespace MapWinGis_Demo_zhw
             return (uint)(((uint)color.B << 16) | (ushort)(((ushort)color.G << 8) | color.R));
         }
 
+        ///new method
 
         /// <summary>
         /// 重置工具栏button
