@@ -35,6 +35,7 @@
             this.symbolItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prosperityItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.table = new System.Windows.Forms.ToolStripMenuItem();
             this.axMap1 = new AxMapWinGIS.AxMap();
             this.legend1 = new MWLite.Symbology.LegendControl.Legend();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -51,7 +52,6 @@
             this.zoomIn_btn = new System.Windows.Forms.ToolStripButton();
             this.zoomOut_btn = new System.Windows.Forms.ToolStripButton();
             this.select_btn = new System.Windows.Forms.ToolStripButton();
-            this.table = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -69,36 +69,43 @@
             this.prosperityItem,
             this.table});
             this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(211, 152);
+            this.ContextMenu.Size = new System.Drawing.Size(153, 144);
             this.ContextMenu.Text = "符号设置";
             // 
             // removeItem
             // 
             this.removeItem.Name = "removeItem";
-            this.removeItem.Size = new System.Drawing.Size(210, 24);
+            this.removeItem.Size = new System.Drawing.Size(152, 28);
             this.removeItem.Text = "移除";
             this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
             // 
             // symbolItem
             // 
             this.symbolItem.Name = "symbolItem";
-            this.symbolItem.Size = new System.Drawing.Size(210, 24);
+            this.symbolItem.Size = new System.Drawing.Size(152, 28);
             this.symbolItem.Text = "符号设置";
             this.symbolItem.Click += new System.EventHandler(this.symbolItem_Click);
             // 
             // labelItem
             // 
             this.labelItem.Name = "labelItem";
-            this.labelItem.Size = new System.Drawing.Size(210, 24);
+            this.labelItem.Size = new System.Drawing.Size(152, 28);
             this.labelItem.Text = "标注设置";
             this.labelItem.Click += new System.EventHandler(this.lableItem_Click);
             // 
             // prosperityItem
             // 
             this.prosperityItem.Name = "prosperityItem";
-            this.prosperityItem.Size = new System.Drawing.Size(210, 24);
+            this.prosperityItem.Size = new System.Drawing.Size(152, 28);
             this.prosperityItem.Text = "属性";
             this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
+            // 
+            // table
+            // 
+            this.table.Name = "table";
+            this.table.Size = new System.Drawing.Size(152, 28);
+            this.table.Text = "表";
+            this.table.Click += new System.EventHandler(this.table_Click);
             // 
             // axMap1
             // 
@@ -109,7 +116,7 @@
             this.axMap1.Location = new System.Drawing.Point(285, 165);
             this.axMap1.Name = "axMap1";
             this.axMap1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMap1.OcxState")));
-            this.axMap1.Size = new System.Drawing.Size(1234, 622);
+            this.axMap1.Size = new System.Drawing.Size(1481, 746);
             this.axMap1.TabIndex = 0;
             // 
             // legend1
@@ -134,7 +141,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1531, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1531, 32);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -143,13 +150,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(58, 28);
             this.fileToolStripMenuItem.Text = "文件";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 30);
             this.openToolStripMenuItem.Text = "打开";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -160,9 +167,9 @@
             this.open_btn,
             this.toolStripSeparator1,
             this.removeAll_btn});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 32);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1531, 67);
+            this.toolStrip1.Size = new System.Drawing.Size(1531, 71);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -172,7 +179,7 @@
             this.open_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.open_btn.Name = "open_btn";
             this.open_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.open_btn.Size = new System.Drawing.Size(63, 64);
+            this.open_btn.Size = new System.Drawing.Size(70, 68);
             this.open_btn.Text = "打开";
             this.open_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.open_btn.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
@@ -180,7 +187,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 67);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 71);
             // 
             // removeAll_btn
             // 
@@ -188,7 +195,7 @@
             this.removeAll_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.removeAll_btn.Name = "removeAll_btn";
             this.removeAll_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.removeAll_btn.Size = new System.Drawing.Size(93, 64);
+            this.removeAll_btn.Size = new System.Drawing.Size(106, 68);
             this.removeAll_btn.Text = "清空图层";
             this.removeAll_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.removeAll_btn.Click += new System.EventHandler(this.removeAll_btn_Click);
@@ -203,9 +210,9 @@
             this.zoomIn_btn,
             this.zoomOut_btn,
             this.select_btn});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 95);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 103);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1531, 67);
+            this.toolStrip2.Size = new System.Drawing.Size(1531, 71);
             this.toolStrip2.TabIndex = 4;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -215,7 +222,7 @@
             this.recover_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.recover_btn.Name = "recover_btn";
             this.recover_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.recover_btn.Size = new System.Drawing.Size(63, 64);
+            this.recover_btn.Size = new System.Drawing.Size(70, 68);
             this.recover_btn.Text = "复位";
             this.recover_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.recover_btn.Click += new System.EventHandler(this.recover_btn_Click);
@@ -223,7 +230,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 67);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 71);
             // 
             // pan_btn
             // 
@@ -231,7 +238,7 @@
             this.pan_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pan_btn.Name = "pan_btn";
             this.pan_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.pan_btn.Size = new System.Drawing.Size(63, 64);
+            this.pan_btn.Size = new System.Drawing.Size(70, 68);
             this.pan_btn.Text = "漫游";
             this.pan_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.pan_btn.Click += new System.EventHandler(this.pan_btn_Click);
@@ -242,7 +249,7 @@
             this.zoomIn_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zoomIn_btn.Name = "zoomIn_btn";
             this.zoomIn_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.zoomIn_btn.Size = new System.Drawing.Size(63, 64);
+            this.zoomIn_btn.Size = new System.Drawing.Size(70, 68);
             this.zoomIn_btn.Text = "放大";
             this.zoomIn_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.zoomIn_btn.Click += new System.EventHandler(this.zoomIn_btn_Click);
@@ -253,7 +260,7 @@
             this.zoomOut_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zoomOut_btn.Name = "zoomOut_btn";
             this.zoomOut_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.zoomOut_btn.Size = new System.Drawing.Size(63, 64);
+            this.zoomOut_btn.Size = new System.Drawing.Size(70, 68);
             this.zoomOut_btn.Text = "缩小";
             this.zoomOut_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.zoomOut_btn.Click += new System.EventHandler(this.zoomOut_btn_Click);
@@ -264,17 +271,10 @@
             this.select_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.select_btn.Name = "select_btn";
             this.select_btn.Padding = new System.Windows.Forms.Padding(10);
-            this.select_btn.Size = new System.Drawing.Size(63, 64);
+            this.select_btn.Size = new System.Drawing.Size(70, 68);
             this.select_btn.Text = "选择";
             this.select_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.select_btn.Click += new System.EventHandler(this.select_btn_Click);
-            // 
-            // table
-            // 
-            this.table.Name = "table";
-            this.table.Size = new System.Drawing.Size(210, 24);
-            this.table.Text = "表";
-            this.table.Click += new System.EventHandler(this.table_Click);
             // 
             // MainForm
             // 
@@ -288,8 +288,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = " ";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.ContextMenu.ResumeLayout(false);

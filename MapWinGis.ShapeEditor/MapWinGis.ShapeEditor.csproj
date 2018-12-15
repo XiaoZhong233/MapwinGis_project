@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{14CFE4F2-FFBC-48A6-BF56-A76BD64FA2FD}</ProjectGuid>
+    <ProjectGuid>{C95B3EDC-E5F3-4CF4-AD25-0FB651956F88}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MapWinGis_Demo_zhw</RootNamespace>
-    <AssemblyName>MapWinGis_Demo_zhw</AssemblyName>
+    <RootNamespace>MapWinGis.ShapeEditor</RootNamespace>
+    <AssemblyName>MapWinGis.ShapeEditor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,42 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddFieldsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddFieldsForm.Designer.cs">
-      <DependentUpon>AddFieldsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AttributesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AttributesForm.Designer.cs">
       <DependentUpon>AttributesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\App.cs" />
-    <Compile Include="Manager\APPCommand.cs" />
-    <Compile Include="Manager\CommandDispatcher.cs" />
-    <Compile Include="Interface\Enums.cs" />
-    <Compile Include="Manager\LayerHelper.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interface\Interface.cs" />
-    <Compile Include="Manager\LegendDispatcher.cs" />
-    <Compile Include="Model\Node.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddFieldsForm.resx">
-      <DependentUpon>AddFieldsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AttributesForm.resx">
       <DependentUpon>AttributesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,7 +64,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -136,114 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MWLite.Symbology\MapWinGis.Symbology.csproj">
-      <Project>{0EF97964-4237-4A78-8C27-8FA0E2B681A7}</Project>
+      <Project>{0ef97964-4237-4a78-8c27-8fa0e2b681a7}</Project>
       <Name>MapWinGis.Symbology</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\layer_symbology.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\legend.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mantis.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\map_export.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\northArrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\panels.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paypal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\print.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\project.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\project_settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\quit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\recent_maps.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\remove_all_layers.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save_as.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\saveNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scale_bar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scale_bar_add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\selectNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\set_map_scale.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\table_editor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tutorials.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\welcome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_extentNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_inNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_lastNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_layerNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_nextNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_outNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_selectionNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\缩小.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\放大.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\移动.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\手指.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

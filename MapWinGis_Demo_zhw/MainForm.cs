@@ -14,7 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace MapWinGis_Demo_zhw
 {
 
@@ -36,6 +35,9 @@ namespace MapWinGis_Demo_zhw
         private static MainForm mainform = null;
 
         private Boolean debug = true;
+
+        //点击识别属性标志
+        private bool identifyFlag = false;
 
         //List<int> layerHandles = new List<int>();
         //保存每个节点的信息
@@ -87,6 +89,7 @@ namespace MapWinGis_Demo_zhw
         private ClickedElement clickedElement = new ClickedElement();
         //当前选中的图层
         private Layer curLayer = null;
+        
         #endregion
 
         #region 公共属性
@@ -148,8 +151,8 @@ namespace MapWinGis_Demo_zhw
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
-            axMap1.ShapeIdentified += axMap1_ShapeIdentified;
-            axMap1.ShapeHighlighted += axMap1_ShapeIdentified;
+            axMap1.ShapeHighlighted += AxMap1_ShapeHighlighted;
+            axMap1.MouseUpEvent += axMap1_MouseDownEvent;
         }
 
         private void RegisterEventHandlers()
@@ -401,34 +404,22 @@ namespace MapWinGis_Demo_zhw
         /// <param name="e"></param>
         private void table_Click(object sender, EventArgs e)
         {
-            axMap1.CursorMode = MapWinGIS.tkCursorMode.cmIdentify;
-        }
-
-        //TODO:待完善
-        private void axMap1_ShapeIdentified(object sender, _DMapEvents_ShapeHighlightedEvent e)
-        {
-            var sf = axMap1.get_Shapefile(e.layerHandle);
-            if (sf != null)
+            if (Legend.SelectedLayer != -1)
             {
-                using (var form = new AttributesForm(axMap1, sf, e.shapeIndex, e.layerHandle))
-                {
-                    form.ShowDialog(MainForm.Instance);
-                }
+
+                AttributesForm attributesForm = new AttributesForm(axMap1,Legend, Legend.SelectedLayer);
+                
+                attributesForm.Show();
+                
+                
+                
+                
             }
         }
 
-        //TODO:待完善
-        private void axMap1_ShapeIdentified(object sender, _DMapEvents_ShapeIdentifiedEvent e)
-        {
-            var sf = axMap1.get_Shapefile(e.layerHandle);
-            if (sf != null)
-            {
-                using (var form = new AttributesForm(axMap1,sf, e.shapeIndex, e.layerHandle))
-                {
-                    form.ShowDialog(MainForm.Instance);
-                }
-            }
-        }
+  
+
+  
 
         /// <summary>
         /// 图层双击事件
@@ -530,7 +521,10 @@ namespace MapWinGis_Demo_zhw
                                         }
 
                                     }
-
+                                    //默认图例
+                                    axMap1.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
+                                    //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    axMap1.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
                                     //缩放至第一个图层
                                     axMap1.ZoomToLayer(Legend.Layers.First().Handle);
                                 }
@@ -626,7 +620,8 @@ namespace MapWinGis_Demo_zhw
                 resetAllToolStripBtn(s => s.Checked = false);
                 btn.Checked = true;
             }
-            axMap1.CursorMode = MapWinGIS.tkCursorMode.cmSelection;
+            axMap1.CursorMode = MapWinGIS.tkCursorMode.cmIdentify;
+            //待完善：可用shapfile.selectbox进行范围内多个shape属性信息的读取
         }
 
         private void recover_btn_Click(object sender, EventArgs e)
@@ -637,6 +632,18 @@ namespace MapWinGis_Demo_zhw
         #endregion
 
         #region 私有方法
+
+
+        /// <summary>
+        /// 颜色转RGB
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        private uint ParseRGB(Color color)
+        {
+            return (uint)(((uint)color.B << 16) | (ushort)(((ushort)color.G << 8) | color.R));
+        }
+
 
         /// <summary>
         /// 重置工具栏button
@@ -814,8 +821,34 @@ namespace MapWinGis_Demo_zhw
 
 
 
+
         #endregion
 
+
+ 
+
+        private void axMap1_MouseDownEvent(object sender, _DMapEvents_MouseUpEvent e)
+        {
+            if (e.button == 1 && axMap1.CursorMode==tkCursorMode.cmIdentify)
+            {
+                identifyFlag = true;
+            }
+         
+
+        }
+
+        private void AxMap1_ShapeHighlighted(object sender, _DMapEvents_ShapeHighlightedEvent e)
+        {
+            if (identifyFlag)
+            {
+                
+                InformationForm informationForm = new InformationForm(axMap1, e);
+         
+                informationForm.Show();
+                identifyFlag = false;
+            }
+    
+        }
 
     }
 }
