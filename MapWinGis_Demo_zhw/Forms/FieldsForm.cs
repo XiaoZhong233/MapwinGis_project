@@ -10,11 +10,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace MapWinGis.ShapeEditor.Forms
 {
     public partial class AttributesForm : Form
-    { 
+    {
+
+        public int FieldsCount
+        {
+            get => fieldsCount;
+            set
+            {
+                if (fieldsCount != value)
+                    whenCountChanged(this, RecordsCount, value);
+                fieldsCount = value;
+            }
+        }
+        public int RecordsCount
+        {
+            get => recordsCount;
+            set
+            {
+                if (recordsCount != value)
+                    whenCountChanged(this, value, FieldsCount);
+                recordsCount = value;
+            }
+        }
+
+        public int SelectColumnIndex { get => selectColumnIndex; set => selectColumnIndex = value; }
+
 
         // 图层句柄
         private readonly int _layerHandle=-1;
@@ -31,7 +56,7 @@ namespace MapWinGis.ShapeEditor.Forms
         // shapefile对象
         private readonly Shapefile _shapefile = null;
 
-        //记录字段数（前两列分别为索引列和类型列）
+        //记录有效字段数（前两列分别为索引列和类型列）
         private int fieldsCount = 2;
 
         //记录元素数
@@ -43,26 +68,16 @@ namespace MapWinGis.ShapeEditor.Forms
         //初始化一个添加字段窗体对象
         AddFieldsForm addFieldsForm = new AddFieldsForm();
 
-        public int FieldsCount
-        {
-            get => fieldsCount;
-            set
-            {
-                if (fieldsCount != value)
-                    whenCountChanged(this,RecordsCount,value);
-                        fieldsCount = value;
-            }
-        }
-        public int RecordsCount
-        {
-            get => recordsCount;
-            set
-            {
-                if (recordsCount != value)
-                    whenCountChanged(this, value, FieldsCount);
-                recordsCount = value;
-            }
-        }
+        //右键列名时的对应列名
+        private int selectColumnIndex=-1;
+
+        //初始化一个字段可见性窗体对象
+        FieldsVisibleForm fieldsVisibleForm;
+
+        //字段名集合
+        List<string> fieldsNameList = new List<string>();
+
+
 
         public AttributesForm(AxMapWinGIS.AxMap axMap,MWLite.Symbology.LegendControl.Legend legend, int layerHandle)
         {
@@ -73,9 +88,13 @@ namespace MapWinGis.ShapeEditor.Forms
             _layer = _legend.GetLayer(_layerHandle);//根据句柄获取图层
             _shapefile = _layer.GetObject() as Shapefile;//获得图层对应shp对象
 
+            attributeDGV.ReadOnly = true;
+
             OnCountChanged += afterCountChanged;
 
+            
 
+           
 
         }
 
@@ -84,7 +103,7 @@ namespace MapWinGis.ShapeEditor.Forms
         //字段数改变委托
         private delegate void CountChanged(object sender,int newRecordsCount,int newFieldValue);
 
-        //
+        //字段数改变委托事件
         private event CountChanged OnCountChanged;
 
         //字段数/记录数改变后发生的方法
@@ -93,12 +112,13 @@ namespace MapWinGis.ShapeEditor.Forms
             label1.Text = Convert.ToString(newRecordsCount) + " Numbers in " + Convert.ToString(newFieldsCount) + " Fields";
         }
 
+        //记录事件触发函数
         private void whenCountChanged(object sender,int newRecordCount,int newFieldsCount)
         {
             if (OnCountChanged != null)
                 OnCountChanged(sender,newRecordCount,newFieldsCount);
 
-        }//记录事件触发函数
+        }
         
 
         /// <summary>
@@ -112,20 +132,16 @@ namespace MapWinGis.ShapeEditor.Forms
                     action(typeof(Boolean));
                     break;
                 case FieldType.DATE_FIELD:
-                    action(typeof(DateTime));
-                    //dataTable.Columns.Add(new DataColumn(_shapefile.Table.Field[i].Name, typeof(DateTime)));
+                    action(typeof(DateTime));            
                     break;
                 case FieldType.DOUBLE_FIELD:
-                    action(typeof(Double));
-                    //dataTable.Columns.Add(new DataColumn(_shapefile.Table.Field[i].Name, typeof(Double)));
+                    action(typeof(Double));            
                     break;
                 case FieldType.INTEGER_FIELD:
-                    action(typeof(Int32));
-                    
+                    action(typeof(Int32));                  
                     break;
                 case FieldType.STRING_FIELD:
-                    action(typeof(String));
-                    
+                    action(typeof(String));                    
                     break;
             }
         }
@@ -146,6 +162,7 @@ namespace MapWinGis.ShapeEditor.Forms
         }      //因为这里使用了匿名方法，或者该参数是对应委托里订阅有的方法名也可以
 
 
+
         private void AttributesForm_Load(object sender, EventArgs e)
         {
             attributeDGV.ReadOnly = true;//属性表只读开启
@@ -157,20 +174,15 @@ namespace MapWinGis.ShapeEditor.Forms
 
             for (int i = 0; i < _shapefile.Table.NumFields; i++)
             {
-
-                //doSthByFieldType(_shapefile.Table.Field[i].Type, (type) =>
-                //{
-                //    dataTable.Columns.Add(new DataColumn(_shapefile.Table.Field[i].Name, type));
-                //});
                 addNewColumn(_shapefile.Table.Field[i].Type, _shapefile.Table.Field[i].Name);
 
                 FieldsCount++;//逐列记录数
                 
             }//添加字段(列)
-            
 
 
 
+            //后逐行插入
             for (int j = 0; j < _shapefile.Table.NumRows; j++)
             {
                 DataRow dataRow = dataTable.NewRow();//生成数据表的新的一行
@@ -234,13 +246,22 @@ namespace MapWinGis.ShapeEditor.Forms
                 RecordsCount++;//逐行记录数
 
                 dataTable.Rows.Add(dataRow);
-            }//后逐行插入
+            }
 
             //显示记录数和字段数
             label1.Text = Convert.ToString(RecordsCount)+" Numbers in "+ Convert.ToString(FieldsCount) + " Fields";
 
             //该数据表作为数据源赋给属性表
             attributeDGV.DataSource = dataTable;
+
+            for(int  i = 0; i < fieldsCount; i++)
+            {
+                fieldsNameList.Add(attributeDGV.Columns[i].Name);
+            }
+
+            for (int i = 0; i < attributeDGV.Columns.Count; i++)
+                attributeDGV.Columns[i].HeaderCell.ContextMenuStrip = columnsContextMenuStrip1;
+
 
         }
 
@@ -274,20 +295,12 @@ namespace MapWinGis.ShapeEditor.Forms
         //数据改变事件
         private void attributeDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-
-            //修改的数据不同时
-            if (attributeDGV.CurrentCell.ValueType != dataTable.Columns[attributeDGV.CurrentCell.ColumnIndex].DataType)
-            {
-                MessageBox.Show("数据类型不一致！");
-            }
-            else
-            {
-                //取新值
+                //属性表显示新值
                 var newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
                 //改变对应shp文件中的值
                 _shapefile.EditCellValue(e.ColumnIndex - 2, e.RowIndex, newValue);
-            }
+            
         }
         
 
@@ -309,6 +322,76 @@ namespace MapWinGis.ShapeEditor.Forms
                     _shapefile.StopEditingTable();
                 }
             };
+        }
+
+        private void 更改列名ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            if (SelectColumnIndex<0)
+                MessageBox.Show("该字段为默认字段名无法修改", "提示", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+            else
+            {
+
+                string newColumnsName = Interaction.InputBox("请输入新的字段名：", "新字段名输入框", "", -1, -1);
+
+                try
+                {
+                    attributeDGV.Columns[SelectColumnIndex].Name = newColumnsName;
+
+                    _shapefile.Field[SelectColumnIndex - 2].Name = newColumnsName;
+
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("新字段名不可为空！");
+                }
+            }
+
+                
+            
+        }
+
+        
+        private void 删除字段ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (SelectColumnIndex > -1)
+            {
+                
+            }
+        }
+
+
+        private void 可见性ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fieldsCount > -1)
+            {
+                fieldsVisibleForm = new FieldsVisibleForm(fieldsNameList,fieldsCount);
+                fieldsVisibleForm.Show();
+                fieldsVisibleForm.eventVisibleChanged += new FieldsVisibleForm.delegateVisibleChanged(afterVisibleChanged);
+            }
+        }
+
+        //可见性改变方法（在子窗体使用）
+        private void afterVisibleChanged(int i,CheckState c)
+        {
+            bool b = true;
+            if (c == CheckState.Checked)
+                b = true;
+            else if (c == CheckState.Unchecked)
+                b = false;
+            attributeDGV.Columns[i].Visible = b;
+        }
+
+        //编辑数据类型不一致
+        private void attributeDGV_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("新数据类型不一致，请重新输入！");
+        }
+
+
+        private void attributeDGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectColumnIndex = e.ColumnIndex;
         }
     }
 }

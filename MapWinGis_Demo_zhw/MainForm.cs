@@ -408,7 +408,7 @@ namespace MapWinGis_Demo_zhw
             {
 
                 AttributesForm attributesForm = new AttributesForm(axMap1,Legend, Legend.SelectedLayer);
-                
+                attributesForm.StartPosition = FormStartPosition.CenterScreen;
                 attributesForm.Show();
                 
                 

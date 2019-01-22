@@ -127,3 +127,4 @@ E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.csproj.CopyComplete
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.exe
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.pdb
+C:\Users\he100\Desktop\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.FieldsVisibleForm.resources
