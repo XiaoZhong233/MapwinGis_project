@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,17 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddFieldsForm.cs">
+    <Compile Include="Forms\FieldsAppendForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddFieldsForm.Designer.cs">
-      <DependentUpon>AddFieldsForm.cs</DependentUpon>
+    <Compile Include="Forms\FieldsAppendForm.Designer.cs">
+      <DependentUpon>FieldsAppendForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AttributesForm.cs">
+    <Compile Include="Forms\FieldsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AttributesForm.Designer.cs">
-      <DependentUpon>AttributesForm.cs</DependentUpon>
+    <Compile Include="Forms\FieldsForm.Designer.cs">
+      <DependentUpon>FieldsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FieldsVisibleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FieldsVisibleForm.Designer.cs">
+      <DependentUpon>FieldsVisibleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\App.cs" />
     <Compile Include="Manager\APPCommand.cs" />
@@ -74,11 +81,14 @@
     <Compile Include="Model\Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddFieldsForm.resx">
-      <DependentUpon>AddFieldsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FieldsAppendForm.resx">
+      <DependentUpon>FieldsAppendForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AttributesForm.resx">
-      <DependentUpon>AttributesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FieldsForm.resx">
+      <DependentUpon>FieldsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FieldsVisibleForm.resx">
+      <DependentUpon>FieldsVisibleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
