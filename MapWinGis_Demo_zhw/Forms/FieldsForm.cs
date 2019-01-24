@@ -38,7 +38,35 @@ namespace MapWinGis.ShapeEditor.Forms
             }
         }
 
-        public int SelectColumnIndex { get => selectColumnIndex; set => selectColumnIndex = value; }
+
+
+        //监听selectColumnIndex
+        public delegate void SelectColumnIndexChange (int oldvalue, int newvalue);
+        public event SelectColumnIndexChange onSelectColumnIndexChange = null;
+
+        private void fireOnSelectColumnIndexChange(int oldvalue,int newvalue)
+        {
+            onSelectColumnIndexChange?.Invoke(oldvalue, newvalue);
+        }
+
+        
+
+    
+        public int SelectColumnIndex
+        {
+            get { return selectColumnIndex; }
+            set {
+                {
+                    fireOnSelectColumnIndexChange(selectColumnIndex, value);
+                    selectColumnIndex = value;
+
+                }
+            }
+        }
+
+
+     
+
 
 
         // 图层句柄
@@ -92,10 +120,17 @@ namespace MapWinGis.ShapeEditor.Forms
 
             OnCountChanged += afterCountChanged;
 
+            this.onSelectColumnIndexChange += (o, n) =>
+            {
+                MessageBox.Show("旧值: " + o + "\n新值: " + n);
+            };
             
 
-           
-
+            attributeDGV.CellContextMenuStripNeeded += (s, e) =>
+            {
+                SelectColumnIndex = e.ColumnIndex;
+            };
+            
         }
 
         private delegate void action(Type type);
@@ -157,7 +192,15 @@ namespace MapWinGis.ShapeEditor.Forms
         {
             doSthByFieldType(fieldType, (type) =>
             {
-                dataTable.Columns.Add(new DataColumn(name, type));
+                //如果已有该字段，则提醒用户
+                try
+                {
+                    dataTable.Columns.Add(new DataColumn(name, type));
+                }catch(Exception e)
+                {
+                    MessageBox.Show("已有该字段，请重新添加字段");
+                }
+                
             });//定义匿名方法,同时将该方法订阅给了Action,然后将该匿名方法作参数传入此doSthByFieldType方法
         }      //因为这里使用了匿名方法，或者该参数是对应委托里订阅有的方法名也可以
 
@@ -261,7 +304,7 @@ namespace MapWinGis.ShapeEditor.Forms
 
             for (int i = 0; i < attributeDGV.Columns.Count; i++)
                 attributeDGV.Columns[i].HeaderCell.ContextMenuStrip = columnsContextMenuStrip1;
-
+            
 
         }
 
@@ -389,6 +432,12 @@ namespace MapWinGis.ShapeEditor.Forms
         }
 
 
+        /// <summary>
+        /// 右键列表头
+        /// 此方法因为有快捷菜单的触发，所以右键表头不会触发此方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void attributeDGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             SelectColumnIndex = e.ColumnIndex;
