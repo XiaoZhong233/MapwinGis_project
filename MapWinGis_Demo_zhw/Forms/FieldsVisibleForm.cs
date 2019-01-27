@@ -57,24 +57,14 @@ namespace MapWinGis_Demo_zhw.Forms
 
         public event delegateVisibleChanged eventVisibleChanged;
 
+
         //勾选状态改变时
-        private void visibleFieldsCLB_SelectedValueChanged(object sender, EventArgs e)
-        {
-          
-
-            currentFieldIndex = visibleFieldsCLB.SelectedIndex;
-
-
-            
-        }
-
         private void visibleFieldsCLB_ItemCheck(object sender, ItemCheckEventArgs e)
         {
 
                 currentFieldIndex = e.Index;
             IsFieldVisible = e.CurrentValue;
-            if (eventVisibleChanged != null) { eventVisibleChanged(e.Index,e.CurrentValue); }
-
+            eventVisibleChanged?.Invoke(e.Index, e.CurrentValue);
         }
     }
 }

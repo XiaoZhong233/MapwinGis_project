@@ -40,7 +40,6 @@
             this.visibleFieldsCLB.Size = new System.Drawing.Size(305, 342);
             this.visibleFieldsCLB.TabIndex = 1;
             this.visibleFieldsCLB.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.visibleFieldsCLB_ItemCheck);
-            this.visibleFieldsCLB.SelectedValueChanged += new System.EventHandler(this.visibleFieldsCLB_SelectedValueChanged);
             // 
             // FieldsVisibleForm
             // 

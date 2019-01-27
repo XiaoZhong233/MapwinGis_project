@@ -177,7 +177,6 @@
             this.attributeDGV.Size = new System.Drawing.Size(686, 294);
             this.attributeDGV.TabIndex = 0;
             this.attributeDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attributeDGV_CellValueChanged);
-            this.attributeDGV.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.attributeDGV_ColumnHeaderMouseClick);
             this.attributeDGV.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.attributeDGV_DataError);
             this.attributeDGV.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.attributeDGV_RowHeaderMouseDoubleClick);
             // 
@@ -188,12 +187,12 @@
             this.更改列名ToolStripMenuItem,
             this.删除字段ToolStripMenuItem2});
             this.columnsContextMenuStrip1.Name = "columnsContextMenuStrip1";
-            this.columnsContextMenuStrip1.Size = new System.Drawing.Size(153, 60);
+            this.columnsContextMenuStrip1.Size = new System.Drawing.Size(241, 93);
             // 
             // 更改列名ToolStripMenuItem
             // 
             this.更改列名ToolStripMenuItem.Name = "更改列名ToolStripMenuItem";
-            this.更改列名ToolStripMenuItem.Size = new System.Drawing.Size(240, 28);
+            this.更改列名ToolStripMenuItem.Size = new System.Drawing.Size(152, 28);
             this.更改列名ToolStripMenuItem.Text = "更改列名";
             this.更改列名ToolStripMenuItem.Click += new System.EventHandler(this.更改列名ToolStripMenuItem_Click);
             // 
@@ -202,6 +201,7 @@
             this.删除字段ToolStripMenuItem2.Name = "删除字段ToolStripMenuItem2";
             this.删除字段ToolStripMenuItem2.Size = new System.Drawing.Size(240, 28);
             this.删除字段ToolStripMenuItem2.Text = "删除字段";
+            this.删除字段ToolStripMenuItem2.Click += new System.EventHandler(this.删除字段ToolStripMenuItem1_Click);
             // 
             // AttributesForm
             // 
