@@ -129,7 +129,3 @@ E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.pdb
 C:\Users\he100\Desktop\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.FieldsVisibleForm.resources
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.FieldsVisibleForm.resources
-E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
-E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Main.resources
-E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.MapDockForm.resources
-E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.MeasuringForm.resources

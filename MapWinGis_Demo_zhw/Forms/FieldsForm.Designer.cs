@@ -36,7 +36,6 @@
             this.stopEditMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.可见性ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFieldMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除字段ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,8 +67,7 @@
             this.editMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.editMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.编辑ToolStripMenuItem,
-            this.addFieldMenuItem,
-            this.删除字段ToolStripMenuItem});
+            this.addFieldMenuItem});
             this.editMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.editMenuStrip.Name = "editMenuStrip";
             this.editMenuStrip.Size = new System.Drawing.Size(736, 32);
@@ -89,21 +87,21 @@
             // startEditMenuItem
             // 
             this.startEditMenuItem.Name = "startEditMenuItem";
-            this.startEditMenuItem.Size = new System.Drawing.Size(182, 30);
+            this.startEditMenuItem.Size = new System.Drawing.Size(252, 30);
             this.startEditMenuItem.Text = "开始编辑";
             this.startEditMenuItem.Click += new System.EventHandler(this.startEditMenuItem_Click);
             // 
             // stopEditMenuItem
             // 
             this.stopEditMenuItem.Name = "stopEditMenuItem";
-            this.stopEditMenuItem.Size = new System.Drawing.Size(182, 30);
+            this.stopEditMenuItem.Size = new System.Drawing.Size(252, 30);
             this.stopEditMenuItem.Text = "停止编辑";
             this.stopEditMenuItem.Click += new System.EventHandler(this.stopEditMenuItem_Click);
             // 
             // 可见性ToolStripMenuItem
             // 
             this.可见性ToolStripMenuItem.Name = "可见性ToolStripMenuItem";
-            this.可见性ToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
+            this.可见性ToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.可见性ToolStripMenuItem.Text = "字段可见性";
             this.可见性ToolStripMenuItem.Click += new System.EventHandler(this.可见性ToolStripMenuItem_Click);
             // 
@@ -113,12 +111,6 @@
             this.addFieldMenuItem.Size = new System.Drawing.Size(94, 28);
             this.addFieldMenuItem.Text = "添加字段";
             this.addFieldMenuItem.Click += new System.EventHandler(this.addFieldMenuItem_Click);
-            // 
-            // 删除字段ToolStripMenuItem
-            // 
-            this.删除字段ToolStripMenuItem.Name = "删除字段ToolStripMenuItem";
-            this.删除字段ToolStripMenuItem.Size = new System.Drawing.Size(94, 28);
-            this.删除字段ToolStripMenuItem.Text = "删除字段";
             // 
             // flowLayoutPanel1
             // 
@@ -187,7 +179,7 @@
             this.更改列名ToolStripMenuItem,
             this.删除字段ToolStripMenuItem2});
             this.columnsContextMenuStrip1.Name = "columnsContextMenuStrip1";
-            this.columnsContextMenuStrip1.Size = new System.Drawing.Size(241, 93);
+            this.columnsContextMenuStrip1.Size = new System.Drawing.Size(153, 60);
             // 
             // 更改列名ToolStripMenuItem
             // 
@@ -199,7 +191,7 @@
             // 删除字段ToolStripMenuItem2
             // 
             this.删除字段ToolStripMenuItem2.Name = "删除字段ToolStripMenuItem2";
-            this.删除字段ToolStripMenuItem2.Size = new System.Drawing.Size(240, 28);
+            this.删除字段ToolStripMenuItem2.Size = new System.Drawing.Size(152, 28);
             this.删除字段ToolStripMenuItem2.Text = "删除字段";
             this.删除字段ToolStripMenuItem2.Click += new System.EventHandler(this.删除字段ToolStripMenuItem1_Click);
             // 
@@ -215,6 +207,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AttributesForm";
             this.Text = "AttributesForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AttributesForm_FormClosing);
             this.Load += new System.EventHandler(this.AttributesForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -241,7 +234,6 @@
         private System.Windows.Forms.ToolStripMenuItem startEditMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopEditMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addFieldMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除字段ToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip columnsContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 更改列名ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除字段ToolStripMenuItem2;

@@ -105,6 +105,9 @@ namespace MapWinGis.ShapeEditor.Forms
         //字段名集合
         List<string> fieldsNameList = new List<string>();
 
+        //改变值集合
+        List<changeValue> newValueList = new List<changeValue>();
+
 
 
         public AttributesForm(AxMapWinGIS.AxMap axMap, MWLite.Symbology.LegendControl.Legend legend, int layerHandle)
@@ -333,9 +336,24 @@ namespace MapWinGis.ShapeEditor.Forms
         //停止编辑按钮
         private void stopEditMenuItem_Click(object sender, EventArgs e)
         {
+            //有编辑的值时
+            if (newValueList != null)
+            { 
+                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.OK)
+                {
+                    foreach (var v in newValueList)
+                    {
+                        _shapefile.EditCellValue(v.Col, v.Raw, v.Val);
+                    }
+                }
+            }
             attributeDGV.ReadOnly = true;
 
             _shapefile.Table.StopEditingTable();
+
+
         }
 
 
@@ -345,9 +363,10 @@ namespace MapWinGis.ShapeEditor.Forms
             //改变列名以外的信息时
             if (e.RowIndex > -1)
             {
-
                 //属性表显示新值
-                var newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                object newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                newValueList.Add(new changeValue(e.ColumnIndex - 2, e.RowIndex,newValue));
 
                 //改变对应shp文件中的值
                 _shapefile.EditCellValue(e.ColumnIndex - 2, e.RowIndex, newValue);
@@ -388,13 +407,10 @@ namespace MapWinGis.ShapeEditor.Forms
 
                 try
                 {
-
-
                     attributeDGV.Columns[SelectColumnIndex].HeaderText = newColumnsName;
                     _shapefile.StartEditingTable();
                     _shapefile.Field[SelectColumnIndex - 2].Name = newColumnsName;
                     _shapefile.StopEditingTable();
-
                 }
                 catch (NullReferenceException)
                 {
@@ -456,6 +472,40 @@ namespace MapWinGis.ShapeEditor.Forms
             MessageBox.Show("新数据类型不一致，请重新输入！");
         }
 
+        private void AttributesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (attributeDGV.ReadOnly != true)
+            {
+                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
+                if (result == DialogResult.OK)
+                {
+                    foreach(var v in newValueList)
+                    {
+                        _shapefile.EditCellValue(v.Col,v.Raw,v.Val);
+                    }
+                }
+                attributeDGV.ReadOnly = true;
+            }
+        }
+    }
+
+     class changeValue
+    {
+
+        int col;
+        int raw;
+        object val;
+
+        public changeValue(int col, int raw, object val)
+        {
+            this.Col = col;
+            this.Raw = raw;
+            this.Val = val;
+        }
+
+        public int Col { get => col; set => col = value; }
+        public int Raw { get => raw; set => raw = value; }
+        public object Val { get => val; set => val = value; }
     }
 }
