@@ -895,8 +895,27 @@ namespace MapWinGis_Demo_zhw
             return result;
         }
 
+
         #endregion
 
+        /// <summary>
+        /// 帮助点击
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.mapwindow.org/documentation/mapwingis4.9/index.html");
+        }
 
+        /// <summary>
+        /// github点击
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/XiaoZhong233/MapwinGis_project");
+        }
     }
 }

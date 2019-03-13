@@ -301,6 +301,9 @@
     <None Include="Resources\手指.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\github %281%29.png" />
+    <None Include="Resources\github.png" />
+    <None Include="Resources\question.png" />
     <None Include="Resources\Snapshot.png" />
     <None Include="Resources\quit1.png" />
     <None Include="Resources\layer-add1.png" />
