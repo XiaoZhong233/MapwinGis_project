@@ -13,23 +13,22 @@ namespace MapWinGis_Demo_zhw
 
         public static AxMap Map
         {
-            get { return MainForm.Instance.Map; }
+            get { return Main.Instance.Map; }
         }
 
         public static Legend Legend
         {
-            get { return MainForm.Instance.Legend; }
+            get { return Main.Instance.Legend; }
         }
-
-
+        
         public static void RefreshUI()
         {
-            MainForm.Instance.RefreshUI();
+            Main.Instance.RefreshUI();
         }
 
         public static void LoadMapState(string filename)
         {
-            MainForm.Instance.LoadMapState(filename);
+            Main.Instance.mapDockForm.LoadMapState(filename);
         }
     }
 }

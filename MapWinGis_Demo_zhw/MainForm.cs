@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
+
 namespace MapWinGis_Demo_zhw
 {
 
@@ -21,10 +23,13 @@ namespace MapWinGis_Demo_zhw
     /// <summary>
     /// 主窗口
     /// </summary>
-    public partial class MainForm : Form
+    public partial class MainForm : DockContent
     {
-        
+
         #region 变量
+
+        private const string WINDOW_TITLE = "MapWinGIS Demo";
+
         /// <summary>
         /// 图层命令管理器，用于管理图层树
         /// </summary>
