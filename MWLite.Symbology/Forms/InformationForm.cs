@@ -30,6 +30,16 @@ namespace MWLite.Symbology.Forms
             InitializeComponent();
         }
 
+        public InformationForm(AxMap axMap, _DMapEvents_ShapeIdentifiedEvent e)
+        {
+            _DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(e.layerHandle, e.shapeIndex);
+            _axMap = axMap;
+            _e = ee;
+            flag = true;
+
+            InitializeComponent();
+        }
+
         private void InformationForm_Load(object sender, EventArgs e)
         {
             Shapefile shapefile = _axMap.get_Shapefile(_e.layerHandle);

@@ -141,8 +141,8 @@ namespace MapWinGis_Demo_zhw
 
         private void initMap()
         {
-            Map.ShapeHighlighted += AxMap1_ShapeHighlighted;
-            Map.MouseUpEvent += axMap1_MouseDownEvent;
+            //Map.ShapeHighlighted += AxMap1_ShapeHighlighted;
+            //Map.MouseUpEvent += axMap1_MouseDownEvent;
         }
 
         private void axMap1_MouseDownEvent(object sender, _DMapEvents_MouseUpEvent e)

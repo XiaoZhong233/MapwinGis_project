@@ -3,6 +3,7 @@ using MapWinGIS;
 using MapWinGis_Demo_zhw.Controls;
 using MapWinGis_Demo_zhw.Manager;
 using MapWinGis_Demo_zhw.Model;
+using MWLite.Symbology.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,8 +58,12 @@ namespace MapWinGis_Demo_zhw.Forms
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
+            
 
         }
+
+
+
 
 
         public void LoadMapState(string filename)
@@ -77,6 +82,8 @@ namespace MapWinGis_Demo_zhw.Forms
 
         private void RegisterEventHandlers()
         {
+
+            //axMap1.MouseUpEvent += axMap_MouseDownEvent;
             axMap1.ProjectionChanged += axMap1_ProjectionChanged;
             axMap1.MouseMoveEvent += axMap1_MouseMoveEvent;
             axMap1.PreviewKeyDown += axMap1_PreviewKeyDown;
@@ -96,6 +103,7 @@ namespace MapWinGis_Demo_zhw.Forms
             axMap1.FileDropped += AxMap1FileDropped;
 
         }
+
 
 
         /// <summary>
@@ -300,6 +308,8 @@ namespace MapWinGis_Demo_zhw.Forms
             if (sf != null)
             {
                 //do something
+                InformationForm informationForm = new InformationForm(Map, e);
+                informationForm.Show();
             }
         }
 
@@ -336,6 +346,7 @@ namespace MapWinGis_Demo_zhw.Forms
                 string s = Map.GetAttributes(e.layerHandle, e.shapeIndex);
                 toolTip1.SetToolTip(Map, s);
                 Application.DoEvents();
+                
             }
         }
 
