@@ -134,39 +134,11 @@ namespace MapWinGis_Demo_zhw
         {
             InitDockLayout();
             InitLegend();
-            initMap();
             RegisterToolEvt();
 
         }
 
-        private void initMap()
-        {
-            //Map.ShapeHighlighted += AxMap1_ShapeHighlighted;
-            //Map.MouseUpEvent += axMap1_MouseDownEvent;
-        }
 
-        private void axMap1_MouseDownEvent(object sender, _DMapEvents_MouseUpEvent e)
-        {
-            if (e.button == 1 && Map.CursorMode == tkCursorMode.cmIdentify)
-            {
-                identifyFlag = true;
-            }
-
-
-        }
-
-        private void AxMap1_ShapeHighlighted(object sender, _DMapEvents_ShapeHighlightedEvent e)
-        {
-            if (identifyFlag)
-            {
-
-                InformationForm informationForm = new InformationForm(Map, e);
-
-                informationForm.Show();
-                identifyFlag = false;
-            }
-
-        }
 
         /// <summary>
         /// 初始化布局
@@ -200,9 +172,18 @@ namespace MapWinGis_Demo_zhw
             toolPan.Click += pan_btn_Click;
 
             toolIdentify.Click += identify_btn_Click;
-
+            toolMeasure.Click += measure_Click;
+            toolMeasureArea.Click += measureArea_Click;
             toolAddVector.Click += openVectorLayer_Click;
+
+            toolRemoveLayer.Click += removeAll_btn_Click;
+            //_mainToolStrip.Click += _mainToolStrip_Click;
+            toolSelect.Click += ToolSelect_Click;
         }
+
+
+
+
 
         #region 初始化图例控件
         /// <summary>
@@ -422,6 +403,49 @@ namespace MapWinGis_Demo_zhw
 
 
         #region 工具栏事件
+
+
+        /// <summary>
+        /// 按矩形选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolSelect_Click(object sender, EventArgs e)
+        {
+            Map.CursorMode = tkCursorMode.cmSelection;
+            RefreshUI();
+        }
+
+        /// <summary>
+        /// 每次点击工具栏都得刷新界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void _mainToolStrip_Click(object sender, EventArgs e)
+        {
+            RefreshUI();
+        }
+
+        private void measureArea_Click(object sender, EventArgs e)
+        {
+            Map.Measuring.MeasuringType = tkMeasuringType.MeasureArea;
+            Map.CursorMode = tkCursorMode.cmMeasure;
+            RefreshUI();
+
+        }
+
+        /// <summary>
+        /// 测量距离
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void measure_Click(object sender, EventArgs e)
+        {
+            Map.Measuring.MeasuringType = tkMeasuringType.MeasureDistance;
+            Map.CursorMode = tkCursorMode.cmMeasure;
+            RefreshUI();
+        }
+
         /// <summary>
         /// 打开矢量图层回调
         /// </summary>
@@ -532,6 +556,7 @@ namespace MapWinGis_Demo_zhw
                 {
                     Map.LockWindow(tkLockMode.lmUnlock);
                     Debug.Print("Layers added to the map: " + Map.NumLayers);
+                    RefreshUI();
                 }
             }
 
@@ -554,7 +579,7 @@ namespace MapWinGis_Demo_zhw
                                 "图层树的图层数：" + Legend.Layers.Count() + "\n" +
                                 "实际图层数：" + Map.NumLayers);
             }
-
+            RefreshUI();
         }
 
         /// <summary>
@@ -571,7 +596,7 @@ namespace MapWinGis_Demo_zhw
                 btn.Checked = true;
             }
             Map.CursorMode = MapWinGIS.tkCursorMode.cmPan;
-
+            RefreshUI();
         }
 
         /// <summary>
@@ -588,6 +613,7 @@ namespace MapWinGis_Demo_zhw
                 btn.Checked = true;
             }
             Map.CursorMode = MapWinGIS.tkCursorMode.cmZoomIn;
+            RefreshUI();
         }
 
         /// <summary>
@@ -604,6 +630,7 @@ namespace MapWinGis_Demo_zhw
                 btn.Checked = true;
             }
             Map.CursorMode = MapWinGIS.tkCursorMode.cmZoomOut;
+            RefreshUI();
         }
 
         /// <summary>
@@ -621,6 +648,7 @@ namespace MapWinGis_Demo_zhw
             }
             Map.CursorMode = MapWinGIS.tkCursorMode.cmIdentify;
             //待完善：可用shapfile.selectbox进行范围内多个shape属性信息的读取
+            RefreshUI();
         }
 
         /// <summary>
@@ -631,6 +659,7 @@ namespace MapWinGis_Demo_zhw
         private void recover_btn_Click(object sender, EventArgs e)
         {
             LayerHelper.ZoomToLayer();
+            RefreshUI();
         }
 
         #endregion
@@ -650,6 +679,63 @@ namespace MapWinGis_Demo_zhw
                 resetAllToolStripBtn(s => s.Enabled = false);
                 toolRemoveLayer.Enabled = false;
             }
+
+            toolSetProjection.Enabled = App.Map.NumLayers == 0;
+            toolSetProjection.Text = App.Map.NumLayers == 0
+                ? "设置坐标系统和投影"
+                : "无可用图层";
+
+            toolSearch.Enabled = true;
+            toolSearch.Text = "查找位置信息";
+            if (App.Map.NumLayers > 0 && !App.Map.Measuring.IsUsingEllipsoid)
+            {
+                toolSearch.Enabled = false;
+                toolSearch.Text = "Unsupported projection. Search isn't allowed.";
+            }
+
+
+            toolZoomIn.Checked = Map.CursorMode == tkCursorMode.cmZoomIn;
+            toolZoomOut.Checked = Map.CursorMode == tkCursorMode.cmZoomOut;
+            toolPan.Checked = Map.CursorMode == tkCursorMode.cmPan;
+            toolSelect.Checked = Map.CursorMode == tkCursorMode.cmSelection;
+            toolSelectByPolygon.Checked = Map.CursorMode == tkCursorMode.cmSelectByPolygon;
+            toolIdentify.Checked = Map.CursorMode == tkCursorMode.cmIdentify;
+
+            bool distance = Map.Measuring.MeasuringType == tkMeasuringType.MeasureDistance;
+            toolMeasure.Checked = Map.CursorMode == tkCursorMode.cmMeasure && distance;
+            toolMeasureArea.Checked = Map.CursorMode == tkCursorMode.cmMeasure && !distance;
+
+            if (Map.CursorMode != tkCursorMode.cmIdentify)
+            {
+                //MapDockForm.HideTooltip();
+            }
+
+            //当前有图层
+            bool hasShapefile = false;
+            int layerHandle = App.Legend.SelectedLayer;
+            bool hasLayer = layerHandle != -1;
+            if (hasLayer)
+            {
+                var sf = App.Map.get_Shapefile(layerHandle);
+                if (sf != null)
+                {
+                    statusSelectedCount.Text = string.Format("Shapes: {0}; selected: {1}", sf.NumShapes, sf.NumSelected);
+                    toolClearSelection.Enabled = sf.NumSelected > 0;
+                    toolZoomToSelected.Enabled = sf.NumSelected > 0;
+                    hasShapefile = true;
+                }
+            }
+
+            if (!hasShapefile)
+            {
+                statusSelectedCount.Text = "";
+                toolClearSelection.Enabled = false;
+                toolZoomToSelected.Enabled = false;
+            }
+
+            toolRemoveLayer.Enabled = hasLayer;
+
+            //App.RefreshUI();
 
             Map.Focus();
         }

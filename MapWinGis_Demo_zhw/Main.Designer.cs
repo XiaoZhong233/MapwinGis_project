@@ -358,8 +358,8 @@ namespace MapWinGis_Demo_zhw
             this.toolStripSeparator6,
             this.mnuCloseApp});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(46, 24);
-            this.mnuFile.Text = "File";
+            this.mnuFile.Size = new System.Drawing.Size(51, 24);
+            this.mnuFile.Text = "文件";
             // 
             // mnuCloseProject
             // 
@@ -367,13 +367,13 @@ namespace MapWinGis_Demo_zhw
             this.mnuCloseProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuCloseProject.Name = "mnuCloseProject";
             this.mnuCloseProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mnuCloseProject.Size = new System.Drawing.Size(234, 30);
-            this.mnuCloseProject.Text = "New Map";
+            this.mnuCloseProject.Size = new System.Drawing.Size(220, 30);
+            this.mnuCloseProject.Text = "新建地图";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(231, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuOpen
             // 
@@ -381,29 +381,29 @@ namespace MapWinGis_Demo_zhw
             this.mnuOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuOpen.Name = "mnuOpen";
             this.mnuOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mnuOpen.Size = new System.Drawing.Size(234, 30);
-            this.mnuOpen.Text = "Open";
+            this.mnuOpen.Size = new System.Drawing.Size(220, 30);
+            this.mnuOpen.Text = "打开文件";
             // 
             // mnuAddVector
             // 
             this.mnuAddVector.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_vector_add;
             this.mnuAddVector.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAddVector.Name = "mnuAddVector";
-            this.mnuAddVector.Size = new System.Drawing.Size(234, 30);
-            this.mnuAddVector.Text = "Open Vector";
+            this.mnuAddVector.Size = new System.Drawing.Size(220, 30);
+            this.mnuAddVector.Text = "打开要素文件";
             // 
             // mnuAddRaster
             // 
             this.mnuAddRaster.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_raster_add;
             this.mnuAddRaster.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAddRaster.Name = "mnuAddRaster";
-            this.mnuAddRaster.Size = new System.Drawing.Size(234, 30);
-            this.mnuAddRaster.Text = "Open Raster";
+            this.mnuAddRaster.Size = new System.Drawing.Size(220, 30);
+            this.mnuAddRaster.Text = "打开栅格文件";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(231, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuLoadProject
             // 
@@ -411,13 +411,13 @@ namespace MapWinGis_Demo_zhw
             this.mnuLoadProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuLoadProject.Name = "mnuLoadProject";
             this.mnuLoadProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.mnuLoadProject.Size = new System.Drawing.Size(234, 30);
-            this.mnuLoadProject.Text = "Load Project";
+            this.mnuLoadProject.Size = new System.Drawing.Size(220, 30);
+            this.mnuLoadProject.Text = "加载文件";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(231, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuSaveProject
             // 
@@ -425,29 +425,29 @@ namespace MapWinGis_Demo_zhw
             this.mnuSaveProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSaveProject.Name = "mnuSaveProject";
             this.mnuSaveProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSaveProject.Size = new System.Drawing.Size(234, 30);
-            this.mnuSaveProject.Text = "Save Project";
+            this.mnuSaveProject.Size = new System.Drawing.Size(220, 30);
+            this.mnuSaveProject.Text = "保存文件";
             // 
             // mnuSaveProjectAs
             // 
             this.mnuSaveProjectAs.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save_as1;
             this.mnuSaveProjectAs.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSaveProjectAs.Name = "mnuSaveProjectAs";
-            this.mnuSaveProjectAs.Size = new System.Drawing.Size(234, 30);
-            this.mnuSaveProjectAs.Text = "Save Project As...";
+            this.mnuSaveProjectAs.Size = new System.Drawing.Size(220, 30);
+            this.mnuSaveProjectAs.Text = "另存为";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(231, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuCloseApp
             // 
             this.mnuCloseApp.Image = global::MapWinGis_Demo_zhw.Properties.Resources.quit1;
             this.mnuCloseApp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuCloseApp.Name = "mnuCloseApp";
-            this.mnuCloseApp.Size = new System.Drawing.Size(234, 30);
-            this.mnuCloseApp.Text = "Close";
+            this.mnuCloseApp.Size = new System.Drawing.Size(220, 30);
+            this.mnuCloseApp.Text = "关闭";
             // 
             // mnuMap
             // 
@@ -457,16 +457,16 @@ namespace MapWinGis_Demo_zhw
             this.toolStripSeparator9,
             this.mnuSnapshot});
             this.mnuMap.Name = "mnuMap";
-            this.mnuMap.Size = new System.Drawing.Size(54, 24);
-            this.mnuMap.Text = "Map";
+            this.mnuMap.Size = new System.Drawing.Size(51, 24);
+            this.mnuMap.Text = "地图";
             // 
             // mnuSetProjection
             // 
             this.mnuSetProjection.Image = global::MapWinGis_Demo_zhw.Properties.Resources.crs_change;
             this.mnuSetProjection.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSetProjection.Name = "mnuSetProjection";
-            this.mnuSetProjection.Size = new System.Drawing.Size(191, 30);
-            this.mnuSetProjection.Text = "Set Projection";
+            this.mnuSetProjection.Size = new System.Drawing.Size(220, 30);
+            this.mnuSetProjection.Text = "设置投影";
             // 
             // mnuSearch
             // 
@@ -474,21 +474,21 @@ namespace MapWinGis_Demo_zhw
             this.mnuSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSearch.Name = "mnuSearch";
             this.mnuSearch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.mnuSearch.Size = new System.Drawing.Size(191, 30);
-            this.mnuSearch.Text = "Search";
+            this.mnuSearch.Size = new System.Drawing.Size(220, 30);
+            this.mnuSearch.Text = "查找";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuSnapshot
             // 
             this.mnuSnapshot.Image = global::MapWinGis_Demo_zhw.Properties.Resources.Snapshot;
             this.mnuSnapshot.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSnapshot.Name = "mnuSnapshot";
-            this.mnuSnapshot.Size = new System.Drawing.Size(191, 30);
-            this.mnuSnapshot.Text = "Snapshot";
+            this.mnuSnapshot.Size = new System.Drawing.Size(220, 30);
+            this.mnuSnapshot.Text = "获取当前快照";
             // 
             // mnuTiles
             // 

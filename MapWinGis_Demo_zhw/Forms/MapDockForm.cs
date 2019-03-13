@@ -87,11 +87,11 @@ namespace MapWinGis_Demo_zhw.Forms
             axMap1.ProjectionChanged += axMap1_ProjectionChanged;
             axMap1.MouseMoveEvent += axMap1_MouseMoveEvent;
             axMap1.PreviewKeyDown += axMap1_PreviewKeyDown;
-            axMap1.SelectionChanged += axMap1_SelectionChanged;
             axMap1.ShapeIdentified += axMap1_ShapeIdentified;
             axMap1.MouseUpEvent += axMap1_MouseUpEvent;
             axMap1.ShapeHighlighted += axMap1_ShapeHighlighted;
             axMap1.SelectBoxFinal += axMap1_SelectBoxFinal;
+            axMap1.SelectionChanged += axMap1_SelectionChanged;
             axMap1.LayerProjectionIsEmpty += axMap1_LayerProjectionIsEmpty;
             axMap1.ProjectionMismatch += axMap1_ProjectionMismatch;
             axMap1.LayerReprojected += axMap1_LayerReprojected;
@@ -101,7 +101,20 @@ namespace MapWinGis_Demo_zhw.Forms
             axMap1.BackgroundLoadingStarted += axMap1_BackgroundLoadingStarted;
             axMap1.BackgroundLoadingFinished += axMap1_BackgroundLoadingFinished;
             axMap1.FileDropped += AxMap1FileDropped;
+            axMap1.SelectBoxDrag += AxMap1_SelectBoxDrag;
 
+        }
+
+
+
+        /// <summary>
+        /// 拖动选择框时触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AxMap1_SelectBoxDrag(object sender, _DMapEvents_SelectBoxDragEvent e)
+        {
+            //throw new NotImplementedException();
         }
 
 
