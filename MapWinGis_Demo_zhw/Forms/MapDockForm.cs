@@ -31,6 +31,8 @@ namespace MapWinGis_Demo_zhw.Forms
 
 
         private bool ShowTooltip = true;
+        private int HightLightlayerHandle = -1;
+        private int HightLightshapeIndex = -1;
 
         internal AxMap Map
         {
@@ -58,8 +60,6 @@ namespace MapWinGis_Demo_zhw.Forms
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
-            
-
         }
 
 
@@ -83,7 +83,7 @@ namespace MapWinGis_Demo_zhw.Forms
         private void RegisterEventHandlers()
         {
 
-            //axMap1.MouseUpEvent += axMap_MouseDownEvent;
+            axMap1.MouseDownEvent += axMap_MouseDownEvent;
             axMap1.ProjectionChanged += axMap1_ProjectionChanged;
             axMap1.MouseMoveEvent += axMap1_MouseMoveEvent;
             axMap1.PreviewKeyDown += axMap1_PreviewKeyDown;
@@ -105,6 +105,18 @@ namespace MapWinGis_Demo_zhw.Forms
 
         }
 
+        /// <summary>
+        /// 右键按下时触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void axMap_MouseDownEvent(object sender, _DMapEvents_MouseDownEvent e)
+        {
+
+        }
+
+
+
 
 
         /// <summary>
@@ -115,6 +127,7 @@ namespace MapWinGis_Demo_zhw.Forms
         private void AxMap1_SelectBoxDrag(object sender, _DMapEvents_SelectBoxDragEvent e)
         {
             //throw new NotImplementedException();
+
         }
 
 
@@ -152,6 +165,8 @@ namespace MapWinGis_Demo_zhw.Forms
         /// <param name="e"></param>
         void axMap1_BackgroundLoadingFinished(object sender, _DMapEvents_BackgroundLoadingFinishedEvent e)
         {
+            lblProjection.Text = String.Format("加载完成: {0}; TaskId: {1}; LayerHandle: {2} Features: {3}; Loaded: {4}",
+            DateTime.Now.TimeOfDay.ToString(), e.taskId, e.layerHandle, e.numFeatures, e.numLoaded);
             Debug.Print("加载完成: {0}; TaskId: {1}; LayerHandle: {2} Features: {3}; Loaded: {4}",
             DateTime.Now.TimeOfDay.ToString(), e.taskId, e.layerHandle, e.numFeatures, e.numLoaded);
         }
@@ -163,6 +178,7 @@ namespace MapWinGis_Demo_zhw.Forms
         /// <param name="e"></param>
         void axMap1_BackgroundLoadingStarted(object sender, _DMapEvents_BackgroundLoadingStartedEvent e)
         {
+            //lblProjection.Text = String.Format("加载开始: {0}; TaskId: {1}; LayerHandle: {2}", DateTime.Now.TimeOfDay.ToString(), e.taskId, e.layerHandle);
             Debug.Print("加载开始: {0}; TaskId: {1}; LayerHandle: {2}", DateTime.Now.TimeOfDay.ToString(), e.taskId, e.layerHandle);
         }
 
@@ -255,7 +271,38 @@ namespace MapWinGis_Demo_zhw.Forms
         {
             if (axMap1.CursorMode == tkCursorMode.cmSelection)
             {
-                MessageHelper.Info("没有图层被选中！.");
+                //MessageHelper.Info("没有图层被选中！.");
+                int selectLayerHandle = App.Legend.SelectedLayer;
+                Shapefile sf = axMap1.get_Shapefile(selectLayerHandle);
+                if (sf != null)
+                {
+                    double left = 0.0;
+                    double top = 0.0;
+                    double bottom = 0.0;
+                    double right = 0.0;
+                    //将像素点转换为坐标包围盒
+                    axMap1.PixelToProj(e.left, e.top, ref left, ref top);
+                    axMap1.PixelToProj(e.right, e.bottom, ref right, ref bottom);
+                    //获取选中结果
+                    object result = null;
+                    var ext = new Extents();
+                    ext.SetBounds(left, bottom, 0.0, right, top, 0.0);
+                    //取消上次选择的东西
+                    sf.SelectNone();
+                    //因为是包围盒 所以不用容差
+                    //INTERSECTION的意思是All the shapes that lie within the rectangle or do intersect it will be included.
+                    //INCLUSION的意思是Only the shapes that lie within the rectangle and doesn't intersect it will be included.
+                    if (sf.SelectShapes(ext, 0.0, SelectMode.INTERSECTION, ref result))
+                    {
+                        int[] shapes = result as int[];
+                        if (shapes == null) return;
+                        for (int i = 0; i < shapes.Length; i++)
+                        {
+                            sf.set_ShapeSelected(shapes[i], true);
+                        }
+                    }
+                    axMap1.Redraw();
+                }
             }
         }
 
@@ -267,7 +314,7 @@ namespace MapWinGis_Demo_zhw.Forms
         private void axMap1_ProjectionChanged(object sender, System.EventArgs e)
         {
             var gp = axMap1.GeoProjection;
-            lblProjection.Text = gp.IsEmpty ? "No projection" : "Projection: " + gp.ExportToProj4();
+            lblProjection.Text = gp.IsEmpty ? "无" : "info: " + gp.ExportToProj4();
         }
 
         /// <summary>
@@ -307,6 +354,7 @@ namespace MapWinGis_Demo_zhw.Forms
         void axMap1_SelectionChanged(object sender, _DMapEvents_SelectionChangedEvent e)
         {
             //TODO:需要重写refresh（）
+            MessageHelper.Info("select");
             App.RefreshUI();
         }
 
@@ -321,8 +369,7 @@ namespace MapWinGis_Demo_zhw.Forms
             if (sf != null)
             {
                 //do something
-                InformationForm informationForm = new InformationForm(Map, e);
-                informationForm.Show();
+                
             }
         }
 
@@ -330,9 +377,11 @@ namespace MapWinGis_Demo_zhw.Forms
         /// 鼠标抬起时触发
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e">2-右键 1-左键</param>
         void axMap1_MouseUpEvent(object sender, _DMapEvents_MouseUpEvent e)
         {
+
+
             if (e.button == 2)
             {
                 if (axMap1.CursorMode == tkCursorMode.cmIdentify)
@@ -342,6 +391,17 @@ namespace MapWinGis_Demo_zhw.Forms
                 else if (axMap1.CursorMode == tkCursorMode.cmMeasure)
                 {
                     contextMenuStrip1.Show(axMap1, e.x, e.y);
+                }else if(axMap1.CursorMode == tkCursorMode.cmSelection)
+                {
+                    contextMenuStrip2.Show(axMap1, e.x, e.y);
+                }
+            }else if (e.button == 1)
+            {
+                if (axMap1.CursorMode == tkCursorMode.cmIdentify && HightLightlayerHandle != -1 && HightLightshapeIndex != -1)
+                {
+                    _DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(HightLightlayerHandle, HightLightshapeIndex);
+                    InformationForm informationForm = new InformationForm(Map, ee);
+                    informationForm.Show();
                 }
             }
         }
@@ -359,10 +419,41 @@ namespace MapWinGis_Demo_zhw.Forms
                 string s = Map.GetAttributes(e.layerHandle, e.shapeIndex);
                 toolTip1.SetToolTip(Map, s);
                 Application.DoEvents();
-                
+                HightLightlayerHandle = e.layerHandle;
+                HightLightshapeIndex = e.shapeIndex;
             }
         }
 
+        /// <summary>
+        /// 当查看选中要素的属性表时
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 查看属性表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            int selectLayerHandle = App.Legend.SelectedLayer;
+            Shapefile sf = axMap1.get_Shapefile(selectLayerHandle);
+            if(axMap1.CursorMode== tkCursorMode.cmSelection && sf!=null)
+            {
 
+                int[] shapes = new int[sf.NumSelected];
+                for(int i = 0,j = 0; i < sf.NumShapes; i++)
+                {
+                    if (sf.ShapeSelected[i])
+                    {
+                        shapes[j] = i;
+                        j++;
+                    }
+                }
+                if (shapes.Count() > 0)
+                {
+                    //_DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(HightLightlayerHandle, HightLightshapeIndex);
+                    InformationForm informationForm = new InformationForm(Map, App.Legend.SelectedLayer,shapes);
+                    informationForm.Show();
+                }
+
+            }
+        }
     }
 }

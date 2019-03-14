@@ -36,9 +36,12 @@
             this.axMap1 = new AxMapWinGIS.AxMap();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuMeasuringOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查看属性表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,14 +84,29 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMeasuringOptions});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 28);
             // 
             // mnuMeasuringOptions
             // 
             this.mnuMeasuringOptions.Name = "mnuMeasuringOptions";
-            this.mnuMeasuringOptions.Size = new System.Drawing.Size(136, 24);
-            this.mnuMeasuringOptions.Text = "Options";
+            this.mnuMeasuringOptions.Size = new System.Drawing.Size(168, 24);
+            this.mnuMeasuringOptions.Text = "设置测量选项";
             this.mnuMeasuringOptions.Click += new System.EventHandler(this.mnuMeasuringOptions_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查看属性表ToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(211, 56);
+            // 
+            // 查看属性表ToolStripMenuItem
+            // 
+            this.查看属性表ToolStripMenuItem.Name = "查看属性表ToolStripMenuItem";
+            this.查看属性表ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.查看属性表ToolStripMenuItem.Text = "查看属性表";
+            this.查看属性表ToolStripMenuItem.Click += new System.EventHandler(this.查看属性表ToolStripMenuItem_Click);
             // 
             // MapDockForm
             // 
@@ -105,6 +123,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -117,6 +136,7 @@
         private AxMapWinGIS.AxMap axMap1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuMeasuringOptions;
-
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem 查看属性表ToolStripMenuItem;
     }
 }

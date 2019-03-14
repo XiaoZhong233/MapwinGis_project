@@ -132,6 +132,7 @@ namespace MapWinGis_Demo_zhw
         /// </summary>
         private void Init()
         {
+            
             InitDockLayout();
             InitLegend();
             RegisterToolEvt();
@@ -227,6 +228,11 @@ namespace MapWinGis_Demo_zhw
                 System.Drawing.Point pnt = new System.Drawing.Point(e.X, e.Y);
                 curLayer = Legend.FindClickedLayer(pnt, ref clickedElement);
             };
+
+            //Map.SelectBoxFinal += (s, e) =>
+            //{
+            //    MessageHelper.Info("selec");
+            //};
         }
 
 
@@ -485,8 +491,8 @@ namespace MapWinGis_Demo_zhw
                                 {
                                     string directoryName = Path.GetDirectoryName(file);//目录名
                                     string fileName = Path.GetFileNameWithoutExtension(file);//文件名
-
-
+                                    
+                                    
                                     Node target = findNode(x => {
                                         if (x.Path != "")
                                             return x.NodeType == NodeType.group && Path.GetDirectoryName(x.Path) == directoryName;
@@ -521,6 +527,8 @@ namespace MapWinGis_Demo_zhw
                                         }
 
                                     }
+                                    //输出加载信息
+                                    App.LoadMapState(file);
                                     //默认图例
                                     Map.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
                                     //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
@@ -719,6 +727,7 @@ namespace MapWinGis_Demo_zhw
                 var sf = App.Map.get_Shapefile(layerHandle);
                 if (sf != null)
                 {
+                    //MessageHelper.Info("cur mode" + Map.CursorMode.ToString());
                     statusSelectedCount.Text = string.Format("Shapes: {0}; selected: {1}", sf.NumShapes, sf.NumSelected);
                     toolClearSelection.Enabled = sf.NumSelected > 0;
                     toolZoomToSelected.Enabled = sf.NumSelected > 0;

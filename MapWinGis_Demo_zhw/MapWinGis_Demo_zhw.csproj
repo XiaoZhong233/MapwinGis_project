@@ -115,7 +115,7 @@
     </Compile>
     <Compile Include="Manager\MessageHelper.cs" />
     <Compile Include="Model\ComboBoxEnumItem.cs" />
-    <Compile Include="Model\MapExt.cs" />
+    <Compile Include="Manager\MapExt.cs" />
     <Compile Include="Model\Node.cs" />
     <Compile Include="Model\SelectionChangedArgs.cs" />
     <Compile Include="Program.cs" />

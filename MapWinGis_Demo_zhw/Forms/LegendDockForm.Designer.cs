@@ -182,7 +182,7 @@ namespace MapWinGis_Demo_zhw.Forms
             this.Name = "LegendDockForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Legend";
+            this.Text = "Legend 图例";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
         }
