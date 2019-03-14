@@ -256,7 +256,7 @@
             // 
             // zoomOut_btn
             // 
-            this.zoomOut_btn.Image = global::MapWinGis_Demo_zhw.Properties.Resources.zoom_in;
+            //this.zoomOut_btn.Image = global::MapWinGis_Demo_zhw.Properties.Resources.zoom_in;
             this.zoomOut_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zoomOut_btn.Name = "zoomOut_btn";
             this.zoomOut_btn.Padding = new System.Windows.Forms.Padding(10);
