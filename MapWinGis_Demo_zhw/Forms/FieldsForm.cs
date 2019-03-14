@@ -105,6 +105,9 @@ namespace MapWinGis.ShapeEditor.Forms
         //字段名集合
         List<string> fieldsNameList = new List<string>();
 
+        //旧值集合
+        List<object> oldValueList = new List<object>();
+
         //改变值集合
         List<changeValue> newValueList = new List<changeValue>();
 
@@ -348,6 +351,18 @@ namespace MapWinGis.ShapeEditor.Forms
                         _shapefile.EditCellValue(v.Col, v.Raw, v.Val);
                     }
                 }
+                else
+                {
+                    for(int i = 0; i < newValueList.Count; i++)
+                    {
+                        int r = newValueList[i].Raw;
+                        int c = newValueList[i].Col + 2;
+                        Console.Write(newValueList[i].Col);
+
+
+                        //attributeDGV.Rows[newValueList[i].Raw].Cells[newValueList[i].Col+2].Value= oldValueList[i];
+                    }
+                }
             }
             attributeDGV.ReadOnly = true;
 
@@ -365,11 +380,9 @@ namespace MapWinGis.ShapeEditor.Forms
             {
                 //属性表显示新值
                 object newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-
-                newValueList.Add(new changeValue(e.ColumnIndex - 2, e.RowIndex,newValue));
-
-                //改变对应shp文件中的值
-                _shapefile.EditCellValue(e.ColumnIndex - 2, e.RowIndex, newValue);
+               
+                newValueList.Add(new changeValue(e.ColumnIndex, e.RowIndex,newValue));
+           
             }
 
         }
@@ -488,9 +501,14 @@ namespace MapWinGis.ShapeEditor.Forms
                 attributeDGV.ReadOnly = true;
             }
         }
+
+        private void attributeDGV_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+                oldValueList.Add(attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+        }
     }
 
-     class changeValue
+    class changeValue
     {
 
         int col;

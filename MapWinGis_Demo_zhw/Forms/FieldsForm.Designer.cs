@@ -87,21 +87,21 @@
             // startEditMenuItem
             // 
             this.startEditMenuItem.Name = "startEditMenuItem";
-            this.startEditMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.startEditMenuItem.Size = new System.Drawing.Size(182, 30);
             this.startEditMenuItem.Text = "开始编辑";
             this.startEditMenuItem.Click += new System.EventHandler(this.startEditMenuItem_Click);
             // 
             // stopEditMenuItem
             // 
             this.stopEditMenuItem.Name = "stopEditMenuItem";
-            this.stopEditMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.stopEditMenuItem.Size = new System.Drawing.Size(182, 30);
             this.stopEditMenuItem.Text = "停止编辑";
             this.stopEditMenuItem.Click += new System.EventHandler(this.stopEditMenuItem_Click);
             // 
             // 可见性ToolStripMenuItem
             // 
             this.可见性ToolStripMenuItem.Name = "可见性ToolStripMenuItem";
-            this.可见性ToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.可见性ToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
             this.可见性ToolStripMenuItem.Text = "字段可见性";
             this.可见性ToolStripMenuItem.Click += new System.EventHandler(this.可见性ToolStripMenuItem_Click);
             // 
@@ -168,6 +168,7 @@
             this.attributeDGV.RowTemplate.Height = 30;
             this.attributeDGV.Size = new System.Drawing.Size(686, 294);
             this.attributeDGV.TabIndex = 0;
+            this.attributeDGV.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attributeDGV_CellBeginEdit);
             this.attributeDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attributeDGV_CellValueChanged);
             this.attributeDGV.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.attributeDGV_DataError);
             this.attributeDGV.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.attributeDGV_RowHeaderMouseDoubleClick);
