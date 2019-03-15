@@ -337,6 +337,7 @@ namespace MapWinGis_Demo_zhw
             Node node = findNode(x => x.LegendHandle == layerHandle && x.NodeType == NodeType.layer);
             int parentGroupHandle = node.ParentGroupHandle;
             LayerHelper.RemoveLayer();
+
             LegendNodes.Remove(node);
             //如果该组没有图层了，就移除该组
             if (Legend.Groups[parentGroupHandle].LayerCount == 0)
