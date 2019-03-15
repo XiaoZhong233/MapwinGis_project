@@ -133,3 +133,5 @@ E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\bin\Debug\WeifenLuo.WinF
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.MapDockForm.resources
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.MeasuringForm.resources
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Main.resources
+E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Controls.IdentifierContextMenu.resources
+E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.SnapShotForm.resources

@@ -5,6 +5,7 @@ using MapWinGis_Demo_zhw.Manager;
 using MapWinGis_Demo_zhw.Model;
 using MWLite.Symbology.Forms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,7 +34,10 @@ namespace MapWinGis_Demo_zhw.Forms
         private bool ShowTooltip = true;
         private int HightLightlayerHandle = -1;
         private int HightLightshapeIndex = -1;
-
+        internal ArrayList m_Extents; //每次图层改变的extent值
+        internal int m_CurrentExtent; //存储在m_Extents当前图层的extent的索引。
+        private double m_lastScale; //最近一次的extent
+        internal bool m_IsManualExtentsChange;//手动改变了Extent,即通过前进后退改变的。
         internal AxMap Map
         {
             get { return axMap1; }
@@ -60,6 +64,7 @@ namespace MapWinGis_Demo_zhw.Forms
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
+            
         }
 
 
@@ -102,7 +107,48 @@ namespace MapWinGis_Demo_zhw.Forms
             axMap1.BackgroundLoadingFinished += axMap1_BackgroundLoadingFinished;
             axMap1.FileDropped += AxMap1FileDropped;
             axMap1.SelectBoxDrag += AxMap1_SelectBoxDrag;
+            axMap1.ExtentsChanged += AxMap1_ExtentsChanged;
+            axMap1.LayerAdded += AxMap1_LayerAdded;
+            axMap1.LayerRemoved += AxMap1_LayerRemoved;
+            
+        }
 
+        private void AxMap1_LayerRemoved(object sender, _DMapEvents_LayerRemovedEvent e)
+        {
+            refreshPreview();
+            if (App.Map.NumLayers <= 0)
+            {
+                App.PreviewMap.ClearDrawings();
+                App.PreviewMap.RemoveAllLayers();
+            }
+
+        }
+
+        private void AxMap1_LayerAdded(object sender, _DMapEvents_LayerAddedEvent e)
+        {
+            refreshPreview();
+            //App.PreviewMap.AddLayer(e.layerHandle, true);
+        }
+
+        private void AxMap1_ExtentsChanged(object sender, EventArgs e)
+        {
+            refreshPreview();
+        }
+
+        /// <summary>
+        /// 刷新鸟瞰图
+        /// </summary>
+        private void refreshPreview()
+        {
+            try
+            {
+                App.SnapshotForm.UpdateLocatorBox();
+                App.SnapshotForm.GetPictureFromMap(true);
+            }
+            catch
+            {
+
+            }
         }
 
         /// <summary>
@@ -269,6 +315,7 @@ namespace MapWinGis_Demo_zhw.Forms
         /// <param name="e"></param>
         void axMap1_SelectBoxFinal(object sender, _DMapEvents_SelectBoxFinalEvent e)
         {
+            
             if (axMap1.CursorMode == tkCursorMode.cmSelection)
             {
                 //MessageHelper.Info("没有图层被选中！.");
@@ -302,6 +349,7 @@ namespace MapWinGis_Demo_zhw.Forms
                         }
                     }
                     axMap1.Redraw();
+                    App.RefreshUI();
                 }
             }
         }
@@ -381,7 +429,7 @@ namespace MapWinGis_Demo_zhw.Forms
         void axMap1_MouseUpEvent(object sender, _DMapEvents_MouseUpEvent e)
         {
 
-
+            App.SnapshotForm.UpdateLocatorBox();
             if (e.button == 2)
             {
                 if (axMap1.CursorMode == tkCursorMode.cmIdentify)

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctxAllLayers = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxCurrentLayer = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +40,7 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctxAllLayers,
             this.ctxCurrentLayer,
@@ -47,48 +48,51 @@
             this.ctxHotTracking,
             this.ctxShowTooltip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 134);
             // 
             // ctxAllLayers
             // 
             this.ctxAllLayers.Name = "ctxAllLayers";
-            this.ctxAllLayers.Size = new System.Drawing.Size(152, 22);
-            this.ctxAllLayers.Text = "All Layers";
+            this.ctxAllLayers.Size = new System.Drawing.Size(210, 24);
+            this.ctxAllLayers.Text = "识别所有图层";
             this.ctxAllLayers.Click += new System.EventHandler(this.ctxAllLayers_Click);
             // 
             // ctxCurrentLayer
             // 
             this.ctxCurrentLayer.Name = "ctxCurrentLayer";
-            this.ctxCurrentLayer.Size = new System.Drawing.Size(152, 22);
-            this.ctxCurrentLayer.Text = "Current Layer";
+            this.ctxCurrentLayer.Size = new System.Drawing.Size(210, 24);
+            this.ctxCurrentLayer.Text = "识别当前图层";
             this.ctxCurrentLayer.Click += new System.EventHandler(this.ctxCurrentLayer_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
             // 
             // ctxHotTracking
             // 
             this.ctxHotTracking.Name = "ctxHotTracking";
-            this.ctxHotTracking.Size = new System.Drawing.Size(152, 22);
-            this.ctxHotTracking.Text = "Highlight shapes";
+            this.ctxHotTracking.Size = new System.Drawing.Size(210, 24);
+            this.ctxHotTracking.Text = "高亮追踪";
             this.ctxHotTracking.Click += new System.EventHandler(this.ctxHotTracking_Click);
             // 
             // ctxShowTooltip
             // 
             this.ctxShowTooltip.Name = "ctxShowTooltip";
-            this.ctxShowTooltip.Size = new System.Drawing.Size(152, 22);
-            this.ctxShowTooltip.Text = "Show Tooltip";
+            this.ctxShowTooltip.Size = new System.Drawing.Size(210, 24);
+            this.ctxShowTooltip.Text = "显示摘要";
             this.ctxShowTooltip.Click += new System.EventHandler(this.ctxShowTooltip_Click);
             // 
             // IdentifierContextMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "IdentifierContextMenu";
+            this.Size = new System.Drawing.Size(200, 173);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion

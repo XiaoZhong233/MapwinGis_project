@@ -1,4 +1,5 @@
 ﻿using AxMapWinGIS;
+using MapWinGis_Demo_zhw.Forms;
 using MWLite.Symbology.LegendControl;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,21 @@ namespace MapWinGis_Demo_zhw
     public class App
     {
 
+
+
         public static AxMap Map
         {
             get { return Main.Instance.Map; }
+        }
+
+        public static AxMap PreviewMap
+        {
+            get { return Main.Instance.PreviewMap; }
+        }
+
+        public static SnapShotForm SnapshotForm
+        {
+            get { return Main.Instance.SnapShotForm; }
         }
 
         public static Legend Legend

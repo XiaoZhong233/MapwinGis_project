@@ -30,6 +30,8 @@ namespace MapWinGis_Demo_zhw
         private static MapDockForm _mapForm = null;
         //主窗口实例
         private static Main _form = null;
+        //鹰眼地图
+        private static SnapShotForm _snapForm = null;
         //图例组件
         private LegendDockForm _legendForm = null;
         //回调对象
@@ -100,6 +102,18 @@ namespace MapWinGis_Demo_zhw
             get { return Main._form; }
         }
 
+        //预览地图
+        public AxMap PreviewMap
+        {
+            get { return _snapForm.PreviewMap; }
+        }
+        
+        public SnapShotForm SnapShotForm
+        {
+            get { return _snapForm; }
+        }
+
+
         //获取当前图例控件
         public Legend Legend
         {
@@ -153,11 +167,25 @@ namespace MapWinGis_Demo_zhw
             _legendForm = new LegendDockForm();
             _legendForm.Show(dockPanel1, DockState.DockLeft);
 
-
+            _snapForm = new SnapShotForm();
+            //public void DockTo(DockPane paneTo, DockStyle dockStyle, int contentIndex);
+            //public void Show(DockPane previousPane, DockAlignment alignment, double proportion);
+            _snapForm.Show(_legendForm.Pane, DockAlignment.Bottom, .4d);
+            //_mapForm2.DockTo(_legendForm.Pane, DockStyle.Bottom, 1);
+            //_mapForm2.Show(dockPanel1, DockState.DockLeft);
             //_mapForm.SelectionChanged += (s, e) => RefreshUI();
+
+
+
+
+
+
+
+            
             _mapForm.CloseButton = false;
             _mapForm.Activate();
         }
+
 
         /// <summary>
         /// 订阅工具栏事件
@@ -180,7 +208,10 @@ namespace MapWinGis_Demo_zhw
             toolRemoveLayer.Click += removeAll_btn_Click;
             //_mainToolStrip.Click += _mainToolStrip_Click;
             toolSelect.Click += ToolSelect_Click;
+            toolClearSelection.Click += ToolClearSelection_Click;
         }
+
+
 
 
 
@@ -410,6 +441,22 @@ namespace MapWinGis_Demo_zhw
 
         #region 工具栏事件
 
+        /// <summary>
+        /// 清除选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolClearSelection_Click(object sender, EventArgs e)
+        {
+            if(Map.CursorMode == tkCursorMode.cmSelection || Map.CursorMode == tkCursorMode.cmSelectByPolygon)
+            {
+                int selectLayerHandle = App.Legend.SelectedLayer;
+                Shapefile sf = Map.get_Shapefile(selectLayerHandle);
+                sf.SelectNone();
+                App.RefreshUI();
+                Map.Redraw();
+            }
+        }
 
         /// <summary>
         /// 按矩形选择
@@ -670,6 +717,31 @@ namespace MapWinGis_Demo_zhw
             RefreshUI();
         }
 
+
+        /// <summary>
+        /// 按多边形选择
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolSelectByPolygon_Click(object sender, EventArgs e)
+        {
+            //TODOS:实现多边形选择
+            Map.CursorMode = tkCursorMode.cmSelectByPolygon;
+            RefreshUI();
+
+        }
+
+        /// <summary>
+        /// 缩放至所选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolZoomToSelected_Click(object sender, EventArgs e)
+        {
+            Map.ZoomToSelected(App.Legend.SelectedLayer);
+            //Map.ZoomToWorld();
+        }
+
         #endregion
 
         #region 私有方法
@@ -926,5 +998,7 @@ namespace MapWinGis_Demo_zhw
         {
             System.Diagnostics.Process.Start("https://github.com/XiaoZhong233/MapwinGis_project");
         }
+
+
     }
 }

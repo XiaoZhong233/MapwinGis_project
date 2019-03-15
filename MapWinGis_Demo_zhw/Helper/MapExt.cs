@@ -63,10 +63,14 @@ namespace MapWinGis_Demo_zhw.Model
             }
 
             s += "属性:\n";
-
+            //只选前十个
             for (int i = 0; i < Math.Min(sf.NumFields, 10); i++)
             {
                 s += sf.Field[i].Name + " = " + sf.CellValue[i, shapeIndex] + Environment.NewLine;
+            }
+            if (sf.NumFields > 10)
+            {
+                s += "查看更多左键点击...";
             }
             return s;
         }
@@ -176,5 +180,78 @@ namespace MapWinGis_Demo_zhw.Model
                 }
             }
         }
+
+
+        /// <summary>
+        /// 返回最大可见范围
+        /// 所有可见的关联的层的范围
+        /// </summary>
+        public static Extents MaxVisibleExtents(this AxMap map)
+        {
+
+            MapWinGIS.Extents tExts = new MapWinGIS.Extents();
+            bool bFoundVisibleLayer = false;
+            double maxX = 0, maxY = 0, minX = 0, minY = 0;
+            int i;
+            double dx, dy;
+
+            int numLyr = map.NumLayers;
+            for (i = 0; i < numLyr; i++)
+            {
+                int lyrHandle = map.get_LayerHandle(i);
+                if (map.get_LayerVisible(lyrHandle))
+                {
+                    tExts = map.get_layerExtents(lyrHandle);
+                    if (bFoundVisibleLayer == false)
+                    {
+                        maxX = tExts.xMax;
+                        minX = tExts.xMin;
+                        maxY = tExts.yMax;
+                        minY = tExts.yMin;
+                        bFoundVisibleLayer = true;
+                    }
+                    else
+                    {
+                        if (tExts.xMax > maxX)
+                        {
+                            maxX = tExts.xMax;
+                        }
+                        if (tExts.yMax > maxY)
+                        {
+                            maxY = tExts.yMax;
+                        }
+                        if (tExts.xMin < minX)
+                        {
+                            minX = tExts.xMin;
+                        }
+                        if (tExts.yMin < minY)
+                        {
+                            minY = tExts.yMin;
+                        }
+                    }
+                }
+            }
+
+            dx = maxX - minX;
+            dx = dx * map.ExtentPad;
+            maxX = maxX + dx;
+            minX = minX - dx;
+
+            dy = maxY - minY;
+            dy = dy * map.ExtentPad;
+            maxY = maxY + dy;
+            minY = minY - dy;
+
+            tExts = new MapWinGIS.Extents();
+            tExts.SetBounds(minX, minY, 0, maxX, maxY, 0);
+            return tExts;
+        }
+
+
+  
+
+
+
+
     }
 }

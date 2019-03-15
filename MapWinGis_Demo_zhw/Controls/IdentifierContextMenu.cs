@@ -14,7 +14,7 @@ namespace MapWinGis_Demo_zhw.Controls
     public partial class IdentifierContextMenu : UserControl
     {
 
-        private bool ShowTooltip = true;
+        private static bool ShowTooltip = true;
 
         public IdentifierContextMenu()
         {

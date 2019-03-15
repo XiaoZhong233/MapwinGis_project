@@ -74,5 +74,15 @@ namespace MapWinGis_Demo_zhw
             DockRight = 10,
             Hidden = 11
         }
+
+        /// <summary>
+        /// 枚举可能的preview map更新的类型
+        /// </summary>
+        public enum ePreviewUpdateExtents
+        {
+            FullExtents = 0,
+            CurrentMapView = 1
+        }
+
     }
 }

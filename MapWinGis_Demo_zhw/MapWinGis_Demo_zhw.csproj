@@ -92,12 +92,23 @@
     <Compile Include="Forms\MeasuringForm.Designer.cs">
       <DependentUpon>MeasuringForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\App.cs" />
-    <Compile Include="Manager\APPCommand.cs" />
-    <Compile Include="Manager\ComboBoxHelper.cs" />
-    <Compile Include="Manager\CommandDispatcher.cs" />
+    <Compile Include="Forms\SnapShotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SnapShotForm.Designer.cs">
+      <DependentUpon>SnapShotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\App.cs" />
+    <Compile Include="Helper\APPCommand.cs" />
+    <Compile Include="Helper\ColorScheme.cs" />
+    <Compile Include="Helper\ComboBoxHelper.cs" />
+    <Compile Include="Helper\CommandDispatcher.cs" />
+    <Compile Include="Helper\ImageUtils.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helper\MiscUtils.cs" />
     <Compile Include="Interface\Enums.cs" />
-    <Compile Include="Manager\LayerHelper.cs" />
+    <Compile Include="Helper\LayerHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,21 +116,24 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interface\Interface.cs" />
-    <Compile Include="Manager\LegendDispatcher.cs" />
-    <Compile Include="Manager\MapCallback.cs" />
+    <Compile Include="Helper\LegendDispatcher.cs" />
+    <Compile Include="Helper\MapCallback.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\MessageHelper.cs" />
+    <Compile Include="Helper\MessageHelper.cs" />
     <Compile Include="Model\ComboBoxEnumItem.cs" />
-    <Compile Include="Manager\MapExt.cs" />
+    <Compile Include="Helper\MapExt.cs" />
     <Compile Include="Model\Node.cs" />
     <Compile Include="Model\SelectionChangedArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\IdentifierContextMenu.resx">
+      <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FieldsAppendForm.resx">
       <DependentUpon>FieldsAppendForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MeasuringForm.resx">
       <DependentUpon>MeasuringForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SnapShotForm.resx">
+      <DependentUpon>SnapShotForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -336,6 +353,9 @@
     <None Include="Resources\measure.png" />
     <None Include="Resources\attribute-show.png" />
     <Content Include="Resources\crs-change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MapWinGIS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
