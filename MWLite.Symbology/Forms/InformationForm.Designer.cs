@@ -41,18 +41,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.informationDGV.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.informationDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.informationDGV.Location = new System.Drawing.Point(12, 100);
+            this.informationDGV.Location = new System.Drawing.Point(11, 83);
+            this.informationDGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.informationDGV.Name = "informationDGV";
             this.informationDGV.RowTemplate.Height = 30;
-            this.informationDGV.Size = new System.Drawing.Size(354, 343);
+            this.informationDGV.Size = new System.Drawing.Size(962, 595);
             this.informationDGV.TabIndex = 0;
             // 
             // InformationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 455);
+            this.ClientSize = new System.Drawing.Size(983, 688);
             this.Controls.Add(this.informationDGV);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InformationForm";
             this.Text = "Information";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InformationForm_FormClosed);

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,25 +45,70 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\..\MapWinGIS-4.9.6.0\demo\packages\DockPanelSuite.2.9.0.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddFieldsForm.cs">
+    <Compile Include="Controls\IdentifierContextMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IdentifierContextMenu.Designer.cs">
+      <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FieldsAppendForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddFieldsForm.Designer.cs">
-      <DependentUpon>AddFieldsForm.cs</DependentUpon>
+    <Compile Include="Forms\FieldsAppendForm.Designer.cs">
+      <DependentUpon>FieldsAppendForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AttributesForm.cs">
+    <Compile Include="Forms\FieldsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AttributesForm.Designer.cs">
-      <DependentUpon>AttributesForm.cs</DependentUpon>
+    <Compile Include="Forms\FieldsForm.Designer.cs">
+      <DependentUpon>FieldsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\App.cs" />
-    <Compile Include="Manager\APPCommand.cs" />
-    <Compile Include="Manager\CommandDispatcher.cs" />
+    <Compile Include="Forms\FieldsVisibleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FieldsVisibleForm.Designer.cs">
+      <DependentUpon>FieldsVisibleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LegendDockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LegendDockForm.Designer.cs">
+      <DependentUpon>LegendDockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MapDockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MapDockForm.Designer.cs">
+      <DependentUpon>MapDockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MeasuringForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MeasuringForm.Designer.cs">
+      <DependentUpon>MeasuringForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SnapShotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SnapShotForm.Designer.cs">
+      <DependentUpon>SnapShotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\App.cs" />
+    <Compile Include="Helper\APPCommand.cs" />
+    <Compile Include="Helper\ColorScheme.cs" />
+    <Compile Include="Helper\ComboBoxHelper.cs" />
+    <Compile Include="Helper\CommandDispatcher.cs" />
+    <Compile Include="Helper\ImageUtils.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helper\MiscUtils.cs" />
     <Compile Include="Interface\Enums.cs" />
-    <Compile Include="Manager\LayerHelper.cs" />
+    <Compile Include="Helper\LayerHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,18 +116,47 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interface\Interface.cs" />
-    <Compile Include="Manager\LegendDispatcher.cs" />
+    <Compile Include="Helper\LegendDispatcher.cs" />
+    <Compile Include="Helper\MapCallback.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\MessageHelper.cs" />
+    <Compile Include="Model\ComboBoxEnumItem.cs" />
+    <Compile Include="Helper\MapExt.cs" />
     <Compile Include="Model\Node.cs" />
+    <Compile Include="Model\SelectionChangedArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddFieldsForm.resx">
-      <DependentUpon>AddFieldsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\IdentifierContextMenu.resx">
+      <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AttributesForm.resx">
-      <DependentUpon>AttributesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FieldsAppendForm.resx">
+      <DependentUpon>FieldsAppendForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FieldsForm.resx">
+      <DependentUpon>FieldsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FieldsVisibleForm.resx">
+      <DependentUpon>FieldsVisibleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MapDockForm.resx">
+      <DependentUpon>MapDockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MeasuringForm.resx">
+      <DependentUpon>MeasuringForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SnapShotForm.resx">
+      <DependentUpon>SnapShotForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -186,9 +261,6 @@
     <None Include="Resources\remove_all_layers.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save_as.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\saveNew.png" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +316,46 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\手指.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\github %281%29.png" />
+    <None Include="Resources\github.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\Snapshot.png" />
+    <None Include="Resources\quit1.png" />
+    <None Include="Resources\layer-add1.png" />
+    <None Include="Resources\layer-remove.png" />
+    <None Include="Resources\layer-create.png" />
+    <None Include="Resources\layer-db-add.png" />
+    <None Include="Resources\layer-raster-add.png" />
+    <None Include="Resources\layer-vector-add.png" />
+    <None Include="Resources\layer-add.png" />
+    <None Include="Resources\save-as1.png" />
+    <None Include="Resources\save1.png" />
+    <None Include="Resources\folder11.png" />
+    <None Include="Resources\map1.png" />
+    <None Include="Resources\zoom-selection1.png" />
+    <None Include="Resources\area-measure1.png" />
+    <None Include="Resources\attribute-show1.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\crs-change1.png" />
+    <None Include="Resources\zoom-layer.png" />
+    <None Include="Resources\zoom-in.png" />
+    <None Include="Resources\save-as.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\folder1.png" />
+    <None Include="Resources\open1.png" />
+    <None Include="Resources\map.png" />
+    <None Include="Resources\selected-delete.png" />
+    <None Include="Resources\zoom-selection.png" />
+    <None Include="Resources\select.png" />
+    <None Include="Resources\area-measure.png" />
+    <None Include="Resources\measure.png" />
+    <None Include="Resources\attribute-show.png" />
+    <Content Include="Resources\crs-change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MapWinGIS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

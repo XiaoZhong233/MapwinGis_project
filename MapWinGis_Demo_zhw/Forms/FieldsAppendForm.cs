@@ -60,8 +60,11 @@ namespace MapWinGis_Demo_zhw.Forms
             fieldTypeCmbox.Items.Add(FieldType.DATE_FIELD);
 
             fieldTypeCmbox.SelectedIndex = 0;
-            
-  
+
+            precisionTextBox.Text = "6";
+            widthTextBox.Text = "6";
+
+
         }
 
         
@@ -79,6 +82,7 @@ namespace MapWinGis_Demo_zhw.Forms
                     width = Convert.ToInt32(widthTextBox.Text);
             }
 
+            
             this.Close();
         }
 

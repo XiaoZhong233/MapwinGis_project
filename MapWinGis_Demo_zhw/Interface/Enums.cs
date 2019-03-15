@@ -48,5 +48,41 @@ namespace MapWinGis_Demo_zhw
         {
             Project = 0,
         }
+
+        public enum DockAreas
+        {
+            Float = 1,
+            DockLeft = 2,
+            DockRight = 4,
+            DockTop = 8,
+            DockBottom = 16,
+            Document = 32
+        }
+
+        public enum DockState
+        {
+            Unknown = 0,
+            Float = 1,
+            DockTopAutoHide = 2,
+            DockLeftAutoHide = 3,
+            DockBottomAutoHide = 4,
+            DockRightAutoHide = 5,
+            Document = 6,
+            DockTop = 7,
+            DockLeft = 8,
+            DockBottom = 9,
+            DockRight = 10,
+            Hidden = 11
+        }
+
+        /// <summary>
+        /// 枚举可能的preview map更新的类型
+        /// </summary>
+        public enum ePreviewUpdateExtents
+        {
+            FullExtents = 0,
+            CurrentMapView = 1
+        }
+
     }
 }

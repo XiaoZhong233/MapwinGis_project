@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
+
 namespace MapWinGis_Demo_zhw
 {
 
@@ -21,10 +23,13 @@ namespace MapWinGis_Demo_zhw
     /// <summary>
     /// 主窗口
     /// </summary>
-    public partial class MainForm : Form
+    public partial class MainForm : DockContent
     {
-        
+
         #region 变量
+
+        private const string WINDOW_TITLE = "MapWinGIS Demo";
+
         /// <summary>
         /// 图层命令管理器，用于管理图层树
         /// </summary>
@@ -408,7 +413,7 @@ namespace MapWinGis_Demo_zhw
             {
 
                 AttributesForm attributesForm = new AttributesForm(axMap1,Legend, Legend.SelectedLayer);
-                
+                attributesForm.StartPosition = FormStartPosition.CenterScreen;
                 attributesForm.Show();
                 
                 
@@ -644,6 +649,7 @@ namespace MapWinGis_Demo_zhw
             return (uint)(((uint)color.B << 16) | (ushort)(((ushort)color.G << 8) | color.R));
         }
 
+        ///new method
 
         /// <summary>
         /// 重置工具栏button
@@ -666,7 +672,7 @@ namespace MapWinGis_Demo_zhw
             DialogResult result;
             String[] files;
             //Shapefile shapefile = new Shapefile();
-            MapWinGIS.ICallback call = null;
+            
             using (OpenFileDialog openDialog = new OpenFileDialog())
             {
                 openDialog.Multiselect = true;
