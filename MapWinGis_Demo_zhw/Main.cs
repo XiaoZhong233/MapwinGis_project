@@ -138,7 +138,9 @@ namespace MapWinGis_Demo_zhw
             InitializeComponent();
             _callback = new MapCallback(statusStrip1, progressBar1, lblProgressMessage);
             _form = this;
+            IdentifyResultForm.getInstance();
             Init();
+            clearAllLayers();
         }
 
         /// <summary>
@@ -174,14 +176,6 @@ namespace MapWinGis_Demo_zhw
             //_mapForm2.DockTo(_legendForm.Pane, DockStyle.Bottom, 1);
             //_mapForm2.Show(dockPanel1, DockState.DockLeft);
             //_mapForm.SelectionChanged += (s, e) => RefreshUI();
-
-
-
-
-
-
-
-            
             _mapForm.CloseButton = false;
             _mapForm.Activate();
         }
@@ -511,8 +505,8 @@ namespace MapWinGis_Demo_zhw
             if (files != null)
             {
 
-                files = sortLayerWithCurLayer(files);
-                clearAllLayers();
+                //files = sortLayerWithCurLayer(files);
+                //clearAllLayers();
 
                 try
                 {
@@ -610,6 +604,7 @@ namespace MapWinGis_Demo_zhw
                 }
                 finally
                 {
+                    SortLayersByType();
                     Map.LockWindow(tkLockMode.lmUnlock);
                     Debug.Print("Layers added to the map: " + Map.NumLayers);
                     RefreshUI();
@@ -1000,6 +995,53 @@ namespace MapWinGis_Demo_zhw
             System.Diagnostics.Process.Start("https://github.com/XiaoZhong233/MapwinGis_project");
         }
 
+        /// <summary>
+        /// 加入栅格文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mnuAddRaster_Click(object sender, EventArgs e)
+        {
+            //Map.AddLayerFromFilename("D:/MyDownloads/Download/GDPGrid_China2010.tif", tkFileOpenStrategy.fosDirectGrid, true);
+        }
 
+
+        /// <summary>
+        /// 图层排序
+        /// </summary>
+        public void SortLayersByType()
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                List<int> handles = new List<int>();
+                for (int i = 0; i < Map.NumLayers; i++)
+                {
+                    int layerHandle = Map.get_LayerHandle(i);
+                    Shapefile sf = Map.get_Shapefile(layerHandle);
+                    if (sf != null)
+                    {
+                        if (j == 0 && sf.ShapefileType == ShpfileType.SHP_POINT)
+                            handles.Add(layerHandle);
+                        if (j == 1 && sf.ShapefileType == ShpfileType.SHP_POLYLINE)
+                            handles.Add(layerHandle);
+                        if (j == 2 && sf.ShapefileType == ShpfileType.SHP_POLYGON)
+                            handles.Add(layerHandle);
+                    }
+                }
+                Map.LockWindow(tkLockMode.lmLock);
+                try
+                {
+                    foreach (int handle in handles)
+                    {
+                        int position = Map.get_LayerPosition(handle);
+                        Map.MoveLayerBottom(position);
+                    }
+                }
+                finally
+                {
+                    Map.LockWindow(tkLockMode.lmUnlock);
+                }
+            }
+        }
     }
 }

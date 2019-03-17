@@ -362,6 +362,7 @@ namespace MapWinGis_Demo_zhw.Forms
         private void axMap1_ProjectionChanged(object sender, System.EventArgs e)
         {
             var gp = axMap1.GeoProjection;
+            
             lblProjection.Text = gp.IsEmpty ? "无" : "info: " + gp.ExportToProj4();
         }
 
@@ -449,7 +450,8 @@ namespace MapWinGis_Demo_zhw.Forms
                 {
                     _DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(HightLightlayerHandle, HightLightshapeIndex);
                     InformationForm informationForm = new InformationForm(Map, ee);
-                    informationForm.Show();
+                    App.getIdentifyResultForm(informationForm, DockState.Document);
+                    //informationForm.Show();
                 }
             }
         }
@@ -498,7 +500,8 @@ namespace MapWinGis_Demo_zhw.Forms
                 {
                     //_DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(HightLightlayerHandle, HightLightshapeIndex);
                     InformationForm informationForm = new InformationForm(Map, App.Legend.SelectedLayer,shapes);
-                    informationForm.Show();
+                    App.getIdentifyResultForm(informationForm, DockState.Document, sf.Filename);
+                    //informationForm.Show();
                 }
 
             }

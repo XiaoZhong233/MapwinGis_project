@@ -46,6 +46,22 @@ namespace MapWinGis_Demo_zhw.Forms
             MWLite.Symbology.Controls.ImageComboItem imageComboItem13 = new MWLite.Symbology.Controls.ImageComboItem();
             MWLite.Symbology.Controls.ImageComboItem imageComboItem14 = new MWLite.Symbology.Controls.ImageComboItem();
             MWLite.Symbology.Controls.ImageComboItem imageComboItem15 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem16 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem17 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem18 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem19 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem20 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem21 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem22 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem23 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem24 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem25 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem26 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem27 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem28 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem29 = new MWLite.Symbology.Controls.ImageComboItem();
+            MWLite.Symbology.Controls.ImageComboItem imageComboItem30 = new MWLite.Symbology.Controls.ImageComboItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MeasuringForm));
             this.chkShowBearing = new System.Windows.Forms.CheckBox();
             this.chkShowLength = new System.Windows.Forms.CheckBox();
             this.cboBearingType = new System.Windows.Forms.ComboBox();
@@ -418,27 +434,6 @@ namespace MapWinGis_Demo_zhw.Forms
             imageComboItem5.Mark = false;
             imageComboItem5.Tag = null;
             imageComboItem5.Text = "";
-            this.cboLineStyle.Items.AddRange(new object[] {
-            imageComboItem1,
-            imageComboItem2,
-            imageComboItem3,
-            imageComboItem4,
-            imageComboItem5});
-            this.cboLineStyle.Location = new System.Drawing.Point(234, 71);
-            this.cboLineStyle.Name = "cboLineStyle";
-            this.cboLineStyle.OutlineColor = System.Drawing.Color.Black;
-            this.cboLineStyle.Size = new System.Drawing.Size(86, 26);
-            this.cboLineStyle.TabIndex = 9;
-            // 
-            // cboLineWidth
-            // 
-            this.cboLineWidth.Color1 = System.Drawing.Color.Gray;
-            this.cboLineWidth.Color2 = System.Drawing.Color.Gray;
-            this.cboLineWidth.ColorSchemes = null;
-            this.cboLineWidth.ComboStyle = MWLite.Symbology.Controls.ImageComboStyle.LineWidth;
-            this.cboLineWidth.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLineWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLineWidth.FormattingEnabled = true;
             imageComboItem6.ForeColor = System.Drawing.Color.Transparent;
             imageComboItem6.ImageIndex = 0;
             imageComboItem6.Mark = false;
@@ -464,42 +459,153 @@ namespace MapWinGis_Demo_zhw.Forms
             imageComboItem10.Mark = false;
             imageComboItem10.Tag = null;
             imageComboItem10.Text = "";
-            imageComboItem11.ForeColor = System.Drawing.Color.Transparent;
-            imageComboItem11.ImageIndex = 5;
-            imageComboItem11.Mark = false;
-            imageComboItem11.Tag = null;
-            imageComboItem11.Text = "";
-            imageComboItem12.ForeColor = System.Drawing.Color.Transparent;
-            imageComboItem12.ImageIndex = 6;
-            imageComboItem12.Mark = false;
-            imageComboItem12.Tag = null;
-            imageComboItem12.Text = "";
-            imageComboItem13.ForeColor = System.Drawing.Color.Transparent;
-            imageComboItem13.ImageIndex = 7;
-            imageComboItem13.Mark = false;
-            imageComboItem13.Tag = null;
-            imageComboItem13.Text = "";
-            imageComboItem14.ForeColor = System.Drawing.Color.Transparent;
-            imageComboItem14.ImageIndex = 8;
-            imageComboItem14.Mark = false;
-            imageComboItem14.Tag = null;
-            imageComboItem14.Text = "";
-            imageComboItem15.ForeColor = System.Drawing.Color.Transparent;
-            imageComboItem15.ImageIndex = 9;
-            imageComboItem15.Mark = false;
-            imageComboItem15.Tag = null;
-            imageComboItem15.Text = "";
-            this.cboLineWidth.Items.AddRange(new object[] {
+            this.cboLineStyle.Items.AddRange(new object[] {
+            imageComboItem1,
+            imageComboItem2,
+            imageComboItem3,
+            imageComboItem4,
+            imageComboItem5,
             imageComboItem6,
             imageComboItem7,
             imageComboItem8,
             imageComboItem9,
-            imageComboItem10,
+            imageComboItem10});
+            this.cboLineStyle.Location = new System.Drawing.Point(234, 71);
+            this.cboLineStyle.Name = "cboLineStyle";
+            this.cboLineStyle.OutlineColor = System.Drawing.Color.Black;
+            this.cboLineStyle.Size = new System.Drawing.Size(86, 26);
+            this.cboLineStyle.TabIndex = 9;
+            // 
+            // cboLineWidth
+            // 
+            this.cboLineWidth.Color1 = System.Drawing.Color.Gray;
+            this.cboLineWidth.Color2 = System.Drawing.Color.Gray;
+            this.cboLineWidth.ColorSchemes = null;
+            this.cboLineWidth.ComboStyle = MWLite.Symbology.Controls.ImageComboStyle.LineWidth;
+            this.cboLineWidth.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLineWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLineWidth.FormattingEnabled = true;
+            imageComboItem11.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem11.ImageIndex = 0;
+            imageComboItem11.Mark = false;
+            imageComboItem11.Tag = null;
+            imageComboItem11.Text = "";
+            imageComboItem12.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem12.ImageIndex = 1;
+            imageComboItem12.Mark = false;
+            imageComboItem12.Tag = null;
+            imageComboItem12.Text = "";
+            imageComboItem13.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem13.ImageIndex = 2;
+            imageComboItem13.Mark = false;
+            imageComboItem13.Tag = null;
+            imageComboItem13.Text = "";
+            imageComboItem14.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem14.ImageIndex = 3;
+            imageComboItem14.Mark = false;
+            imageComboItem14.Tag = null;
+            imageComboItem14.Text = "";
+            imageComboItem15.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem15.ImageIndex = 4;
+            imageComboItem15.Mark = false;
+            imageComboItem15.Tag = null;
+            imageComboItem15.Text = "";
+            imageComboItem16.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem16.ImageIndex = 5;
+            imageComboItem16.Mark = false;
+            imageComboItem16.Tag = null;
+            imageComboItem16.Text = "";
+            imageComboItem17.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem17.ImageIndex = 6;
+            imageComboItem17.Mark = false;
+            imageComboItem17.Tag = null;
+            imageComboItem17.Text = "";
+            imageComboItem18.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem18.ImageIndex = 7;
+            imageComboItem18.Mark = false;
+            imageComboItem18.Tag = null;
+            imageComboItem18.Text = "";
+            imageComboItem19.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem19.ImageIndex = 8;
+            imageComboItem19.Mark = false;
+            imageComboItem19.Tag = null;
+            imageComboItem19.Text = "";
+            imageComboItem20.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem20.ImageIndex = 9;
+            imageComboItem20.Mark = false;
+            imageComboItem20.Tag = null;
+            imageComboItem20.Text = "";
+            imageComboItem21.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem21.ImageIndex = 0;
+            imageComboItem21.Mark = false;
+            imageComboItem21.Tag = null;
+            imageComboItem21.Text = "";
+            imageComboItem22.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem22.ImageIndex = 1;
+            imageComboItem22.Mark = false;
+            imageComboItem22.Tag = null;
+            imageComboItem22.Text = "";
+            imageComboItem23.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem23.ImageIndex = 2;
+            imageComboItem23.Mark = false;
+            imageComboItem23.Tag = null;
+            imageComboItem23.Text = "";
+            imageComboItem24.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem24.ImageIndex = 3;
+            imageComboItem24.Mark = false;
+            imageComboItem24.Tag = null;
+            imageComboItem24.Text = "";
+            imageComboItem25.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem25.ImageIndex = 4;
+            imageComboItem25.Mark = false;
+            imageComboItem25.Tag = null;
+            imageComboItem25.Text = "";
+            imageComboItem26.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem26.ImageIndex = 5;
+            imageComboItem26.Mark = false;
+            imageComboItem26.Tag = null;
+            imageComboItem26.Text = "";
+            imageComboItem27.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem27.ImageIndex = 6;
+            imageComboItem27.Mark = false;
+            imageComboItem27.Tag = null;
+            imageComboItem27.Text = "";
+            imageComboItem28.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem28.ImageIndex = 7;
+            imageComboItem28.Mark = false;
+            imageComboItem28.Tag = null;
+            imageComboItem28.Text = "";
+            imageComboItem29.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem29.ImageIndex = 8;
+            imageComboItem29.Mark = false;
+            imageComboItem29.Tag = null;
+            imageComboItem29.Text = "";
+            imageComboItem30.ForeColor = System.Drawing.Color.Transparent;
+            imageComboItem30.ImageIndex = 9;
+            imageComboItem30.Mark = false;
+            imageComboItem30.Tag = null;
+            imageComboItem30.Text = "";
+            this.cboLineWidth.Items.AddRange(new object[] {
             imageComboItem11,
             imageComboItem12,
             imageComboItem13,
             imageComboItem14,
-            imageComboItem15});
+            imageComboItem15,
+            imageComboItem16,
+            imageComboItem17,
+            imageComboItem18,
+            imageComboItem19,
+            imageComboItem20,
+            imageComboItem21,
+            imageComboItem22,
+            imageComboItem23,
+            imageComboItem24,
+            imageComboItem25,
+            imageComboItem26,
+            imageComboItem27,
+            imageComboItem28,
+            imageComboItem29,
+            imageComboItem30});
             this.cboLineWidth.Location = new System.Drawing.Point(234, 30);
             this.cboLineWidth.Name = "cboLineWidth";
             this.cboLineWidth.OutlineColor = System.Drawing.Color.Black;
@@ -608,6 +714,7 @@ namespace MapWinGis_Demo_zhw.Forms
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MeasuringForm";
