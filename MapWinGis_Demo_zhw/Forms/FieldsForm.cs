@@ -105,8 +105,12 @@ namespace MapWinGis.ShapeEditor.Forms
         //字段名集合
         List<string> fieldsNameList = new List<string>();
 
-        //旧值集合
-        List<object> oldValueList = new List<object>();
+        private bool enterPressFlag = false;
+
+        private bool editFlag = false;
+
+        //j旧值
+        List<object> oValList = new List<object>();
 
         //改变值集合
         List<changeValue> newValueList = new List<changeValue>();
@@ -123,6 +127,9 @@ namespace MapWinGis.ShapeEditor.Forms
             _shapefile = _layer.GetObject() as Shapefile;//获得图层对应shp对象
 
             attributeDGV.ReadOnly = true;
+
+            if (newValueList != null)
+                newValueList.Clear();
 
             OnCountChanged += afterCountChanged;
 
@@ -332,39 +339,37 @@ namespace MapWinGis.ShapeEditor.Forms
         {
             attributeDGV.ReadOnly = false;
 
+            if (newValueList != null)
+                newValueList.Clear();
+
             _shapefile.Table.StartEditingTable();
+
+            
         }
 
 
         //停止编辑按钮
         private void stopEditMenuItem_Click(object sender, EventArgs e)
         {
+            
             //有编辑的值时
-            if (newValueList != null)
-            { 
-                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (newValueList.Count>0)
+            {
+                saveEditValue();
 
-                if (result == DialogResult.OK)
-                {
-                    foreach (var v in newValueList)
-                    {
-                        _shapefile.EditCellValue(v.Col, v.Raw, v.Val);
-                    }
-                }
-                else
-                {
-                    for(int i = 0; i < newValueList.Count; i++)
-                    {
-                        int r = newValueList[i].Raw;
-                        int c = newValueList[i].Col + 2;
-                        Console.Write(newValueList[i].Col);
-
-
-                        //attributeDGV.Rows[newValueList[i].Raw].Cells[newValueList[i].Col+2].Value= oldValueList[i];
-                    }
-                }
             }
-            attributeDGV.ReadOnly = true;
+            //未按下enter就进行编辑保存时
+            else if(oValList.Count>0)
+            {
+                MessageBox.Show("请先按下回车键");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("你还未进行任何编辑操作！");
+                return;
+            }
+            
 
             _shapefile.Table.StopEditingTable();
 
@@ -372,9 +377,37 @@ namespace MapWinGis.ShapeEditor.Forms
         }
 
 
+        //新旧值已保存下的保存方法
+        private void saveEditValue()
+        {
+            DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                foreach (var v in newValueList)
+                {
+                    _shapefile.EditCellValue(v.Col - 2, v.Raw, v.Val);
+                }
+                attributeDGV.ReadOnly = true;
+            }
+            else
+            {
+                for (int i = 0; i < newValueList.Count; i++)
+                {
+                    int r = newValueList[i].Raw;
+                    int c = newValueList[i].Col;
+
+                    attributeDGV.Rows[r].Cells[c].Value = oValList[i];
+                }
+                attributeDGV.ReadOnly = true;
+            }
+        }
+
+
         //数据改变事件
         private void attributeDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            editFlag = true;
             //改变列名以外的信息时
             if (e.RowIndex > -1)
             {
@@ -487,24 +520,58 @@ namespace MapWinGis.ShapeEditor.Forms
 
         private void AttributesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (attributeDGV.ReadOnly != true)
+            //有编辑的值时
+            if (newValueList.Count > 0)
             {
-                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                saveEditValue();
 
-                if (result == DialogResult.OK)
-                {
-                    foreach(var v in newValueList)
-                    {
-                        _shapefile.EditCellValue(v.Col,v.Raw,v.Val);
-                    }
-                }
-                attributeDGV.ReadOnly = true;
+            }
+            _shapefile.Table.StopEditingTable();
+        }
+
+        private void attributeDGV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (!attributeDGV.ReadOnly)
+                    enterPressFlag = true;    
+            }
+        }
+
+        //为编辑后未点击回车而添加事件
+        private void attributeDGV_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!attributeDGV.ReadOnly)
+            {
+                if (oValList.Count()>0)
+                    MessageBox.Show("Yes");
+                //object newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                //newValueList.Add(new changeValue(e.ColumnIndex, e.RowIndex, newValue));
+                //MessageBox.Show(newValueList[0].Val.ToString());
+
             }
         }
 
         private void attributeDGV_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-                oldValueList.Add(attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+            if (!attributeDGV.ReadOnly)
+            { 
+                if (attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    oValList.Add(attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    MessageBox.Show(oValList[0].ToString());
+                }
+            }
+        }
+
+        private void attributeDGV_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!attributeDGV.ReadOnly)
+            {
+                if (oValList.Count() > 0)
+                    MessageBox.Show("Yes");
+            }
         }
     }
 
@@ -514,6 +581,8 @@ namespace MapWinGis.ShapeEditor.Forms
         int col;
         int raw;
         object val;
+        
+
 
         public changeValue(int col, int raw, object val)
         {

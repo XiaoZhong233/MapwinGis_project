@@ -135,3 +135,31 @@ E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Main.resources
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Controls.IdentifierContextMenu.resources
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.SnapShotForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\MapWinGis_Demo_zhw.exe.config
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\MapWinGis_Demo_zhw.exe
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\MapWinGis_Demo_zhw.pdb
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\MWLite.Symbology.dll
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\Interop.MapWinGIS.dll
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\AxInterop.MapWinGIS.dll
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\stdole.dll
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\MWLite.Symbology.pdb
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\bin\Debug\MWLite.Symbology.dll.config
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.csprojAssemblyReference.cache
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\Interop.MapWinGIS.dll
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\AxInterop.MapWinGIS.dll
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.csproj.ResolveComReference.cache
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Controls.IdentifierContextMenu.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.AddFieldsForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis.ShapeEditor.Forms.AttributesForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.FieldsVisibleForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.MapDockForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.MeasuringForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.SnapShotForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.MainForm.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Main.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Properties.Resources.resources
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.csproj.GenerateResource.cache
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.csproj.CoreCompileInputs.cache
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.csproj.CopyComplete
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.exe
+D:\C project\MapWinGIS\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.pdb
