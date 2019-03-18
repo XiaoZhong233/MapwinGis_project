@@ -107,10 +107,8 @@ namespace MapWinGis.ShapeEditor.Forms
 
         private bool enterPressFlag = false;
 
-        private bool editFlag = false;
-
         //j旧值
-        List<object> oValList = new List<object>();
+        List<oValueList> oValList = new List<oValueList>();
 
         //改变值集合
         List<changeValue> newValueList = new List<changeValue>();
@@ -133,20 +131,13 @@ namespace MapWinGis.ShapeEditor.Forms
 
             OnCountChanged += afterCountChanged;
 
-
-
-
-            /*  this.onSelectColumnIndexChange += (o, n) =>
-              {
-                  MessageBox.Show("旧值：" + o + "\n" + "新值：" + n);
-              };*/
-
-
             attributeDGV.CellContextMenuStripNeeded += (s, e) =>
             {
                 SelectColumnIndex = e.ColumnIndex;
 
             };
+
+            editStyleTBox.TextAlign = ContentAlignment.BottomCenter;
 
         }
 
@@ -337,6 +328,7 @@ namespace MapWinGis.ShapeEditor.Forms
         //开始编辑按钮
         private void startEditMenuItem_Click(object sender, EventArgs e)
         {
+            editStyleTBox.Text = "编辑中，按下enter以结束编辑";
             attributeDGV.ReadOnly = false;
 
             if (newValueList != null)
@@ -344,35 +336,20 @@ namespace MapWinGis.ShapeEditor.Forms
 
             _shapefile.Table.StartEditingTable();
 
-            
         }
 
 
         //停止编辑按钮
         private void stopEditMenuItem_Click(object sender, EventArgs e)
         {
-            
             //有编辑的值时
-            if (newValueList.Count>0)
+            if (newValueList.Count > 0)
             {
                 saveEditValue();
-
-            }
-            //未按下enter就进行编辑保存时
-            else if(oValList.Count>0)
-            {
-                MessageBox.Show("请先按下回车键");
-                return;
             }
             else
-            {
-                MessageBox.Show("你还未进行任何编辑操作！");
-                return;
-            }
+                 MessageBox.Show("请先按下enter键进行保存");
             
-
-            _shapefile.Table.StopEditingTable();
-
 
         }
 
@@ -380,26 +357,36 @@ namespace MapWinGis.ShapeEditor.Forms
         //新旧值已保存下的保存方法
         private void saveEditValue()
         {
-            DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.OK)
+            try
             {
-                foreach (var v in newValueList)
+                editStyleTBox.Text = "未编辑状态";
+                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.OK)
                 {
-                    _shapefile.EditCellValue(v.Col - 2, v.Raw, v.Val);
+                    foreach (var v in newValueList)
+                    {
+                        _shapefile.EditCellValue(v.Col - 2, v.Raw, v.Val);
+                    }
+                    attributeDGV.ReadOnly = true;
                 }
-                attributeDGV.ReadOnly = true;
+                else
+                {
+                    for (int i = 0; i < oValList.Count; i++)
+                    {
+                        int r = oValList[i].Raw;
+                        int c = oValList[i].Col;
+
+                        attributeDGV.Rows[r].Cells[c].Value = oValList[i].Val;
+                    }
+                    attributeDGV.ReadOnly = true;
+                }
+                _shapefile.Table.StopEditingTable();
             }
-            else
+            catch (ArgumentOutOfRangeException)
             {
-                for (int i = 0; i < newValueList.Count; i++)
-                {
-                    int r = newValueList[i].Raw;
-                    int c = newValueList[i].Col;
-
-                    attributeDGV.Rows[r].Cells[c].Value = oValList[i];
-                }
-                attributeDGV.ReadOnly = true;
+                MessageBox.Show("数据编辑失败，请重新编辑");
+                _shapefile.Table.StopEditingTable();
             }
         }
 
@@ -407,7 +394,6 @@ namespace MapWinGis.ShapeEditor.Forms
         //数据改变事件
         private void attributeDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            editFlag = true;
             //改变列名以外的信息时
             if (e.RowIndex > -1)
             {
@@ -415,7 +401,7 @@ namespace MapWinGis.ShapeEditor.Forms
                 object newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
                
                 newValueList.Add(new changeValue(e.ColumnIndex, e.RowIndex,newValue));
-           
+              
             }
 
         }
@@ -520,59 +506,93 @@ namespace MapWinGis.ShapeEditor.Forms
 
         private void AttributesForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //有编辑的值时
-            if (newValueList.Count > 0)
+            try
             {
-                saveEditValue();
+                editStyleTBox.Text = "未编辑状态";
+                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
+                if (result == DialogResult.OK)
+                {
+                    foreach (var v in newValueList)
+                    {
+                        _shapefile.EditCellValue(v.Col - 2, v.Raw, v.Val);
+                    }
+                    attributeDGV.ReadOnly = true;
+                }
+                else
+                {
+                    for (int i = 0; i < oValList.Count; i++)
+                    {
+                        int r = oValList[i].Raw;
+                        int c = oValList[i].Col;
+
+                        attributeDGV.Rows[r].Cells[c].Value = oValList[i].Val;
+                    }
+                    attributeDGV.ReadOnly = true;
+                }
+                _shapefile.Table.StopEditingTable();
             }
-            _shapefile.Table.StopEditingTable();
-        }
-
-        private void attributeDGV_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //
-            if (e.KeyChar == (char)Keys.Enter)
+            catch (ArgumentOutOfRangeException)
             {
-                if (!attributeDGV.ReadOnly)
-                    enterPressFlag = true;    
-            }
-        }
-
-        //为编辑后未点击回车而添加事件
-        private void attributeDGV_CellLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if (!attributeDGV.ReadOnly)
-            {
-                if (oValList.Count()>0)
-                    MessageBox.Show("Yes");
-                //object newValue = attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-                //newValueList.Add(new changeValue(e.ColumnIndex, e.RowIndex, newValue));
-                //MessageBox.Show(newValueList[0].Val.ToString());
-
+                MessageBox.Show("数据编辑失败，请重新编辑");
+                _shapefile.Table.StopEditingTable();
             }
         }
 
         private void attributeDGV_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
+            enterPressFlag = false;
+
             if (!attributeDGV.ReadOnly)
             { 
                 if (attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
-                    oValList.Add(attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    MessageBox.Show(oValList[0].ToString());
+                    oValList.Add(new oValueList(e.ColumnIndex,e.RowIndex, attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value));
+                    editStyleTBox.Text = "按下enter以进行下一次编辑";
                 }
             }
         }
 
-        private void attributeDGV_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void attributeDGV_MouseLeave(object sender, EventArgs e)
         {
             if (!attributeDGV.ReadOnly)
             {
-                if (oValList.Count() > 0)
-                    MessageBox.Show("Yes");
+                if(enterPressFlag)
+                    editStyleTBox.Text = "请继续";
+                else
+                    editStyleTBox.Text = "请先按下enter键进行保存！";
             }
         }
+
+        private void attributeDGV_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!attributeDGV.ReadOnly)
+                {
+                    enterPressFlag = true;
+                }
+            }
+        }
+    }
+
+    class oValueList
+    {
+        int col;
+        int raw;
+        object val;
+
+        public oValueList(int col, int raw, object val)
+        {
+            this.col = col;
+            this.raw = raw;
+            this.val = val;
+        }
+
+        public object Val { get => val; set => val = value; }
+        public int Raw { get => raw; set => raw = value; }
+        public int Col { get => col; set => col = value; }
     }
 
     class changeValue

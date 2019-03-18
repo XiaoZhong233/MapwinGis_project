@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editStyleTBox = new System.Windows.Forms.Label();
             this.editMenuStrip = new System.Windows.Forms.MenuStrip();
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startEditMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.editStyleTBox);
             this.panel1.Controls.Add(this.editMenuStrip);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -61,6 +63,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1079, 34);
             this.panel1.TabIndex = 8;
+            // 
+            // editStyleTBox
+            // 
+            this.editStyleTBox.Location = new System.Drawing.Point(418, 0);
+            this.editStyleTBox.Name = "editStyleTBox";
+            this.editStyleTBox.Size = new System.Drawing.Size(302, 32);
+            this.editStyleTBox.TabIndex = 1;
+            this.editStyleTBox.Text = "未编辑状态";
+            this.editStyleTBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // editMenuStrip
             // 
@@ -170,11 +181,11 @@
             this.attributeDGV.Size = new System.Drawing.Size(1029, 692);
             this.attributeDGV.TabIndex = 0;
             this.attributeDGV.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attributeDGV_CellBeginEdit);
-            this.attributeDGV.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.attributeDGV_CellEndEdit);
             this.attributeDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attributeDGV_CellValueChanged);
             this.attributeDGV.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.attributeDGV_DataError);
             this.attributeDGV.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.attributeDGV_RowHeaderMouseDoubleClick);
-            this.attributeDGV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.attributeDGV_KeyPress);
+            this.attributeDGV.KeyUp += new System.Windows.Forms.KeyEventHandler(this.attributeDGV_KeyUp);
+            this.attributeDGV.MouseLeave += new System.EventHandler(this.attributeDGV_MouseLeave);
             // 
             // columnsContextMenuStrip1
             // 
@@ -242,5 +253,6 @@
         private System.Windows.Forms.ToolStripMenuItem 更改列名ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除字段ToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 可见性ToolStripMenuItem;
+        private System.Windows.Forms.Label editStyleTBox;
     }
 }
