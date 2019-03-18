@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace MapWinGis_Demo_zhw.Forms
         private int m_Color =  Microsoft.VisualBasic.Information.RGB(0, 0, 0);
         //private int m_Color = Color.OrangeRed.ToArgb();
         private int m_FillColor = Color.OrangeRed.ToArgb();
+        private bool isAsk = true;
 
         public SnapShotForm()
         {
@@ -317,13 +319,6 @@ namespace MapWinGis_Demo_zhw.Forms
             return true;
         }
 
-        /// <summary>
-        /// 关闭预览地图控件
-        /// </summary>
-        public void Close()
-        {
-            //TODOS:关闭预览地图控件
-        }
 
         #endregion
 
@@ -334,8 +329,11 @@ namespace MapWinGis_Demo_zhw.Forms
         /// <param name="fullExtents">指示是否使用全图显示地图</param>
         public void GetPictureFromMap(bool fullExtents)
         {
+            DateTime beforDT = System.DateTime.Now;
+            beforDT = System.DateTime.Now;
             try
             {
+                
                 MapWinGIS.Extents exts;
                 MapWinGIS.Image img = new MapWinGIS.Image();
                 double ratio = 0;
@@ -377,7 +375,7 @@ namespace MapWinGis_Demo_zhw.Forms
 
                 //不建议更改透明度  渲染速度明显变慢
                 //tmpImg = ImageUtils.img_alpha((Bitmap)tmpImg,255);
-
+              
                 img.Picture = (stdole.IPictureDisp)(cvter.ImageToIPictureDisp(tmpImg));
                 img.dX = (exts.xMax - exts.xMin) / img.Width;
                 img.dY = (exts.yMax - exts.yMin) / img.Height;
@@ -410,6 +408,24 @@ namespace MapWinGis_Demo_zhw.Forms
                MapPreview.LockWindow(MapWinGIS.tkLockMode.lmUnlock);
                App.Map.LockWindow(MapWinGIS.tkLockMode.lmUnlock);
             }
+
+            DateTime afterDT = System.DateTime.Now;
+            TimeSpan ts = afterDT.Subtract(beforDT);
+            //MessageBox.Show("DateTime总共花费"+ ts.TotalMilliseconds + "ms.");
+            Debug.Print("DateTime总共花费{0}ms.", ts.TotalMilliseconds);
+            if (ts.TotalMilliseconds > 300 && isAsk)
+            {
+                if (MessageHelper.Ask("当前图层数据量过大，由于鸟瞰图会不断截\n取影像快照造成渲染速度降低。\n为了加快渲染速度，是否关闭鸟瞰图？")== DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    isAsk = false;
+                }
+            }
+            
+
         }
 
 

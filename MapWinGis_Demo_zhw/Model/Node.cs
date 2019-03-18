@@ -40,7 +40,6 @@ namespace MapWinGis_Demo_zhw
 
 
 
-
         private NodeType nodeType;
 
         public NodeType NodeType

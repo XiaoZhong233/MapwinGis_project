@@ -504,9 +504,10 @@ namespace MapWinGis_Demo_zhw
             String[] files = openShapefileDialog();
             if (files != null)
             {
-
-                //files = sortLayerWithCurLayer(files);
-                //clearAllLayers();
+                //原图层排序，优点是能在legend中表示顺序
+                //缺点打开速度慢
+                files = sortLayerWithCurLayer(files);
+                clearAllLayers();
 
                 try
                 {
@@ -604,7 +605,7 @@ namespace MapWinGis_Demo_zhw
                 }
                 finally
                 {
-                    SortLayersByType();
+                    //SortLayersByType();
                     Map.LockWindow(tkLockMode.lmUnlock);
                     Debug.Print("Layers added to the map: " + Map.NumLayers);
                     RefreshUI();
@@ -1007,7 +1008,7 @@ namespace MapWinGis_Demo_zhw
 
 
         /// <summary>
-        /// 图层排序
+        /// 图层排序,在当前的组中
         /// </summary>
         public void SortLayersByType()
         {
@@ -1035,6 +1036,9 @@ namespace MapWinGis_Demo_zhw
                     {
                         int position = Map.get_LayerPosition(handle);
                         Map.MoveLayerBottom(position);
+                        //拿到当前图层所属的组
+                        Node node = findNode(x => x.LayerHandle == handle && x.NodeType == NodeType.layer);
+                        Legend.Layers.MoveLayer(handle, node.ParentGroupHandle, position);
                     }
                 }
                 finally

@@ -142,6 +142,8 @@ namespace MapWinGis_Demo_zhw.Forms
         {
             try
             {
+                if (App.SnapshotForm.IsDisposed)
+                    return;
                 App.SnapshotForm.UpdateLocatorBox();
                 App.SnapshotForm.GetPictureFromMap(true);
             }
