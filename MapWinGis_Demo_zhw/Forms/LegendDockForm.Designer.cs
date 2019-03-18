@@ -31,15 +31,13 @@ namespace MapWinGis_Demo_zhw.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "LegendDockForm";
-
-            //this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LegendDockForm));
             this.ctxZoomToLayer = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxLabels = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctxCalculateArea = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.ctxSaveLayerStyle = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxLoadLayerStyle = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,32 +48,31 @@ namespace MapWinGis_Demo_zhw.Forms
             this.ctxRemoveLayer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.legend1 = new MWLite.Symbology.LegendControl.Legend();
-            this.ctxCalculateArea = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctxZoomToLayer
             // 
             this.ctxZoomToLayer.Name = "ctxZoomToLayer";
-            this.ctxZoomToLayer.Size = new System.Drawing.Size(155, 22);
+            this.ctxZoomToLayer.Size = new System.Drawing.Size(191, 24);
             this.ctxZoomToLayer.Text = "Zoom to layer";
             // 
             // ctxLabels
             // 
             this.ctxLabels.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ctxLabels.Name = "ctxLabels";
-            this.ctxLabels.Size = new System.Drawing.Size(155, 22);
+            this.ctxLabels.Size = new System.Drawing.Size(191, 24);
             this.ctxLabels.Text = "Labels";
             // 
             // ctxProperties
             // 
             this.ctxProperties.Name = "ctxProperties";
-            this.ctxProperties.Size = new System.Drawing.Size(155, 22);
+            this.ctxProperties.Size = new System.Drawing.Size(191, 24);
             this.ctxProperties.Text = "Properties";
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctxLabels,
             this.ctxZoomToLayer,
@@ -91,60 +88,70 @@ namespace MapWinGis_Demo_zhw.Forms
             this.toolStripSeparator3,
             this.ctxProperties});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 232);
-            //this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 226);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(188, 6);
+            // 
+            // ctxCalculateArea
+            // 
+            this.ctxCalculateArea.Name = "ctxCalculateArea";
+            this.ctxCalculateArea.Size = new System.Drawing.Size(191, 24);
+            this.ctxCalculateArea.Text = "Calculate area";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(188, 6);
             // 
             // ctxSaveLayerStyle
             // 
             this.ctxSaveLayerStyle.Name = "ctxSaveLayerStyle";
-            this.ctxSaveLayerStyle.Size = new System.Drawing.Size(155, 22);
+            this.ctxSaveLayerStyle.Size = new System.Drawing.Size(191, 24);
             this.ctxSaveLayerStyle.Text = "Save layer style";
             // 
             // ctxLoadLayerStyle
             // 
             this.ctxLoadLayerStyle.Name = "ctxLoadLayerStyle";
-            this.ctxLoadLayerStyle.Size = new System.Drawing.Size(155, 22);
+            this.ctxLoadLayerStyle.Size = new System.Drawing.Size(191, 24);
             this.ctxLoadLayerStyle.Text = "Load layer style";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(188, 6);
             // 
             // ctxPostGis
             // 
             this.ctxPostGis.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctxImportOgrLayer});
             this.ctxPostGis.Name = "ctxPostGis";
-            this.ctxPostGis.Size = new System.Drawing.Size(155, 22);
+            this.ctxPostGis.Size = new System.Drawing.Size(191, 24);
             this.ctxPostGis.Text = "PostGIS";
             // 
             // ctxImportOgrLayer
             // 
             this.ctxImportOgrLayer.Name = "ctxImportOgrLayer";
-            this.ctxImportOgrLayer.Size = new System.Drawing.Size(119, 22);
+            this.ctxImportOgrLayer.Size = new System.Drawing.Size(146, 26);
             this.ctxImportOgrLayer.Text = "Import...";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
             // 
             // ctxRemoveLayer
             // 
             this.ctxRemoveLayer.Name = "ctxRemoveLayer";
-            this.ctxRemoveLayer.Size = new System.Drawing.Size(155, 22);
+            this.ctxRemoveLayer.Size = new System.Drawing.Size(191, 24);
             this.ctxRemoveLayer.Text = "Remove layer";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(188, 6);
             // 
             // legend1
             // 
@@ -160,31 +167,22 @@ namespace MapWinGis_Demo_zhw.Forms
             this.legend1.Size = new System.Drawing.Size(331, 358);
             this.legend1.TabIndex = 2;
             // 
-            // ctxCalculateArea
-            // 
-            this.ctxCalculateArea.Name = "ctxCalculateArea";
-            this.ctxCalculateArea.Size = new System.Drawing.Size(155, 22);
-            this.ctxCalculateArea.Text = "Calculate area";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(152, 6);
-            // 
             // LegendDockForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(331, 358);
             this.Controls.Add(this.legend1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LegendDockForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Legend 图例";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
    

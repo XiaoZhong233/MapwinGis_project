@@ -57,26 +57,26 @@
             this.当前视图ToolStripMenuItem,
             this.清除预览ToolStripMenuItem});
             this.PreviewMapContextMenuStrip.Name = "PreviewMapContextMenuStrip";
-            this.PreviewMapContextMenuStrip.Size = new System.Drawing.Size(211, 104);
+            this.PreviewMapContextMenuStrip.Size = new System.Drawing.Size(139, 76);
             // 
             // 全局视图ToolStripMenuItem
             // 
             this.全局视图ToolStripMenuItem.Name = "全局视图ToolStripMenuItem";
-            this.全局视图ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.全局视图ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.全局视图ToolStripMenuItem.Text = "全局视图";
             this.全局视图ToolStripMenuItem.Click += new System.EventHandler(this.全局视图ToolStripMenuItem_Click);
             // 
             // 当前视图ToolStripMenuItem
             // 
             this.当前视图ToolStripMenuItem.Name = "当前视图ToolStripMenuItem";
-            this.当前视图ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.当前视图ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.当前视图ToolStripMenuItem.Text = "当前视图";
             this.当前视图ToolStripMenuItem.Click += new System.EventHandler(this.当前视图ToolStripMenuItem_Click);
             // 
             // 清除预览ToolStripMenuItem
             // 
             this.清除预览ToolStripMenuItem.Name = "清除预览ToolStripMenuItem";
-            this.清除预览ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.清除预览ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.清除预览ToolStripMenuItem.Text = "清除预览";
             this.清除预览ToolStripMenuItem.Click += new System.EventHandler(this.清除预览ToolStripMenuItem_Click);
             // 
@@ -87,6 +87,7 @@
             this.ClientSize = new System.Drawing.Size(398, 318);
             this.Controls.Add(this.MapPreview);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SnapShotForm";
             this.Text = "Preview 鸟瞰";
             ((System.ComponentModel.ISupportInitialize)(this.MapPreview)).EndInit();

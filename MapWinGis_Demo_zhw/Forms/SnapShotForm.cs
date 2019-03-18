@@ -29,8 +29,9 @@ namespace MapWinGis_Demo_zhw.Forms
         private int m_startX;
         private int m_startY;
         private int m_DrawHandle = -1;
-        private int m_Color =  Microsoft.VisualBasic.Information.RGB(255, 0, 0);
-
+        private int m_Color =  Microsoft.VisualBasic.Information.RGB(0, 0, 0);
+        //private int m_Color = Color.OrangeRed.ToArgb();
+        private int m_FillColor = Color.OrangeRed.ToArgb();
 
         public SnapShotForm()
         {
@@ -374,6 +375,9 @@ namespace MapWinGis_Demo_zhw.Forms
                 ImageUtils cvter = new ImageUtils();
                 System.Drawing.Image tmpImg = ImageUtils.ObjectToImage(img.Picture, System.Convert.ToInt32(img.Width * ratio), System.Convert.ToInt32(img.Height * ratio));
 
+                //不建议更改透明度  渲染速度明显变慢
+                //tmpImg = ImageUtils.img_alpha((Bitmap)tmpImg,255);
+
                 img.Picture = (stdole.IPictureDisp)(cvter.ImageToIPictureDisp(tmpImg));
                 img.dX = (exts.xMax - exts.xMin) / img.Width;
                 img.dY = (exts.yMax - exts.yMin) / img.Height;
@@ -459,6 +463,10 @@ namespace MapWinGis_Demo_zhw.Forms
         internal void DrawBox(System.Drawing.Rectangle rect)
         {
             uint color = Convert.ToUInt32(m_Color);
+            //ColorConverter wcc = new ColorConverter();
+            //Color c = (Color)wcc.ConvertFromString("#A6003000");
+            //uint color = (uint)c.ToArgb();
+            //uint color = #1e000000;
             if (m_DrawHandle >= 0)
             {
                 MapPreview.ClearDrawing(m_DrawHandle);
@@ -469,7 +477,11 @@ namespace MapWinGis_Demo_zhw.Forms
             MapPreview.DrawLine(rect.Right, rect.Top, rect.Right, rect.Bottom, 2, color);
             MapPreview.DrawLine(rect.Right, rect.Bottom, rect.Left, rect.Bottom, 2, color);
             MapPreview.DrawLine(rect.Left, rect.Bottom, rect.Left, rect.Top, 2, color);
-
+            //double[] xPoint = { rect.Left,rect.Left, rect.Right, rect.Right };
+            //double[] yPoint = { rect.Top, rect.Bottom, rect.Bottom, rect.Top };
+            //object x = xPoint;
+            //object y = yPoint;
+            //MapPreview.DrawPolygon(ref x,ref y, 4, color, true);
         }
 
         /// <summary>
