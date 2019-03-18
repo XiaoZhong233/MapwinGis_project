@@ -193,6 +193,16 @@ namespace MapWinGis_Demo_zhw.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap layer_more {
+            get {
+                object obj = ResourceManager.GetObject("layer-more", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap layer_raster_add {
             get {
                 object obj = ResourceManager.GetObject("layer-raster-add", resourceCulture);

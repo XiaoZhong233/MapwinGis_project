@@ -2,6 +2,7 @@
 using MapWinGis.ShapeEditor.Forms;
 using MapWinGIS;
 using MapWinGis_Demo_zhw.Forms;
+using MapWinGis_Demo_zhw.Helper;
 using MapWinGis_Demo_zhw.Manager;
 using MWLite.Symbology.Forms;
 using MWLite.Symbology.LegendControl;
@@ -17,6 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using static MapWinGis_Demo_zhw.Enums;
 
 namespace MapWinGis_Demo_zhw
 {
@@ -152,6 +154,10 @@ namespace MapWinGis_Demo_zhw
             InitDockLayout();
             InitLegend();
             RegisterToolEvt();
+            this.FormClosed += (s, e) =>
+            {
+                this.Tag = FormStates.Closing;
+            };
 
         }
 
@@ -176,6 +182,41 @@ namespace MapWinGis_Demo_zhw
             //_mapForm2.DockTo(_legendForm.Pane, DockStyle.Bottom, 1);
             //_mapForm2.Show(dockPanel1, DockState.DockLeft);
             //_mapForm.SelectionChanged += (s, e) => RefreshUI();
+
+            _legendForm.DockStateChanged += (s, e) =>
+            {
+                //MessageHelper.Info(_legendForm.DockState+" ");
+                //因为关闭窗体前会触发，为了不引起不必要的异常
+                if(this.Tag is FormStates)
+                {
+                    return;
+                }
+                RefreshUI();
+            };
+
+            _snapForm.DockStateChanged += (s, e) =>
+            {
+                if (this.Tag is FormStates)
+                {
+                    return;
+                }
+                RefreshUI();
+            };
+
+            //用户关闭控件只会隐藏，而不是真正地被gc掉了
+            _legendForm.FormClosing += (s, e) =>
+            {
+                e.Cancel = true;//撤销窗体关闭操作 
+                _legendForm.DockState = DockState.Hidden;
+                
+            };
+
+            _snapForm.FormClosing += (s, e) =>
+            {
+                e.Cancel = true;//撤销窗体关闭操作 
+                _snapForm.DockState = DockState.Hidden;
+            };
+
             _mapForm.CloseButton = false;
             _mapForm.Activate();
         }
@@ -777,6 +818,9 @@ namespace MapWinGis_Demo_zhw
             toolSelect.Checked = Map.CursorMode == tkCursorMode.cmSelection;
             toolSelectByPolygon.Checked = Map.CursorMode == tkCursorMode.cmSelectByPolygon;
             toolIdentify.Checked = Map.CursorMode == tkCursorMode.cmIdentify;
+            toolLegendButton.Enabled = _legendForm.DockState == DockState.Hidden || _legendForm.DockState == DockState.Unknown;
+            toolPreviewButton.Enabled = _snapForm.DockState == DockState.Hidden || _snapForm.DockState == DockState.Unknown;
+           
 
             bool distance = Map.Measuring.MeasuringType == tkMeasuringType.MeasureDistance;
             toolMeasure.Checked = Map.CursorMode == tkCursorMode.cmMeasure && distance;
@@ -1046,6 +1090,37 @@ namespace MapWinGis_Demo_zhw
                     Map.LockWindow(tkLockMode.lmUnlock);
                 }
             }
+        }
+
+
+        private void toolPreviewButton_Click(object sender, EventArgs e)
+        {
+            //如果图例控件在隐藏状态的话，鸟瞰图需要变为浮动状态
+            if(_legendForm.DockState != DockState.Hidden)
+            {
+                _snapForm.DockState = DockState.DockLeft;
+            }
+            else
+            {
+                //_snapForm.DockState = DockState.DockLeft;
+                //_snapForm.Show(_legendForm.Pane, DockAlignment.Bottom, .4d);
+                _snapForm.DockState = DockState.Float;
+            }
+        }
+
+        private void toolLegendButton_Click(object sender, EventArgs e)
+        {
+            _legendForm.DockState = DockState.DockLeft;
+        }
+
+        private void mnuSnapshot_Click(object sender, EventArgs e)
+        {
+
+
+            MapWinGIS.Image img = App.Map.SnapShot(App.Map.MaxExtents);
+            ImageUtils cvter = new ImageUtils();
+            System.Drawing.Image tmpImg = ImageUtils.ObjectToImage(img.Picture, System.Convert.ToInt32(img.Width ), System.Convert.ToInt32(img.Height));
+
         }
     }
 }

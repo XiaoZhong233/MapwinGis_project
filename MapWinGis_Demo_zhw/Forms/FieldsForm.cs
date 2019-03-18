@@ -338,13 +338,16 @@ namespace MapWinGis.ShapeEditor.Forms
 
         }
 
+        private bool haveSave = false;
 
         //停止编辑按钮
         private void stopEditMenuItem_Click(object sender, EventArgs e)
         {
             //有编辑的值时
+            //另外如果用户没改吧值呢？？
             if (newValueList.Count > 0)
             {
+                haveSave = true;
                 saveEditValue();
             }
             else
@@ -360,7 +363,13 @@ namespace MapWinGis.ShapeEditor.Forms
             try
             {
                 editStyleTBox.Text = "未编辑状态";
-                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result= DialogResult.OK;
+                if (!haveSave && newValueList.Count > 0)
+                {
+                    //这个对话框应该只在关闭时并且用户未点击停止编辑时显示
+                    result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                }
+               
 
                 if (result == DialogResult.OK)
                 {
@@ -508,8 +517,16 @@ namespace MapWinGis.ShapeEditor.Forms
         {
             try
             {
+
+                //???你这里代码和saveEditValue（）重复了吧  白痴
+                DialogResult result = DialogResult.OK;
+                if (!haveSave && newValueList.Count > 0)
+                {
+                    result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                }
+                
+
                 editStyleTBox.Text = "未编辑状态";
-                DialogResult result = MessageBox.Show("是否保存已编辑的内容？", "有未保存内容", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (result == DialogResult.OK)
                 {

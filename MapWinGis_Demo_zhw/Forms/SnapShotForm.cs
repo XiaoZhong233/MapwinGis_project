@@ -329,6 +329,8 @@ namespace MapWinGis_Demo_zhw.Forms
         /// <param name="fullExtents">指示是否使用全图显示地图</param>
         public void GetPictureFromMap(bool fullExtents)
         {
+            if (this.DockState == WeifenLuo.WinFormsUI.Docking.DockState.Hidden)
+                return;
             DateTime beforDT = System.DateTime.Now;
             beforDT = System.DateTime.Now;
             try
@@ -417,7 +419,9 @@ namespace MapWinGis_Demo_zhw.Forms
             {
                 if (MessageHelper.Ask("当前图层数据量过大，由于鸟瞰图会不断截\n取影像快照造成渲染速度降低。\n为了加快渲染速度，是否关闭鸟瞰图？")== DialogResult.Yes)
                 {
-                    this.Close();
+                    //this.Close();
+                    this.DockState = WeifenLuo.WinFormsUI.Docking.DockState.Hidden;
+                    
                 }
                 else
                 {
