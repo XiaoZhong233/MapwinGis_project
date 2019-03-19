@@ -11,10 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using WeifenLuo.WinFormsUI.Docking;
+using System.IO;
+using MapWinGis_Demo_zhw;
 
 namespace MapWinGis.ShapeEditor.Forms
 {
-    public partial class AttributesForm : Form
+    public partial class AttributesForm : DockContent
     {
 
         public int FieldsCount
@@ -143,6 +146,11 @@ namespace MapWinGis.ShapeEditor.Forms
 
         private delegate void action(Type type);
 
+
+
+
+
+
         //字段数改变委托
         private delegate void CountChanged(object sender, int newRecordsCount, int newFieldValue);
 
@@ -152,7 +160,7 @@ namespace MapWinGis.ShapeEditor.Forms
         //字段数/记录数改变后发生的方法
         private void afterCountChanged(object sender, int newRecordsCount, int newFieldsCount)
         {
-            label1.Text = Convert.ToString(newRecordsCount) + " Numbers in " + Convert.ToString(newFieldsCount) + " Fields";
+            label1.Text = Path.GetFileNameWithoutExtension(_shapefile.Filename) + " "+Convert.ToString(newRecordsCount) + " Numbers in " + Convert.ToString(newFieldsCount) + " Fields";
         }
 
         //记录事件触发函数
@@ -300,7 +308,7 @@ namespace MapWinGis.ShapeEditor.Forms
             }
 
             //显示记录数和字段数
-            label1.Text = Convert.ToString(RecordsCount) + " Numbers in " + Convert.ToString(FieldsCount) + " Fields";
+            label1.Text = Path.GetFileNameWithoutExtension(_shapefile.Filename) + " "+Convert.ToString(RecordsCount) + " Numbers in " + Convert.ToString(FieldsCount) + " Fields";
 
             //该数据表作为数据源赋给属性表
             attributeDGV.DataSource = dataTable;
@@ -321,6 +329,10 @@ namespace MapWinGis.ShapeEditor.Forms
         private void attributeDGV_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             _axMap.ZoomToShape(_layerHandle, e.RowIndex);
+            Shapefile sf = App.Map.get_Shapefile(_layerHandle);
+            sf.SelectNone();
+            sf.ShapeSelected[e.RowIndex] = true;
+            App.RefreshUI();
 
         }
 
@@ -591,6 +603,47 @@ namespace MapWinGis.ShapeEditor.Forms
                     enterPressFlag = true;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //this.DockState = DockState.Float;
+            if(this.DockState == DockState.Document)
+            {
+                this.Close();
+                AttributesForm attributesForm = new AttributesForm(App.Map, App.Legend, _layerHandle);
+                attributesForm.StartPosition = FormStartPosition.CenterScreen;
+                attributesForm.Show();
+            }
+            else
+            {
+                //AttributesForm attributesForm = new AttributesForm(Map, Legend, Legend.SelectedLayer);
+                //attributesForm.StartPosition = FormStartPosition.CenterScreen;
+                //_snapForm.Show(_legendForm.Pane, DockAlignment.Bottom, .4d);
+                //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                //attributesForm.FormBorderStyle = FormBorderStyle.Fixed3D;
+                this.Show(Main.Instance.mapDockForm.Pane, DockAlignment.Bottom, .4d);
+            }
+
+            //this.WindowState = FormWindowState.Maximized;
+            //this.Size = new Size(1800, 1800);
+            //this.Width = 1900;
+            //this.Height = 900;
+        }
+
+        private void 清空选择ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _shapefile.SelectNone();
+        }
+
+        private void sQL查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

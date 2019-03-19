@@ -115,6 +115,11 @@ namespace MapWinGis_Demo_zhw
             get { return _snapForm; }
         }
 
+        public WeifenLuo.WinFormsUI.Docking.DockPanel Panel
+        {
+            get { return dockPanel1; }
+        }
+
 
         //获取当前图例控件
         public Legend Legend
@@ -194,9 +199,13 @@ namespace MapWinGis_Demo_zhw
 
             _mapForm = new MapDockForm();
             _mapForm.Show(dockPanel1, DockState.Document);
+            _mapForm.CloseButtonVisible = true;
+            _mapForm.CloseButton = true;
 
             _legendForm = new LegendDockForm();
             _legendForm.Show(dockPanel1, DockState.DockLeft);
+
+            //_legendForm.CloseButtonVisible = false;
 
             _snapForm = new SnapShotForm();
             //public void DockTo(DockPane paneTo, DockStyle dockStyle, int contentIndex);
@@ -506,7 +515,13 @@ namespace MapWinGis_Demo_zhw
 
                 AttributesForm attributesForm = new AttributesForm(Map, Legend, Legend.SelectedLayer);
                 attributesForm.StartPosition = FormStartPosition.CenterScreen;
-                attributesForm.Show();
+                //_snapForm.Show(_legendForm.Pane, DockAlignment.Bottom, .4d);
+                //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                //attributesForm.FormBorderStyle = FormBorderStyle.Fixed3D;
+                attributesForm.Show(mapDockForm.Pane, DockAlignment.Bottom, .4d);
+                //attributesForm.Show(dockPanel1, DockState.DockBottom);
+
+
             }
         }
 
@@ -544,14 +559,11 @@ namespace MapWinGis_Demo_zhw
         /// <param name="e"></param>
         private void ToolClearSelection_Click(object sender, EventArgs e)
         {
-            if(Map.CursorMode == tkCursorMode.cmSelection || Map.CursorMode == tkCursorMode.cmSelectByPolygon)
-            {
-                int selectLayerHandle = App.Legend.SelectedLayer;
-                Shapefile sf = Map.get_Shapefile(selectLayerHandle);
-                sf.SelectNone();
-                App.RefreshUI();
-                Map.Redraw();
-            }
+            int selectLayerHandle = App.Legend.SelectedLayer;
+            Shapefile sf = Map.get_Shapefile(selectLayerHandle);
+            sf.SelectNone();
+            App.RefreshUI();
+            Map.Redraw();
         }
 
         /// <summary>
@@ -945,7 +957,7 @@ namespace MapWinGis_Demo_zhw
                 {
                     //MessageHelper.Info("cur mode" + Map.CursorMode.ToString());
                     statusSelectedCount.Text = string.Format("Shapes: {0}; selected: {1}", sf.NumShapes, sf.NumSelected);
-                    toolClearSelection.Enabled = sf.NumSelected > 0 || Legend.Groups.Count>0;
+                    toolClearSelection.Enabled = sf.NumSelected > 0;
                     toolZoomToSelected.Enabled = sf.NumSelected > 0;
                     hasShapefile = true;
                 }
@@ -958,7 +970,7 @@ namespace MapWinGis_Demo_zhw
                 toolZoomToSelected.Enabled = false;
             }
 
-            toolRemoveLayer.Enabled = hasLayer;
+            toolRemoveLayer.Enabled = hasLayer || Legend.Groups.Count>0;
 
             //App.RefreshUI();
 

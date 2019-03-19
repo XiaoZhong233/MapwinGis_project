@@ -32,21 +32,21 @@ namespace MapWinGis_Demo_zhw
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin36 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin36 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient106 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient246 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin36 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient36 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient247 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient107 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient248 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient36 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient249 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient250 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient108 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient251 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient252 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this._mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolZoomIn = new System.Windows.Forms.ToolStripButton();
             this.toolZoomOut = new System.Windows.Forms.ToolStripButton();
@@ -92,6 +92,21 @@ namespace MapWinGis_Demo_zhw
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSnapshot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.无ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openStreetMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openCycleMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openTransportMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bingMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bingSatelliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bingHybridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleSatelliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleHybridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleTerrainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rosreestrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openHumanitarianMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mapQuestAerialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.providerCustomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusSelectedCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblProgressMessage = new System.Windows.Forms.ToolStripStatusLabel();
@@ -118,21 +133,6 @@ namespace MapWinGis_Demo_zhw
             this.labelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prosperityItem = new System.Windows.Forms.ToolStripMenuItem();
             this.table = new System.Windows.Forms.ToolStripMenuItem();
-            this.无ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openStreetMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openCycleMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openTransportMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bingMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bingSatelliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bingHybridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.googleMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.googleSatelliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.googleHybridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.googleTerrainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rosreestrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openHumanitarianMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mapQuestAerialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.providerCustomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._mainToolStrip.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -594,318 +594,6 @@ namespace MapWinGis_Demo_zhw
             this.mnuTiles.Size = new System.Drawing.Size(51, 24);
             this.mnuTiles.Text = "底图";
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusSelectedCount,
-            this.lblProgressMessage,
-            this.progressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 589);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1010, 25);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // statusSelectedCount
-            // 
-            this.statusSelectedCount.Name = "statusSelectedCount";
-            this.statusSelectedCount.Size = new System.Drawing.Size(995, 20);
-            this.statusSelectedCount.Spring = true;
-            this.statusSelectedCount.Text = "Selected: 0";
-            this.statusSelectedCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblProgressMessage
-            // 
-            this.lblProgressMessage.Name = "lblProgressMessage";
-            this.lblProgressMessage.Size = new System.Drawing.Size(0, 20);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(100, 19);
-            this.progressBar1.Visible = false;
-            // 
-            // toolStripPanel1
-            // 
-            this.toolStripPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.toolStripPanel1.Location = new System.Drawing.Point(0, 28);
-            this.toolStripPanel1.MaximumSize = new System.Drawing.Size(0, 40);
-            this.toolStripPanel1.Name = "toolStripPanel1";
-            this.toolStripPanel1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.toolStripPanel1.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.toolStripPanel1.Size = new System.Drawing.Size(1010, 0);
-            // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.dockPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(971, 520);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            // 
-            // toolStripContainer1.LeftToolStripPanel
-            // 
-            this.toolStripContainer1.LeftToolStripPanel.Controls.Add(this._toolStripLayer);
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1010, 561);
-            this.toolStripContainer1.TabIndex = 5;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this._mainToolStrip);
-            // 
-            // dockPanel1
-            // 
-            this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel1.DockBackColor = System.Drawing.SystemColors.Control;
-            this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingSdi;
-            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(971, 520);
-            dockPanelGradient106.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient106.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin36.DockStripGradient = dockPanelGradient106;
-            tabGradient246.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient246.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient246.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin36.TabGradient = tabGradient246;
-            autoHideStripSkin36.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            dockPanelSkin36.AutoHideStripSkin = autoHideStripSkin36;
-            tabGradient247.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient247.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient247.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient36.ActiveTabGradient = tabGradient247;
-            dockPanelGradient107.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient107.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient36.DockStripGradient = dockPanelGradient107;
-            tabGradient248.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient248.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient248.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient36.InactiveTabGradient = tabGradient248;
-            dockPaneStripSkin36.DocumentGradient = dockPaneStripGradient36;
-            dockPaneStripSkin36.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            tabGradient249.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient249.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient249.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient249.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient36.ActiveCaptionGradient = tabGradient249;
-            tabGradient250.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient250.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient250.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient36.ActiveTabGradient = tabGradient250;
-            dockPanelGradient108.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient108.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient36.DockStripGradient = dockPanelGradient108;
-            tabGradient251.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient251.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient251.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient251.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient36.InactiveCaptionGradient = tabGradient251;
-            tabGradient252.EndColor = System.Drawing.Color.Transparent;
-            tabGradient252.StartColor = System.Drawing.Color.Transparent;
-            tabGradient252.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient36.InactiveTabGradient = tabGradient252;
-            dockPaneStripSkin36.ToolWindowGradient = dockPaneStripToolWindowGradient36;
-            dockPanelSkin36.DockPaneStripSkin = dockPaneStripSkin36;
-            this.dockPanel1.Skin = dockPanelSkin36;
-            this.dockPanel1.TabIndex = 0;
-            // 
-            // _toolStripLayer
-            // 
-            this._toolStripLayer.Dock = System.Windows.Forms.DockStyle.None;
-            this._toolStripLayer.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this._toolStripLayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolCloseProject,
-            this.toolLoadProject,
-            this.toolSaveProject,
-            this.toolSaveProjectAs,
-            this.toolStripSeparator8,
-            this.toolOpen,
-            this.toolAddVector,
-            this.toolAddRaster,
-            this.toolAddDatabase,
-            this.toolStripSeparator1,
-            this.toolCreateLayer,
-            this.toolRemoveLayer});
-            this._toolStripLayer.Location = new System.Drawing.Point(0, 3);
-            this._toolStripLayer.Name = "_toolStripLayer";
-            this._toolStripLayer.Size = new System.Drawing.Size(39, 431);
-            this._toolStripLayer.TabIndex = 1;
-            // 
-            // toolCloseProject
-            // 
-            this.toolCloseProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolCloseProject.Image = global::MapWinGis_Demo_zhw.Properties.Resources.map;
-            this.toolCloseProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolCloseProject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolCloseProject.Name = "toolCloseProject";
-            this.toolCloseProject.Padding = new System.Windows.Forms.Padding(5);
-            this.toolCloseProject.Size = new System.Drawing.Size(37, 38);
-            this.toolCloseProject.Text = "新建工程";
-            // 
-            // toolLoadProject
-            // 
-            this.toolLoadProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolLoadProject.Image = global::MapWinGis_Demo_zhw.Properties.Resources.folder1;
-            this.toolLoadProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolLoadProject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolLoadProject.Name = "toolLoadProject";
-            this.toolLoadProject.Padding = new System.Windows.Forms.Padding(5);
-            this.toolLoadProject.Size = new System.Drawing.Size(37, 38);
-            this.toolLoadProject.Text = "加载工程";
-            // 
-            // toolSaveProject
-            // 
-            this.toolSaveProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolSaveProject.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save;
-            this.toolSaveProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolSaveProject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolSaveProject.Name = "toolSaveProject";
-            this.toolSaveProject.Padding = new System.Windows.Forms.Padding(5);
-            this.toolSaveProject.Size = new System.Drawing.Size(37, 38);
-            this.toolSaveProject.Text = "保存";
-            // 
-            // toolSaveProjectAs
-            // 
-            this.toolSaveProjectAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolSaveProjectAs.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save_as1;
-            this.toolSaveProjectAs.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolSaveProjectAs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolSaveProjectAs.Name = "toolSaveProjectAs";
-            this.toolSaveProjectAs.Padding = new System.Windows.Forms.Padding(5);
-            this.toolSaveProjectAs.Size = new System.Drawing.Size(37, 38);
-            this.toolSaveProjectAs.Text = "另存为...";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(37, 6);
-            // 
-            // toolOpen
-            // 
-            this.toolOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolOpen.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_add;
-            this.toolOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolOpen.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.toolOpen.Name = "toolOpen";
-            this.toolOpen.Padding = new System.Windows.Forms.Padding(5);
-            this.toolOpen.Size = new System.Drawing.Size(37, 38);
-            this.toolOpen.Text = "加入图层";
-            // 
-            // toolAddVector
-            // 
-            this.toolAddVector.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolAddVector.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_vector_add;
-            this.toolAddVector.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolAddVector.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddVector.Name = "toolAddVector";
-            this.toolAddVector.Padding = new System.Windows.Forms.Padding(5);
-            this.toolAddVector.Size = new System.Drawing.Size(37, 38);
-            this.toolAddVector.Text = "加入矢量图层";
-            // 
-            // toolAddRaster
-            // 
-            this.toolAddRaster.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolAddRaster.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_raster_add;
-            this.toolAddRaster.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolAddRaster.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddRaster.Name = "toolAddRaster";
-            this.toolAddRaster.Padding = new System.Windows.Forms.Padding(5);
-            this.toolAddRaster.Size = new System.Drawing.Size(37, 38);
-            this.toolAddRaster.Text = "加入栅格图层";
-            // 
-            // toolAddDatabase
-            // 
-            this.toolAddDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolAddDatabase.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_db_add;
-            this.toolAddDatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddDatabase.Name = "toolAddDatabase";
-            this.toolAddDatabase.Padding = new System.Windows.Forms.Padding(5);
-            this.toolAddDatabase.Size = new System.Drawing.Size(37, 38);
-            this.toolAddDatabase.Text = "加入postGis图层";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(37, 6);
-            // 
-            // toolCreateLayer
-            // 
-            this.toolCreateLayer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolCreateLayer.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_create;
-            this.toolCreateLayer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolCreateLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolCreateLayer.Name = "toolCreateLayer";
-            this.toolCreateLayer.Padding = new System.Windows.Forms.Padding(5);
-            this.toolCreateLayer.Size = new System.Drawing.Size(37, 38);
-            this.toolCreateLayer.Text = "新建图层";
-            // 
-            // toolRemoveLayer
-            // 
-            this.toolRemoveLayer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolRemoveLayer.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_remove;
-            this.toolRemoveLayer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolRemoveLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolRemoveLayer.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.toolRemoveLayer.Name = "toolRemoveLayer";
-            this.toolRemoveLayer.Padding = new System.Windows.Forms.Padding(5);
-            this.toolRemoveLayer.Size = new System.Drawing.Size(37, 38);
-            this.toolRemoveLayer.Text = "移除图层";
-            // 
-            // ContextMenu
-            // 
-            this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.removeItem,
-            this.symbolItem,
-            this.labelItem,
-            this.prosperityItem,
-            this.table});
-            this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(139, 124);
-            this.ContextMenu.Text = "符号设置";
-            // 
-            // removeItem
-            // 
-            this.removeItem.Name = "removeItem";
-            this.removeItem.Size = new System.Drawing.Size(138, 24);
-            this.removeItem.Text = "移除";
-            this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
-            // 
-            // symbolItem
-            // 
-            this.symbolItem.Name = "symbolItem";
-            this.symbolItem.Size = new System.Drawing.Size(138, 24);
-            this.symbolItem.Text = "符号设置";
-            this.symbolItem.Click += new System.EventHandler(this.symbolItem_Click);
-            // 
-            // labelItem
-            // 
-            this.labelItem.Name = "labelItem";
-            this.labelItem.Size = new System.Drawing.Size(138, 24);
-            this.labelItem.Text = "标注设置";
-            this.labelItem.Click += new System.EventHandler(this.lableItem_Click);
-            // 
-            // prosperityItem
-            // 
-            this.prosperityItem.Name = "prosperityItem";
-            this.prosperityItem.Size = new System.Drawing.Size(138, 24);
-            this.prosperityItem.Text = "属性";
-            this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
-            // 
-            // table
-            // 
-            this.table.Name = "table";
-            this.table.Size = new System.Drawing.Size(138, 24);
-            this.table.Text = "表";
-            this.table.Click += new System.EventHandler(this.table_Click);
-            // 
             // 无ToolStripMenuItem
             // 
             this.无ToolStripMenuItem.Name = "无ToolStripMenuItem";
@@ -1010,6 +698,318 @@ namespace MapWinGis_Demo_zhw
             this.providerCustomToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.providerCustomToolStripMenuItem.Text = "ProviderCustom";
             this.providerCustomToolStripMenuItem.Click += new System.EventHandler(this.providerCustomToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusSelectedCount,
+            this.lblProgressMessage,
+            this.progressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 589);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1010, 25);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusSelectedCount
+            // 
+            this.statusSelectedCount.Name = "statusSelectedCount";
+            this.statusSelectedCount.Size = new System.Drawing.Size(995, 20);
+            this.statusSelectedCount.Spring = true;
+            this.statusSelectedCount.Text = "Selected: 0";
+            this.statusSelectedCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblProgressMessage
+            // 
+            this.lblProgressMessage.Name = "lblProgressMessage";
+            this.lblProgressMessage.Size = new System.Drawing.Size(0, 20);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 19);
+            this.progressBar1.Visible = false;
+            // 
+            // toolStripPanel1
+            // 
+            this.toolStripPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toolStripPanel1.Location = new System.Drawing.Point(0, 28);
+            this.toolStripPanel1.MaximumSize = new System.Drawing.Size(0, 40);
+            this.toolStripPanel1.Name = "toolStripPanel1";
+            this.toolStripPanel1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.toolStripPanel1.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.toolStripPanel1.Size = new System.Drawing.Size(1010, 0);
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.dockPanel1);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(970, 520);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            // 
+            // toolStripContainer1.LeftToolStripPanel
+            // 
+            this.toolStripContainer1.LeftToolStripPanel.Controls.Add(this._toolStripLayer);
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 28);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.Size = new System.Drawing.Size(1010, 561);
+            this.toolStripContainer1.TabIndex = 5;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this._mainToolStrip);
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dockPanel1.DockBackColor = System.Drawing.SystemColors.Control;
+            this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingSdi;
+            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Size = new System.Drawing.Size(970, 520);
+            dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
+            tabGradient1.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient1.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin1.TabGradient = tabGradient1;
+            autoHideStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
+            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
+            dockPanelGradient2.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient2.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
+            tabGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
+            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
+            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
+            tabGradient5.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient5.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
+            dockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
+            tabGradient6.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
+            tabGradient7.EndColor = System.Drawing.Color.Transparent;
+            tabGradient7.StartColor = System.Drawing.Color.Transparent;
+            tabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
+            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
+            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
+            this.dockPanel1.Skin = dockPanelSkin1;
+            this.dockPanel1.TabIndex = 0;
+            // 
+            // _toolStripLayer
+            // 
+            this._toolStripLayer.Dock = System.Windows.Forms.DockStyle.None;
+            this._toolStripLayer.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this._toolStripLayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolCloseProject,
+            this.toolLoadProject,
+            this.toolSaveProject,
+            this.toolSaveProjectAs,
+            this.toolStripSeparator8,
+            this.toolOpen,
+            this.toolAddVector,
+            this.toolAddRaster,
+            this.toolAddDatabase,
+            this.toolStripSeparator1,
+            this.toolCreateLayer,
+            this.toolRemoveLayer});
+            this._toolStripLayer.Location = new System.Drawing.Point(0, 3);
+            this._toolStripLayer.Name = "_toolStripLayer";
+            this._toolStripLayer.Size = new System.Drawing.Size(40, 455);
+            this._toolStripLayer.TabIndex = 1;
+            // 
+            // toolCloseProject
+            // 
+            this.toolCloseProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolCloseProject.Image = global::MapWinGis_Demo_zhw.Properties.Resources.map;
+            this.toolCloseProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolCloseProject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolCloseProject.Name = "toolCloseProject";
+            this.toolCloseProject.Padding = new System.Windows.Forms.Padding(5);
+            this.toolCloseProject.Size = new System.Drawing.Size(38, 38);
+            this.toolCloseProject.Text = "新建工程";
+            // 
+            // toolLoadProject
+            // 
+            this.toolLoadProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolLoadProject.Image = global::MapWinGis_Demo_zhw.Properties.Resources.folder1;
+            this.toolLoadProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolLoadProject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolLoadProject.Name = "toolLoadProject";
+            this.toolLoadProject.Padding = new System.Windows.Forms.Padding(5);
+            this.toolLoadProject.Size = new System.Drawing.Size(38, 38);
+            this.toolLoadProject.Text = "加载工程";
+            // 
+            // toolSaveProject
+            // 
+            this.toolSaveProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSaveProject.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save;
+            this.toolSaveProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolSaveProject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolSaveProject.Name = "toolSaveProject";
+            this.toolSaveProject.Padding = new System.Windows.Forms.Padding(5);
+            this.toolSaveProject.Size = new System.Drawing.Size(38, 38);
+            this.toolSaveProject.Text = "保存";
+            // 
+            // toolSaveProjectAs
+            // 
+            this.toolSaveProjectAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSaveProjectAs.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save_as1;
+            this.toolSaveProjectAs.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolSaveProjectAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolSaveProjectAs.Name = "toolSaveProjectAs";
+            this.toolSaveProjectAs.Padding = new System.Windows.Forms.Padding(5);
+            this.toolSaveProjectAs.Size = new System.Drawing.Size(38, 38);
+            this.toolSaveProjectAs.Text = "另存为...";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(38, 6);
+            // 
+            // toolOpen
+            // 
+            this.toolOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolOpen.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_add;
+            this.toolOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolOpen.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolOpen.Name = "toolOpen";
+            this.toolOpen.Padding = new System.Windows.Forms.Padding(5);
+            this.toolOpen.Size = new System.Drawing.Size(38, 38);
+            this.toolOpen.Text = "加入图层";
+            // 
+            // toolAddVector
+            // 
+            this.toolAddVector.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolAddVector.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_vector_add;
+            this.toolAddVector.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolAddVector.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddVector.Name = "toolAddVector";
+            this.toolAddVector.Padding = new System.Windows.Forms.Padding(5);
+            this.toolAddVector.Size = new System.Drawing.Size(38, 38);
+            this.toolAddVector.Text = "加入矢量图层";
+            // 
+            // toolAddRaster
+            // 
+            this.toolAddRaster.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolAddRaster.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_raster_add;
+            this.toolAddRaster.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolAddRaster.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddRaster.Name = "toolAddRaster";
+            this.toolAddRaster.Padding = new System.Windows.Forms.Padding(5);
+            this.toolAddRaster.Size = new System.Drawing.Size(38, 38);
+            this.toolAddRaster.Text = "加入栅格图层";
+            // 
+            // toolAddDatabase
+            // 
+            this.toolAddDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolAddDatabase.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_db_add;
+            this.toolAddDatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddDatabase.Name = "toolAddDatabase";
+            this.toolAddDatabase.Padding = new System.Windows.Forms.Padding(5);
+            this.toolAddDatabase.Size = new System.Drawing.Size(38, 38);
+            this.toolAddDatabase.Text = "加入postGis图层";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(38, 6);
+            // 
+            // toolCreateLayer
+            // 
+            this.toolCreateLayer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolCreateLayer.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_create;
+            this.toolCreateLayer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolCreateLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolCreateLayer.Name = "toolCreateLayer";
+            this.toolCreateLayer.Padding = new System.Windows.Forms.Padding(5);
+            this.toolCreateLayer.Size = new System.Drawing.Size(38, 38);
+            this.toolCreateLayer.Text = "新建图层";
+            // 
+            // toolRemoveLayer
+            // 
+            this.toolRemoveLayer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolRemoveLayer.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_remove;
+            this.toolRemoveLayer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolRemoveLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolRemoveLayer.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.toolRemoveLayer.Name = "toolRemoveLayer";
+            this.toolRemoveLayer.Padding = new System.Windows.Forms.Padding(5);
+            this.toolRemoveLayer.Size = new System.Drawing.Size(38, 38);
+            this.toolRemoveLayer.Text = "移除图层";
+            // 
+            // ContextMenu
+            // 
+            this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.removeItem,
+            this.symbolItem,
+            this.labelItem,
+            this.prosperityItem,
+            this.table});
+            this.ContextMenu.Name = "contextMenuStrip1";
+            this.ContextMenu.Size = new System.Drawing.Size(139, 124);
+            this.ContextMenu.Text = "符号设置";
+            // 
+            // removeItem
+            // 
+            this.removeItem.Name = "removeItem";
+            this.removeItem.Size = new System.Drawing.Size(138, 24);
+            this.removeItem.Text = "移除";
+            this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
+            // 
+            // symbolItem
+            // 
+            this.symbolItem.Name = "symbolItem";
+            this.symbolItem.Size = new System.Drawing.Size(138, 24);
+            this.symbolItem.Text = "符号设置";
+            this.symbolItem.Click += new System.EventHandler(this.symbolItem_Click);
+            // 
+            // labelItem
+            // 
+            this.labelItem.Name = "labelItem";
+            this.labelItem.Size = new System.Drawing.Size(138, 24);
+            this.labelItem.Text = "标注设置";
+            this.labelItem.Click += new System.EventHandler(this.lableItem_Click);
+            // 
+            // prosperityItem
+            // 
+            this.prosperityItem.Name = "prosperityItem";
+            this.prosperityItem.Size = new System.Drawing.Size(138, 24);
+            this.prosperityItem.Text = "属性";
+            this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
+            // 
+            // table
+            // 
+            this.table.Name = "table";
+            this.table.Size = new System.Drawing.Size(138, 24);
+            this.table.Text = "表";
+            this.table.Click += new System.EventHandler(this.table_Click);
             // 
             // Main
             // 

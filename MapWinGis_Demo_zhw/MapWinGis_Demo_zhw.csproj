@@ -57,6 +57,12 @@
     <Compile Include="Controls\IdentifierContextMenu.Designer.cs">
       <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\mAttributesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mAttributesForm.Designer.cs">
+      <DependentUpon>mAttributesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FieldsAppendForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\IdentifierContextMenu.resx">
       <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mAttributesForm.resx">
+      <DependentUpon>mAttributesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FieldsAppendForm.resx">
       <DependentUpon>FieldsAppendForm.cs</DependentUpon>
@@ -331,6 +340,9 @@
     <None Include="Resources\手指.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\减号.png" />
+    <None Include="Resources\锚点.png" />
+    <None Include="Resources\关闭.png" />
     <None Include="Resources\layer-more.png" />
     <None Include="Resources\github %281%29.png" />
     <None Include="Resources\github.png" />
