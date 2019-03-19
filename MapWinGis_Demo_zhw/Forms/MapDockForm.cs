@@ -126,7 +126,9 @@ namespace MapWinGis_Demo_zhw.Forms
 
         private void AxMap1_LayerAdded(object sender, _DMapEvents_LayerAddedEvent e)
         {
+            App.SnapshotForm.GetPictureFromMap(true);
             refreshPreview();
+
             //App.PreviewMap.AddLayer(e.layerHandle, true);
         }
 
@@ -145,7 +147,7 @@ namespace MapWinGis_Demo_zhw.Forms
                 if (App.SnapshotForm.IsDisposed)
                     return;
                 App.SnapshotForm.UpdateLocatorBox();
-                App.SnapshotForm.GetPictureFromMap(true);
+                //App.SnapshotForm.GetPictureFromMap(true);
             }
             catch
             {

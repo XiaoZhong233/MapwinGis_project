@@ -329,7 +329,7 @@ namespace MapWinGis_Demo_zhw.Forms
         /// <param name="fullExtents">指示是否使用全图显示地图</param>
         public void GetPictureFromMap(bool fullExtents)
         {
-            if (this.DockState == WeifenLuo.WinFormsUI.Docking.DockState.Hidden)
+            if (this.DockState == WeifenLuo.WinFormsUI.Docking.DockState.Hidden || this.DockState == DockState.DockLeftAutoHide)
                 return;
             DateTime beforDT = System.DateTime.Now;
             beforDT = System.DateTime.Now;
