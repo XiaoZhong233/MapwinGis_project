@@ -172,9 +172,16 @@ namespace MapWinGis_Demo_zhw
 
                 node.ParentGroupHandle = GroupIndex;
                 //SortLayersByType();
-                MessageHelper.Info("layerhandle "+node.LayerHandle+"\nnew position :" + i + "\n" + node.Path +"\n now groupIndex:" +GroupIndex +"\n new layerIndex "+LayerIndex);
+
+                RefreshUI();
+
+
+                Debug.Print("layerhandle "+node.LayerHandle+"\nnew position :" + i + "\n" + node.Path +"\n now groupIndex:" +GroupIndex +"\n new layerIndex "+LayerIndex);
             };
 
+            Map.TileProvider = tkTileProvider.ProviderNone;
+
+           //mnuTiles.DropDownItems.AddRange(tkTileProvider.ProviderNone, tkTileProvider.ProviderCustom);
         }
 
 
@@ -607,7 +614,7 @@ namespace MapWinGis_Demo_zhw
                 {
 
                     //设置底图
-                    Map.TileProvider = tkTileProvider.ProviderNone;
+                    //Map.TileProvider = tkTileProvider.ProviderNone;
                     //依次加入图层
                     foreach (string file in files)
                     {
@@ -901,6 +908,22 @@ namespace MapWinGis_Demo_zhw
             toolLegendButton.Enabled = _legendForm.DockState == DockState.Hidden || _legendForm.DockState == DockState.Unknown;
             toolPreviewButton.Enabled = _snapForm.DockState == DockState.Hidden || _snapForm.DockState == DockState.Unknown;
            
+            无ToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.ProviderNone;
+            openStreetMapToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.OpenStreetMap;
+            openCycleMapToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.OpenCycleMap;
+            openTransportMapToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.OpenTransportMap;
+            bingMapsToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.BingMaps;
+            bingSatelliteToolStripMenuItem.Checked= Map.TileProvider == tkTileProvider.BingSatellite;
+            bingHybridToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.BingHybrid;
+            googleMapsToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.GoogleMaps;
+            googleSatelliteToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.GoogleSatellite;
+            googleHybridToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.GoogleHybrid;
+            googleTerrainToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.GoogleTerrain;
+            rosreestrToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.Rosreestr;
+            openHumanitarianMapToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.OpenHumanitarianMap;
+            mapQuestAerialToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.MapQuestAerial;
+            providerCustomToolStripMenuItem.Checked = Map.TileProvider == tkTileProvider.ProviderCustom;
+
 
             bool distance = Map.Measuring.MeasuringType == tkMeasuringType.MeasureDistance;
             toolMeasure.Checked = Map.CursorMode == tkCursorMode.cmMeasure && distance;
@@ -922,7 +945,7 @@ namespace MapWinGis_Demo_zhw
                 {
                     //MessageHelper.Info("cur mode" + Map.CursorMode.ToString());
                     statusSelectedCount.Text = string.Format("Shapes: {0}; selected: {1}", sf.NumShapes, sf.NumSelected);
-                    toolClearSelection.Enabled = sf.NumSelected > 0;
+                    toolClearSelection.Enabled = sf.NumSelected > 0 || Legend.Groups.Count>0;
                     toolZoomToSelected.Enabled = sf.NumSelected > 0;
                     hasShapefile = true;
                 }
@@ -940,6 +963,7 @@ namespace MapWinGis_Demo_zhw
             //App.RefreshUI();
 
             Map.Focus();
+            Map.Redraw();
         }
 
         /// <summary>
@@ -1163,7 +1187,7 @@ namespace MapWinGis_Demo_zhw
                         //拿到当前图层所属的组
                         Node node = findNode(x => x.LayerHandle == handle && x.NodeType == NodeType.layer);
                         //Legend.Layers.MoveLayerWithinGroup(handle, position);
-                        Legend.Layers.MoveLayer(handle, node.ParentGroupHandle, position);
+                        Legend.Layers.MoveLayer(handle, Legend.Groups[node.ParentGroupHandle].Handle, position);
                         
                     }
                 }
@@ -1203,6 +1227,96 @@ namespace MapWinGis_Demo_zhw
             ImageUtils cvter = new ImageUtils();
             System.Drawing.Image tmpImg = ImageUtils.ObjectToImage(img.Picture, System.Convert.ToInt32(img.Width ), System.Convert.ToInt32(img.Height));
 
+        }
+
+        private void 无ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.ProviderNone;
+            RefreshUI();
+        }
+
+        private void openStreetMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.OpenStreetMap;
+            RefreshUI();
+        }
+
+        private void openCycleMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.OpenCycleMap;
+            RefreshUI();
+        }
+
+        private void openTransportMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.OpenTransportMap;
+            RefreshUI();
+        }
+
+        private void bingMapsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.BingMaps;
+            RefreshUI();
+        }
+
+        private void bingSatelliteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.BingSatellite;
+            RefreshUI();
+        }
+
+        private void bingHybridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.BingHybrid;
+            RefreshUI();
+        }
+
+        private void googleMapsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.GoogleMaps;
+            RefreshUI();
+        }
+
+        private void googleSatelliteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.GoogleSatellite;
+            RefreshUI();
+        }
+
+        private void googleHybridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.GoogleHybrid;
+            RefreshUI();
+        }
+
+        private void googleTerrainToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.GoogleTerrain;
+            RefreshUI();
+        }
+
+        private void rosreestrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.Rosreestr;
+            RefreshUI();
+        }
+
+        private void openHumanitarianMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.OpenHumanitarianMap;
+            RefreshUI();
+        }
+
+        private void mapQuestAerialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.MapQuestAerial;
+            RefreshUI();
+        }
+
+        private void providerCustomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Map.TileProvider = tkTileProvider.ProviderCustom;
+            RefreshUI();
         }
     }
 }
