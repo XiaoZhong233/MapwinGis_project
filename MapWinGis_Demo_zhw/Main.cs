@@ -159,6 +159,22 @@ namespace MapWinGis_Demo_zhw
                 this.Tag = FormStates.Closing;
             };
 
+            Legend.LayerPositionChanged += i =>
+            {
+                //MessageHelper.Info("new position :" + i);
+                Node node = findNode(x => x.LayerHandle == i);
+                
+                
+                int GroupIndex = -1;
+                int LayerIndex = -1;
+
+                Legend.FindLayerByHandle(node.LayerHandle,out GroupIndex,out LayerIndex);
+
+                node.ParentGroupHandle = GroupIndex;
+                //SortLayersByType();
+                MessageHelper.Info("layerhandle "+node.LayerHandle+"\nnew position :" + i + "\n" + node.Path +"\n now groupIndex:" +GroupIndex +"\n new layerIndex "+LayerIndex);
+            };
+
         }
 
 
@@ -274,7 +290,8 @@ namespace MapWinGis_Demo_zhw
             Legend.GroupCheckboxClicked += Legend_GroupCheckboxClicked;
             //订阅该事件是为了跟踪每次加入的图层的图层句柄
             Legend.LayerAdded += handle => { curLayerHandle = Legend.Layers[handle].Handle; curLegendLayerHandle = handle; };
-            Legend.GroupAdded += handle => curLegendGroupHandle = handle;
+            //Legend.GroupAdded += handle => curLegendGroupHandle = handle;
+            //Legend.GroupRemoved += handle => curLegendGroupHandle = handle;
             Legend.LayerAdded += handle =>
             {
                 if (Map.NumLayers > 0)
@@ -371,17 +388,53 @@ namespace MapWinGis_Demo_zhw
             int layerHandle = App.Legend.SelectedLayer;
             Node node = findNode(x => x.LegendHandle == layerHandle && x.NodeType == NodeType.layer);
             int parentGroupHandle = node.ParentGroupHandle;
+
+
+
+            int GroupIndex = -1;
+            int LayerIndex = -1;
+
+            getLayerInLegendInfo(layerHandle,ref GroupIndex,ref LayerIndex);
+
+            parentGroupHandle = GroupIndex;
+
             LayerHelper.RemoveLayer();
 
             LegendNodes.Remove(node);
+
+
+
             //如果该组没有图层了，就移除该组
             if (Legend.Groups[parentGroupHandle].LayerCount == 0)
             {
                 Node groupNode = findNode(x => x.LegendHandle == parentGroupHandle && x.NodeType == NodeType.group);
                 LegendNodes.Remove(groupNode);
-                Legend.Groups.Remove(parentGroupHandle);
+                
+                bool success=Legend.Groups.Remove(Legend.Groups[parentGroupHandle].Handle);
+                if (success)
+                {
+                    Debug.Print("移除成功：" + parentGroupHandle);
+                }
+                else
+                {
+                    Debug.Print("移除失败：" + parentGroupHandle);
+                }
             }
             RefreshUI();
+        }
+
+        /// <summary>
+        /// 获得图层的在图层树中的位置信息
+        /// </summary>
+        /// <param name="layerhandle"></param>
+        /// <param name="GroupIndex"></param>
+        /// <param name="LayerIndex"></param>
+        private void getLayerInLegendInfo(int layerhandle,ref int GroupIndex,ref int LayerIndex)
+        {
+            GroupIndex = -1;
+            LayerIndex = -1;
+
+            Legend.FindLayerByHandle(layerhandle, out GroupIndex, out LayerIndex);
         }
 
         /// <summary>
@@ -547,8 +600,8 @@ namespace MapWinGis_Demo_zhw
             {
                 //原图层排序，优点是能在legend中表示顺序
                 //缺点打开速度慢
-                files = sortLayerWithCurLayer(files);
-                clearAllLayers();
+                //files = sortLayerWithCurLayer(files);
+                //clearAllLayers();
 
                 try
                 {
@@ -587,11 +640,23 @@ namespace MapWinGis_Demo_zhw
                                     {
                                         //把图层加载组中的最顶端
                                         addLayer(sf, target.LegendHandle);
-                                        LegendNodes.Add(new Node(curLegendLayerHandle, target.LegendHandle, curLayerHandle, file));
+                                        Node node = new Node(curLegendLayerHandle, target.LegendHandle, curLayerHandle, file);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+
+                                        //将对应的层赋值
+                                        node.ParentGroupHandle = GroupIndex;
+                                        LegendNodes.Add(node);
                                         if (debug)
                                         {
+                                            Debug.Print("加入旧层\n");
                                             Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
                                                             "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle"+ node.ParentGroupHandle +"\n"+
                                                             "实际图层数：" + Map.NumLayers);
                                         }
 
@@ -601,12 +666,23 @@ namespace MapWinGis_Demo_zhw
                                     {
                                         addGroup(directoryName);
                                         addLayer(sf, curLegendGroupHandle);
-                                        LegendNodes.Add(new Node(curLegendGroupHandle, curLayerHandle, file));
-                                        LegendNodes.Add(new Node(curLegendLayerHandle, curLegendGroupHandle, curLayerHandle, file));
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+                                        Node groupNode = new Node(GroupIndex, curLayerHandle, file);
+                                        Node layerNode = new Node(curLegendLayerHandle, GroupIndex, curLayerHandle, file);
+                                        layerNode.ParentGroupHandle = groupNode.LegendHandle;
+                                        LegendNodes.Add(groupNode);
+                                        LegendNodes.Add(layerNode);
                                         if (debug)
                                         {
+                                            Debug.Print("加入新层\n");
                                             Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
                                                             "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + layerNode.ParentGroupHandle + "\n" +
                                                             "实际图层数：" + Map.NumLayers);
                                         }
 
@@ -619,6 +695,9 @@ namespace MapWinGis_Demo_zhw
                                     Map.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
                                     //缩放至第一个图层
                                     Map.ZoomToLayer(Legend.Layers.First().Handle);
+
+
+                    
                                 }
 
 
@@ -646,7 +725,8 @@ namespace MapWinGis_Demo_zhw
                 }
                 finally
                 {
-                    //SortLayersByType();
+                    SortLayersByType();
+                    
                     Map.LockWindow(tkLockMode.lmUnlock);
                     Debug.Print("Layers added to the map: " + Map.NumLayers);
                     RefreshUI();
@@ -1082,7 +1162,9 @@ namespace MapWinGis_Demo_zhw
                         Map.MoveLayerBottom(position);
                         //拿到当前图层所属的组
                         Node node = findNode(x => x.LayerHandle == handle && x.NodeType == NodeType.layer);
+                        //Legend.Layers.MoveLayerWithinGroup(handle, position);
                         Legend.Layers.MoveLayer(handle, node.ParentGroupHandle, position);
+                        
                     }
                 }
                 finally

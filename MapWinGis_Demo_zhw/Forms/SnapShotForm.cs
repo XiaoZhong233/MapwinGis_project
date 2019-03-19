@@ -417,16 +417,17 @@ namespace MapWinGis_Demo_zhw.Forms
             Debug.Print("DateTime总共花费{0}ms.", ts.TotalMilliseconds);
             if (ts.TotalMilliseconds > 300 && isAsk)
             {
-                if (MessageHelper.Ask("当前图层数据量过大，由于鸟瞰图会不断截\n取影像快照造成渲染速度降低。\n为了加快渲染速度，是否关闭鸟瞰图？")== DialogResult.Yes)
-                {
-                    //this.Close();
-                    this.DockState = WeifenLuo.WinFormsUI.Docking.DockState.Hidden;
+                //该bug已修复，现已不需要询问
+                //if (MessageHelper.Ask("当前图层数据量过大，由于鸟瞰图会不断截\n取影像快照造成渲染速度降低。\n为了加快渲染速度，是否关闭鸟瞰图？")== DialogResult.Yes)
+                //{
+                //    //this.Close();
+                //    this.DockState = WeifenLuo.WinFormsUI.Docking.DockState.Hidden;
                     
-                }
-                else
-                {
-                    isAsk = false;
-                }
+                //}
+                //else
+                //{
+                //    isAsk = false;
+                //}
             }
             
 

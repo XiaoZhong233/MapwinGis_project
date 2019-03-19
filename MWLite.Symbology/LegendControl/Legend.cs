@@ -1753,7 +1753,7 @@ namespace MWLite.Symbology.LegendControl
         /// <param name="GroupIndex">该层所属的组的句柄</param>
         /// <param name="LayerIndex">在对应组中该层的句柄（与给定的相同）</param>
         /// <returns>返回一个层对象，null没找到</returns>
-        protected internal Layer FindLayerByHandle(int Handle, out int GroupIndex, out int LayerIndex)
+        public  Layer FindLayerByHandle(int Handle, out int GroupIndex, out int LayerIndex)
         {
             GroupIndex = -1;
             LayerIndex = -1;

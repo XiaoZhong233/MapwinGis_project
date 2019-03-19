@@ -115,6 +115,7 @@ namespace MapWinGis_Demo_zhw.Forms
 
         private void AxMap1_LayerRemoved(object sender, _DMapEvents_LayerRemovedEvent e)
         {
+            App.SnapshotForm.GetPictureFromMap(true);
             refreshPreview();
             if (App.Map.NumLayers <= 0)
             {

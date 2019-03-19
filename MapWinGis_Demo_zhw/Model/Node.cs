@@ -17,7 +17,7 @@ namespace MapWinGis_Demo_zhw
     /// </summary>
     public class Node
     {
-        //图层树中图层或者组的句柄
+        //图层树中图层(layerHandle，这里就等于AXMAP中的图层handle)或者组的句柄
         private int legendHandle;
         
         public int LegendHandle
