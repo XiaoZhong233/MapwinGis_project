@@ -144,3 +144,4 @@ C:\Users\he100\Desktop\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_
 C:\Users\he100\Desktop\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.SnapShotForm.resources
 C:\Users\he100\Desktop\MapwinGis_project\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Main.resources
 E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.mAttributesForm.resources
+E:\Desktop\youyuan\DEMO\888我要发\MapWinGis_Demo_zhw\obj\Debug\MapWinGis_Demo_zhw.Forms.QueryBuilderForm.resources

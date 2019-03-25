@@ -175,7 +175,7 @@ namespace MapWinGis_Demo_zhw
             this._mainToolStrip.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this._mainToolStrip.Name = "_mainToolStrip";
             this._mainToolStrip.Padding = new System.Windows.Forms.Padding(0);
-            this._mainToolStrip.Size = new System.Drawing.Size(641, 41);
+            this._mainToolStrip.Size = new System.Drawing.Size(680, 41);
             this._mainToolStrip.TabIndex = 0;
             this._mainToolStrip.Text = "toolStrip1";
             // 
@@ -326,14 +326,14 @@ namespace MapWinGis_Demo_zhw
             // toolSelect
             // 
             this.toolSelect.Name = "toolSelect";
-            this.toolSelect.Size = new System.Drawing.Size(178, 26);
+            this.toolSelect.Size = new System.Drawing.Size(216, 26);
             this.toolSelect.Text = "By Rectangle";
             // 
             // toolSelectByPolygon
             // 
             this.toolSelectByPolygon.Name = "toolSelectByPolygon";
-            this.toolSelectByPolygon.Size = new System.Drawing.Size(178, 26);
-            this.toolSelectByPolygon.Text = "By Polygon";
+            this.toolSelectByPolygon.Size = new System.Drawing.Size(216, 26);
+            this.toolSelectByPolygon.Text = "By SQL";
             this.toolSelectByPolygon.Click += new System.EventHandler(this.toolSelectByPolygon_Click);
             // 
             // toolZoomToSelected
@@ -747,7 +747,7 @@ namespace MapWinGis_Demo_zhw
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dockPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(970, 520);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(971, 520);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // toolStripContainer1.LeftToolStripPanel
@@ -770,7 +770,7 @@ namespace MapWinGis_Demo_zhw
             this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingSdi;
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(970, 520);
+            this.dockPanel1.Size = new System.Drawing.Size(971, 520);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -838,7 +838,7 @@ namespace MapWinGis_Demo_zhw
             this.toolRemoveLayer});
             this._toolStripLayer.Location = new System.Drawing.Point(0, 3);
             this._toolStripLayer.Name = "_toolStripLayer";
-            this._toolStripLayer.Size = new System.Drawing.Size(40, 455);
+            this._toolStripLayer.Size = new System.Drawing.Size(39, 431);
             this._toolStripLayer.TabIndex = 1;
             // 
             // toolCloseProject
@@ -849,7 +849,7 @@ namespace MapWinGis_Demo_zhw
             this.toolCloseProject.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolCloseProject.Name = "toolCloseProject";
             this.toolCloseProject.Padding = new System.Windows.Forms.Padding(5);
-            this.toolCloseProject.Size = new System.Drawing.Size(38, 38);
+            this.toolCloseProject.Size = new System.Drawing.Size(37, 38);
             this.toolCloseProject.Text = "新建工程";
             // 
             // toolLoadProject
@@ -860,7 +860,7 @@ namespace MapWinGis_Demo_zhw
             this.toolLoadProject.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolLoadProject.Name = "toolLoadProject";
             this.toolLoadProject.Padding = new System.Windows.Forms.Padding(5);
-            this.toolLoadProject.Size = new System.Drawing.Size(38, 38);
+            this.toolLoadProject.Size = new System.Drawing.Size(37, 38);
             this.toolLoadProject.Text = "加载工程";
             // 
             // toolSaveProject
@@ -871,7 +871,7 @@ namespace MapWinGis_Demo_zhw
             this.toolSaveProject.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolSaveProject.Name = "toolSaveProject";
             this.toolSaveProject.Padding = new System.Windows.Forms.Padding(5);
-            this.toolSaveProject.Size = new System.Drawing.Size(38, 38);
+            this.toolSaveProject.Size = new System.Drawing.Size(37, 38);
             this.toolSaveProject.Text = "保存";
             // 
             // toolSaveProjectAs
@@ -882,13 +882,13 @@ namespace MapWinGis_Demo_zhw
             this.toolSaveProjectAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolSaveProjectAs.Name = "toolSaveProjectAs";
             this.toolSaveProjectAs.Padding = new System.Windows.Forms.Padding(5);
-            this.toolSaveProjectAs.Size = new System.Drawing.Size(38, 38);
+            this.toolSaveProjectAs.Size = new System.Drawing.Size(37, 38);
             this.toolSaveProjectAs.Text = "另存为...";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(38, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(37, 6);
             // 
             // toolOpen
             // 
@@ -899,7 +899,7 @@ namespace MapWinGis_Demo_zhw
             this.toolOpen.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.toolOpen.Name = "toolOpen";
             this.toolOpen.Padding = new System.Windows.Forms.Padding(5);
-            this.toolOpen.Size = new System.Drawing.Size(38, 38);
+            this.toolOpen.Size = new System.Drawing.Size(37, 38);
             this.toolOpen.Text = "加入图层";
             // 
             // toolAddVector
@@ -910,7 +910,7 @@ namespace MapWinGis_Demo_zhw
             this.toolAddVector.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddVector.Name = "toolAddVector";
             this.toolAddVector.Padding = new System.Windows.Forms.Padding(5);
-            this.toolAddVector.Size = new System.Drawing.Size(38, 38);
+            this.toolAddVector.Size = new System.Drawing.Size(37, 38);
             this.toolAddVector.Text = "加入矢量图层";
             // 
             // toolAddRaster
@@ -921,7 +921,7 @@ namespace MapWinGis_Demo_zhw
             this.toolAddRaster.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddRaster.Name = "toolAddRaster";
             this.toolAddRaster.Padding = new System.Windows.Forms.Padding(5);
-            this.toolAddRaster.Size = new System.Drawing.Size(38, 38);
+            this.toolAddRaster.Size = new System.Drawing.Size(37, 38);
             this.toolAddRaster.Text = "加入栅格图层";
             // 
             // toolAddDatabase
@@ -932,13 +932,13 @@ namespace MapWinGis_Demo_zhw
             this.toolAddDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddDatabase.Name = "toolAddDatabase";
             this.toolAddDatabase.Padding = new System.Windows.Forms.Padding(5);
-            this.toolAddDatabase.Size = new System.Drawing.Size(38, 38);
+            this.toolAddDatabase.Size = new System.Drawing.Size(37, 38);
             this.toolAddDatabase.Text = "加入postGis图层";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(38, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(37, 6);
             // 
             // toolCreateLayer
             // 
@@ -948,7 +948,7 @@ namespace MapWinGis_Demo_zhw
             this.toolCreateLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolCreateLayer.Name = "toolCreateLayer";
             this.toolCreateLayer.Padding = new System.Windows.Forms.Padding(5);
-            this.toolCreateLayer.Size = new System.Drawing.Size(38, 38);
+            this.toolCreateLayer.Size = new System.Drawing.Size(37, 38);
             this.toolCreateLayer.Text = "新建图层";
             // 
             // toolRemoveLayer
@@ -960,7 +960,7 @@ namespace MapWinGis_Demo_zhw
             this.toolRemoveLayer.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.toolRemoveLayer.Name = "toolRemoveLayer";
             this.toolRemoveLayer.Padding = new System.Windows.Forms.Padding(5);
-            this.toolRemoveLayer.Size = new System.Drawing.Size(38, 38);
+            this.toolRemoveLayer.Size = new System.Drawing.Size(37, 38);
             this.toolRemoveLayer.Text = "移除图层";
             // 
             // ContextMenu

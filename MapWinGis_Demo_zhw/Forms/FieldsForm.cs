@@ -140,7 +140,7 @@ namespace MapWinGis.ShapeEditor.Forms
 
             };
 
-            editStyleTBox.TextAlign = ContentAlignment.BottomCenter;
+            editInfo.TextAlign = ContentAlignment.BottomCenter;
 
         }
 
@@ -340,7 +340,7 @@ namespace MapWinGis.ShapeEditor.Forms
         //开始编辑按钮
         private void startEditMenuItem_Click(object sender, EventArgs e)
         {
-            editStyleTBox.Text = "编辑中，按下enter以结束编辑";
+            editInfo.Text = "编辑中，按下enter以结束编辑";
             attributeDGV.ReadOnly = false;
 
             if (newValueList != null)
@@ -374,7 +374,7 @@ namespace MapWinGis.ShapeEditor.Forms
         {
             try
             {
-                editStyleTBox.Text = "未编辑状态";
+                editInfo.Text = "未编辑状态";
                 DialogResult result= DialogResult.OK;
                 if (!haveSave && newValueList.Count > 0)
                 {
@@ -538,7 +538,7 @@ namespace MapWinGis.ShapeEditor.Forms
                 }
                 
 
-                editStyleTBox.Text = "未编辑状态";
+                editInfo.Text = "未编辑状态";
 
                 if (result == DialogResult.OK)
                 {
@@ -577,7 +577,7 @@ namespace MapWinGis.ShapeEditor.Forms
                 if (attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     oValList.Add(new oValueList(e.ColumnIndex,e.RowIndex, attributeDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value));
-                    editStyleTBox.Text = "按下enter以进行下一次编辑";
+                    editInfo.Text = "按下enter以进行下一次编辑";
                 }
             }
         }
@@ -587,9 +587,9 @@ namespace MapWinGis.ShapeEditor.Forms
             if (!attributeDGV.ReadOnly)
             {
                 if(enterPressFlag)
-                    editStyleTBox.Text = "请继续";
+                    editInfo.Text = "请继续";
                 else
-                    editStyleTBox.Text = "请先按下enter键进行保存！";
+                    editInfo.Text = "请先按下enter键进行保存！";
             }
         }
 
@@ -639,11 +639,36 @@ namespace MapWinGis.ShapeEditor.Forms
         private void 清空选择ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _shapefile.SelectNone();
+            attributeDGV.ClearSelection();
+            editInfo.Text = "未编辑状态";
         }
 
         private void sQL查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            QueryBuilderForm qf = new QueryBuilderForm();
+            
+            attributeDGV.MultiSelect = true;
+            qf.onQueryResultChange += (result) =>
+            {
 
+                //MessageBox.Show("sd");
+
+                int[] shapes = result as int[];
+                if (shapes != null)
+                {
+                    attributeDGV.ClearSelection();
+                    attributeDGV.FirstDisplayedScrollingRowIndex = shapes[0];
+                    for (int i = 0; i < shapes.Length; i++)
+                    {
+                        attributeDGV.Rows[shapes[i]].Selected = true;
+                        
+                    }
+
+                    editInfo.Text = " select" + shapes.Length + "records";
+                }
+            };
+
+            qf.ShowDialog();
         }
     }
 

@@ -41,7 +41,7 @@
             this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清空选择ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQL查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editStyleTBox = new System.Windows.Forms.Label();
+            this.editInfo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.attributeDGV = new System.Windows.Forms.DataGridView();
             this.columnsContextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -119,21 +119,21 @@
             // startEditMenuItem
             // 
             this.startEditMenuItem.Name = "startEditMenuItem";
-            this.startEditMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.startEditMenuItem.Size = new System.Drawing.Size(159, 26);
             this.startEditMenuItem.Text = "开始编辑";
             this.startEditMenuItem.Click += new System.EventHandler(this.startEditMenuItem_Click);
             // 
             // stopEditMenuItem
             // 
             this.stopEditMenuItem.Name = "stopEditMenuItem";
-            this.stopEditMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.stopEditMenuItem.Size = new System.Drawing.Size(159, 26);
             this.stopEditMenuItem.Text = "停止编辑";
             this.stopEditMenuItem.Click += new System.EventHandler(this.stopEditMenuItem_Click);
             // 
             // 可见性ToolStripMenuItem
             // 
             this.可见性ToolStripMenuItem.Name = "可见性ToolStripMenuItem";
-            this.可见性ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.可见性ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.可见性ToolStripMenuItem.Text = "字段可见性";
             this.可见性ToolStripMenuItem.Click += new System.EventHandler(this.可见性ToolStripMenuItem_Click);
             // 
@@ -167,16 +167,16 @@
             this.sQL查询ToolStripMenuItem.Text = "SQL查询";
             this.sQL查询ToolStripMenuItem.Click += new System.EventHandler(this.sQL查询ToolStripMenuItem_Click);
             // 
-            // editStyleTBox
+            // editInfo
             // 
-            this.editStyleTBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.editStyleTBox.BackColor = System.Drawing.Color.White;
-            this.editStyleTBox.Location = new System.Drawing.Point(633, 6);
-            this.editStyleTBox.Name = "editStyleTBox";
-            this.editStyleTBox.Size = new System.Drawing.Size(270, 18);
-            this.editStyleTBox.TabIndex = 1;
-            this.editStyleTBox.Text = "未编辑状态";
-            this.editStyleTBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.editInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.editInfo.BackColor = System.Drawing.Color.White;
+            this.editInfo.Location = new System.Drawing.Point(633, 6);
+            this.editInfo.Name = "editInfo";
+            this.editInfo.Size = new System.Drawing.Size(270, 18);
+            this.editInfo.TabIndex = 1;
+            this.editInfo.Text = "未编辑状态";
+            this.editInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -256,7 +256,7 @@
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.editStyleTBox);
+            this.flowLayoutPanel1.Controls.Add(this.editInfo);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 683);
@@ -307,7 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem 更改列名ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除字段ToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 可见性ToolStripMenuItem;
-        private System.Windows.Forms.Label editStyleTBox;
+        private System.Windows.Forms.Label editInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;

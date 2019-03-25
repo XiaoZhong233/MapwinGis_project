@@ -105,6 +105,12 @@
     <Compile Include="Forms\MeasuringForm.Designer.cs">
       <DependentUpon>MeasuringForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\QueryBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QueryBuilderForm.Designer.cs">
+      <DependentUpon>QueryBuilderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SnapShotForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MeasuringForm.resx">
       <DependentUpon>MeasuringForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QueryBuilderForm.resx">
+      <DependentUpon>QueryBuilderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SnapShotForm.resx">
       <DependentUpon>SnapShotForm.cs</DependentUpon>

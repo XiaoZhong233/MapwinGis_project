@@ -184,7 +184,7 @@ namespace MapWinGis_Demo_zhw
                 Debug.Print("layerhandle "+node.LayerHandle+"\nnew position :" + i + "\n" + node.Path +"\n now groupIndex:" +GroupIndex +"\n new layerIndex "+LayerIndex);
             };
 
-            Map.TileProvider = tkTileProvider.ProviderNone;
+            Map.TileProvider = tkTileProvider.OpenStreetMap;
 
            //mnuTiles.DropDownItems.AddRange(tkTileProvider.ProviderNone, tkTileProvider.ProviderCustom);
         }
@@ -863,8 +863,11 @@ namespace MapWinGis_Demo_zhw
         private void toolSelectByPolygon_Click(object sender, EventArgs e)
         {
             //TODOS:实现多边形选择
-            Map.CursorMode = tkCursorMode.cmSelectByPolygon;
+            //Map.CursorMode = tkCursorMode.cmSelectByPolygon;
+
             RefreshUI();
+            QueryBuilderForm qf = new QueryBuilderForm();
+            qf.ShowDialog();
 
         }
 
