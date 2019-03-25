@@ -50,9 +50,9 @@ namespace MWLite.Symbology.Forms.Labels
             ShpfileType type = Globals.ShapefileType2D(m_shapefile.ShapefileType);
             if (type == ShpfileType.SHP_POLYGON)
             {
-                optPosition1.Text = "Center";
-                optPosition2.Text = "Centroid";
-                optPosition3.Text = "Interior point";
+                optPosition1.Text = "中心";
+                optPosition2.Text = "质心";
+                optPosition3.Text = "内部";
                 optPosition4.Visible = false;
 
                 optPosition1.Tag = tkLabelPositioning.lpCenter;
@@ -67,10 +67,10 @@ namespace MWLite.Symbology.Forms.Labels
             }
             else if (type == ShpfileType.SHP_POLYLINE)
             {
-                optPosition1.Text = "First segment";
-                optPosition2.Text = "Last segment";
-                optPosition3.Text = "Middle segment";
-                optPosition4.Text = "The longest segment";
+                optPosition1.Text = "线段首端";
+                optPosition2.Text = "线段末端";
+                optPosition3.Text = "线段中间";
+                optPosition4.Text = "标注在最长的一段";
 
                 optPosition1.Tag = tkLabelPositioning.lpFirstSegment;
                 optPosition2.Tag = tkLabelPositioning.lpLastSegment;
@@ -105,9 +105,9 @@ namespace MWLite.Symbology.Forms.Labels
 
             // line orientation
             cboLineOrientation.Items.Clear();
-            cboLineOrientation.Items.Add("Horizontal");
-            cboLineOrientation.Items.Add("Parallel");
-            cboLineOrientation.Items.Add("Perpendicular");
+            cboLineOrientation.Items.Add("水平标注");
+            cboLineOrientation.Items.Add("平行标注");
+            cboLineOrientation.Items.Add("垂直标注");
             cboLineOrientation.SelectedIndex = 1;
         }
 

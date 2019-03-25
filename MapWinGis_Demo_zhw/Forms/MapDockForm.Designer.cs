@@ -99,12 +99,12 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.查看属性表ToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 28);
             // 
             // 查看属性表ToolStripMenuItem
             // 
             this.查看属性表ToolStripMenuItem.Name = "查看属性表ToolStripMenuItem";
-            this.查看属性表ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.查看属性表ToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.查看属性表ToolStripMenuItem.Text = "查看属性表";
             this.查看属性表ToolStripMenuItem.Click += new System.EventHandler(this.查看属性表ToolStripMenuItem_Click);
             // 
@@ -117,6 +117,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HideOnClose = true;
             this.Name = "MapDockForm";
             this.ShowIcon = false;
             this.Text = "Map";

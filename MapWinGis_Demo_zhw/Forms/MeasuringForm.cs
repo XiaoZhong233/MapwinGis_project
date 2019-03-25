@@ -29,6 +29,7 @@ namespace MapWinGis_Demo_zhw.Forms
             InitializeComponent();
             tabControl1.SelectedIndex = _selectedTab;
             FormClosed += (s, e) => _selectedTab = tabControl1.SelectedIndex;
+            ModelToUi();
         }
 
         private void ModelToUi()

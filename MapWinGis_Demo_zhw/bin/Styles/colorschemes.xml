@@ -1,6 +1,10 @@
 <MapWindow version="">
   <ColorSchemes>
     <ColorScheme>
+      <Break Color="-5383962" Value="0" />
+      <Break Color="-23296" Value="1" />
+    </ColorScheme>
+    <ColorScheme>
       <Break Color="-256" Value="0" />
       <Break Color="-23296" Value="1" />
     </ColorScheme>
@@ -63,17 +67,6 @@
       <Break Color="-3538912" Value="0" />
       <Break Color="-744062" Value="0.25" />
       <Break Color="-526345" Value="0.5" />
-      <Break Color="-7158306" Value="0.75" />
-      <Break Color="-16420432" Value="1" />
-    </ColorScheme>
-    <ColorScheme>
-      <Break Color="-5383962" Value="0" />
-      <Break Color="-23296" Value="1" />
-    </ColorScheme>
-    <ColorScheme>
-      <Break Color="-3538912" Value="0" />
-      <Break Color="-744062" Value="0.25" />
-      <Break Color="-526345" Value="0.5" />
       <Break Color="-4539718" Value="0.75" />
       <Break Color="-12566464" Value="1" />
     </ColorScheme>
@@ -81,6 +74,13 @@
       <Break Color="-3538912" Value="0" />
       <Break Color="-151967" Value="0.25" />
       <Break Color="-62" Value="0.5" />
+      <Break Color="-7158306" Value="0.75" />
+      <Break Color="-16420432" Value="1" />
+    </ColorScheme>
+    <ColorScheme>
+      <Break Color="-3538912" Value="0" />
+      <Break Color="-744062" Value="0.25" />
+      <Break Color="-526345" Value="0.5" />
       <Break Color="-7158306" Value="0.75" />
       <Break Color="-16420432" Value="1" />
     </ColorScheme>
@@ -118,6 +118,10 @@
       <Break Color="-5054582" Value="0.5" />
       <Break Color="-13393876" Value="0.75" />
       <Break Color="-288103" Value="1" />
+    </ColorScheme>
+    <ColorScheme>
+      <Break Color="-1" Value="0" />
+      <Break Color="-16777216" Value="1" />
     </ColorScheme>
   </ColorSchemes>
 </MapWindow>

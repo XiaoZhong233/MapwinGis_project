@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace MWLite.Symbology.Forms
 {
@@ -17,7 +18,7 @@ namespace MWLite.Symbology.Forms
     /// <summary>
     /// 写的什么垃圾 fuck
     /// </summary>
-    public partial class InformationForm : Form
+    public partial class InformationForm : DockContent
     {
         public static bool flag = false;
         private bool singleSelectionFlag = true;
@@ -27,12 +28,13 @@ namespace MWLite.Symbology.Forms
         AxMap _axMap;
         private _DMapEvents_ShapeHighlightedEvent _e;//点击位置
 
+        public _DMapEvents_ShapeHighlightedEvent E { get => _e; }
+
         public InformationForm(AxMap axMap, _DMapEvents_ShapeHighlightedEvent e)
         {
             _axMap = axMap;
             _e = e;
             flag = true;
-
             InitializeComponent();
         }
 

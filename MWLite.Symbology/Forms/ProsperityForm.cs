@@ -881,6 +881,7 @@ namespace MWLite.Symbology.Forms
                 _stateChanged = false;
                 btnSaveChanges.Enabled = false;
 
+                //App.SnapshotForm.GetPictureFromMap(true);
                 //m_mapWin.Project.Modified = true;
             }
         }
@@ -896,8 +897,11 @@ namespace MWLite.Symbology.Forms
             }
 
             LockLegendAndMap(false);
+
             
             Globals.SaveLayerOptions(_layerHandle);
+
+            //App.SnapshotForm.GetPictureFromMap(true);
         }
 
         #endregion

@@ -31,21 +31,22 @@ namespace MapWinGis_Demo_zhw
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin2 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient4 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient8 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient9 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient10 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient11 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient12 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient6 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient13 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient14 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this._mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolZoomIn = new System.Windows.Forms.ToolStripButton();
             this.toolZoomOut = new System.Windows.Forms.ToolStripButton();
@@ -66,6 +67,9 @@ namespace MapWinGis_Demo_zhw
             this.toolZoomToSelected = new System.Windows.Forms.ToolStripButton();
             this.toolClearSelection = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolLegendButton = new System.Windows.Forms.ToolStripButton();
+            this.toolPreviewButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this._menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -88,6 +92,21 @@ namespace MapWinGis_Demo_zhw
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSnapshot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.无ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openStreetMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openCycleMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openTransportMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bingMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bingSatelliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bingHybridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleSatelliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleHybridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.googleTerrainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rosreestrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openHumanitarianMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mapQuestAerialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.providerCustomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusSelectedCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblProgressMessage = new System.Windows.Forms.ToolStripStatusLabel();
@@ -108,12 +127,14 @@ namespace MapWinGis_Demo_zhw
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolCreateLayer = new System.Windows.Forms.ToolStripButton();
             this.toolRemoveLayer = new System.Windows.Forms.ToolStripButton();
-            this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShpContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.symbolItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prosperityItem = new System.Windows.Forms.ToolStripMenuItem();
             this.table = new System.Windows.Forms.ToolStripMenuItem();
+            this.rasContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.渲染ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._mainToolStrip.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -122,7 +143,8 @@ namespace MapWinGis_Demo_zhw
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this._toolStripLayer.SuspendLayout();
-            this.ContextMenu.SuspendLayout();
+            this.ShpContextMenu.SuspendLayout();
+            this.rasContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // _mainToolStrip
@@ -147,13 +169,16 @@ namespace MapWinGis_Demo_zhw
             this.toolZoomToSelected,
             this.toolClearSelection,
             this.toolStripSeparator11,
+            this.toolLegendButton,
+            this.toolPreviewButton,
+            this.toolStripSeparator12,
             this.toolStripButton1,
             this.toolStripButton2});
             this._mainToolStrip.Location = new System.Drawing.Point(3, 0);
             this._mainToolStrip.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this._mainToolStrip.Name = "_mainToolStrip";
             this._mainToolStrip.Padding = new System.Windows.Forms.Padding(0);
-            this._mainToolStrip.Size = new System.Drawing.Size(626, 41);
+            this._mainToolStrip.Size = new System.Drawing.Size(641, 41);
             this._mainToolStrip.TabIndex = 0;
             this._mainToolStrip.Text = "toolStrip1";
             // 
@@ -269,7 +294,7 @@ namespace MapWinGis_Demo_zhw
             this.toolMeasure.Name = "toolMeasure";
             this.toolMeasure.Padding = new System.Windows.Forms.Padding(5);
             this.toolMeasure.Size = new System.Drawing.Size(38, 38);
-            this.toolMeasure.Text = "距离量算";
+            this.toolMeasure.Text = "距离量算（Ctrl+Z撤销）";
             // 
             // toolMeasureArea
             // 
@@ -280,7 +305,7 @@ namespace MapWinGis_Demo_zhw
             this.toolMeasureArea.Name = "toolMeasureArea";
             this.toolMeasureArea.Padding = new System.Windows.Forms.Padding(5);
             this.toolMeasureArea.Size = new System.Drawing.Size(38, 38);
-            this.toolMeasureArea.Text = "面积量算";
+            this.toolMeasureArea.Text = "面积量算（Ctrl+Z撤销）";
             // 
             // toolStripSeparator3
             // 
@@ -304,14 +329,14 @@ namespace MapWinGis_Demo_zhw
             // toolSelect
             // 
             this.toolSelect.Name = "toolSelect";
-            this.toolSelect.Size = new System.Drawing.Size(216, 26);
+            this.toolSelect.Size = new System.Drawing.Size(178, 26);
             this.toolSelect.Text = "By Rectangle";
             // 
             // toolSelectByPolygon
             // 
             this.toolSelectByPolygon.Name = "toolSelectByPolygon";
-            this.toolSelectByPolygon.Size = new System.Drawing.Size(216, 26);
-            this.toolSelectByPolygon.Text = "By Polygon";
+            this.toolSelectByPolygon.Size = new System.Drawing.Size(178, 26);
+            this.toolSelectByPolygon.Text = "By SQL";
             this.toolSelectByPolygon.Click += new System.EventHandler(this.toolSelectByPolygon_Click);
             // 
             // toolZoomToSelected
@@ -341,6 +366,31 @@ namespace MapWinGis_Demo_zhw
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 41);
+            // 
+            // toolLegendButton
+            // 
+            this.toolLegendButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolLegendButton.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_more;
+            this.toolLegendButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolLegendButton.Name = "toolLegendButton";
+            this.toolLegendButton.Size = new System.Drawing.Size(24, 38);
+            this.toolLegendButton.Text = "图层控件";
+            this.toolLegendButton.Click += new System.EventHandler(this.toolLegendButton_Click);
+            // 
+            // toolPreviewButton
+            // 
+            this.toolPreviewButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolPreviewButton.Image = ((System.Drawing.Image)(resources.GetObject("toolPreviewButton.Image")));
+            this.toolPreviewButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolPreviewButton.Name = "toolPreviewButton";
+            this.toolPreviewButton.Size = new System.Drawing.Size(24, 38);
+            this.toolPreviewButton.Text = "鸟瞰图";
+            this.toolPreviewButton.Click += new System.EventHandler(this.toolPreviewButton_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 41);
             // 
             // toolStripButton1
             // 
@@ -400,13 +450,13 @@ namespace MapWinGis_Demo_zhw
             this.mnuCloseProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuCloseProject.Name = "mnuCloseProject";
             this.mnuCloseProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mnuCloseProject.Size = new System.Drawing.Size(206, 30);
+            this.mnuCloseProject.Size = new System.Drawing.Size(220, 30);
             this.mnuCloseProject.Text = "新建地图";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuOpen
             // 
@@ -414,7 +464,7 @@ namespace MapWinGis_Demo_zhw
             this.mnuOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuOpen.Name = "mnuOpen";
             this.mnuOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mnuOpen.Size = new System.Drawing.Size(206, 30);
+            this.mnuOpen.Size = new System.Drawing.Size(220, 30);
             this.mnuOpen.Text = "打开文件";
             // 
             // mnuAddVector
@@ -422,7 +472,7 @@ namespace MapWinGis_Demo_zhw
             this.mnuAddVector.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_vector_add;
             this.mnuAddVector.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAddVector.Name = "mnuAddVector";
-            this.mnuAddVector.Size = new System.Drawing.Size(206, 30);
+            this.mnuAddVector.Size = new System.Drawing.Size(220, 30);
             this.mnuAddVector.Text = "打开要素文件";
             // 
             // mnuAddRaster
@@ -430,13 +480,14 @@ namespace MapWinGis_Demo_zhw
             this.mnuAddRaster.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_raster_add;
             this.mnuAddRaster.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAddRaster.Name = "mnuAddRaster";
-            this.mnuAddRaster.Size = new System.Drawing.Size(206, 30);
+            this.mnuAddRaster.Size = new System.Drawing.Size(220, 30);
             this.mnuAddRaster.Text = "打开栅格文件";
+            this.mnuAddRaster.Click += new System.EventHandler(this.openRaster_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuLoadProject
             // 
@@ -444,13 +495,13 @@ namespace MapWinGis_Demo_zhw
             this.mnuLoadProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuLoadProject.Name = "mnuLoadProject";
             this.mnuLoadProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.mnuLoadProject.Size = new System.Drawing.Size(206, 30);
+            this.mnuLoadProject.Size = new System.Drawing.Size(220, 30);
             this.mnuLoadProject.Text = "加载文件";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuSaveProject
             // 
@@ -458,7 +509,7 @@ namespace MapWinGis_Demo_zhw
             this.mnuSaveProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSaveProject.Name = "mnuSaveProject";
             this.mnuSaveProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSaveProject.Size = new System.Drawing.Size(206, 30);
+            this.mnuSaveProject.Size = new System.Drawing.Size(220, 30);
             this.mnuSaveProject.Text = "保存文件";
             // 
             // mnuSaveProjectAs
@@ -466,20 +517,20 @@ namespace MapWinGis_Demo_zhw
             this.mnuSaveProjectAs.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save_as1;
             this.mnuSaveProjectAs.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSaveProjectAs.Name = "mnuSaveProjectAs";
-            this.mnuSaveProjectAs.Size = new System.Drawing.Size(206, 30);
+            this.mnuSaveProjectAs.Size = new System.Drawing.Size(220, 30);
             this.mnuSaveProjectAs.Text = "另存为";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuCloseApp
             // 
             this.mnuCloseApp.Image = global::MapWinGis_Demo_zhw.Properties.Resources.quit1;
             this.mnuCloseApp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuCloseApp.Name = "mnuCloseApp";
-            this.mnuCloseApp.Size = new System.Drawing.Size(206, 30);
+            this.mnuCloseApp.Size = new System.Drawing.Size(220, 30);
             this.mnuCloseApp.Text = "关闭";
             // 
             // mnuMap
@@ -522,12 +573,134 @@ namespace MapWinGis_Demo_zhw
             this.mnuSnapshot.Name = "mnuSnapshot";
             this.mnuSnapshot.Size = new System.Drawing.Size(178, 30);
             this.mnuSnapshot.Text = "获取当前快照";
+            this.mnuSnapshot.Click += new System.EventHandler(this.mnuSnapshot_Click);
             // 
             // mnuTiles
             // 
+            this.mnuTiles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.无ToolStripMenuItem,
+            this.openStreetMapToolStripMenuItem,
+            this.openCycleMapToolStripMenuItem,
+            this.openTransportMapToolStripMenuItem,
+            this.bingMapsToolStripMenuItem,
+            this.bingSatelliteToolStripMenuItem,
+            this.bingHybridToolStripMenuItem,
+            this.googleMapsToolStripMenuItem,
+            this.googleSatelliteToolStripMenuItem,
+            this.googleHybridToolStripMenuItem,
+            this.googleTerrainToolStripMenuItem,
+            this.rosreestrToolStripMenuItem,
+            this.openHumanitarianMapToolStripMenuItem,
+            this.mapQuestAerialToolStripMenuItem,
+            this.providerCustomToolStripMenuItem});
             this.mnuTiles.Name = "mnuTiles";
-            this.mnuTiles.Size = new System.Drawing.Size(54, 24);
-            this.mnuTiles.Text = "Tiles";
+            this.mnuTiles.Size = new System.Drawing.Size(51, 24);
+            this.mnuTiles.Text = "底图";
+            // 
+            // 无ToolStripMenuItem
+            // 
+            this.无ToolStripMenuItem.Name = "无ToolStripMenuItem";
+            this.无ToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.无ToolStripMenuItem.Text = "无";
+            this.无ToolStripMenuItem.Click += new System.EventHandler(this.无ToolStripMenuItem_Click);
+            // 
+            // openStreetMapToolStripMenuItem
+            // 
+            this.openStreetMapToolStripMenuItem.Name = "openStreetMapToolStripMenuItem";
+            this.openStreetMapToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.openStreetMapToolStripMenuItem.Text = "OpenStreetMap";
+            this.openStreetMapToolStripMenuItem.Click += new System.EventHandler(this.openStreetMapToolStripMenuItem_Click);
+            // 
+            // openCycleMapToolStripMenuItem
+            // 
+            this.openCycleMapToolStripMenuItem.Name = "openCycleMapToolStripMenuItem";
+            this.openCycleMapToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.openCycleMapToolStripMenuItem.Text = "OpenCycleMap";
+            this.openCycleMapToolStripMenuItem.Click += new System.EventHandler(this.openCycleMapToolStripMenuItem_Click);
+            // 
+            // openTransportMapToolStripMenuItem
+            // 
+            this.openTransportMapToolStripMenuItem.Name = "openTransportMapToolStripMenuItem";
+            this.openTransportMapToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.openTransportMapToolStripMenuItem.Text = "OpenTransportMap";
+            this.openTransportMapToolStripMenuItem.Click += new System.EventHandler(this.openTransportMapToolStripMenuItem_Click);
+            // 
+            // bingMapsToolStripMenuItem
+            // 
+            this.bingMapsToolStripMenuItem.Name = "bingMapsToolStripMenuItem";
+            this.bingMapsToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.bingMapsToolStripMenuItem.Text = "BingMaps";
+            this.bingMapsToolStripMenuItem.Click += new System.EventHandler(this.bingMapsToolStripMenuItem_Click);
+            // 
+            // bingSatelliteToolStripMenuItem
+            // 
+            this.bingSatelliteToolStripMenuItem.Name = "bingSatelliteToolStripMenuItem";
+            this.bingSatelliteToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.bingSatelliteToolStripMenuItem.Text = "BingSatellite";
+            this.bingSatelliteToolStripMenuItem.Click += new System.EventHandler(this.bingSatelliteToolStripMenuItem_Click);
+            // 
+            // bingHybridToolStripMenuItem
+            // 
+            this.bingHybridToolStripMenuItem.Name = "bingHybridToolStripMenuItem";
+            this.bingHybridToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.bingHybridToolStripMenuItem.Text = "BingHybrid";
+            this.bingHybridToolStripMenuItem.Click += new System.EventHandler(this.bingHybridToolStripMenuItem_Click);
+            // 
+            // googleMapsToolStripMenuItem
+            // 
+            this.googleMapsToolStripMenuItem.Name = "googleMapsToolStripMenuItem";
+            this.googleMapsToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.googleMapsToolStripMenuItem.Text = "GoogleMaps";
+            this.googleMapsToolStripMenuItem.Click += new System.EventHandler(this.googleMapsToolStripMenuItem_Click);
+            // 
+            // googleSatelliteToolStripMenuItem
+            // 
+            this.googleSatelliteToolStripMenuItem.Name = "googleSatelliteToolStripMenuItem";
+            this.googleSatelliteToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.googleSatelliteToolStripMenuItem.Text = "GoogleSatellite";
+            this.googleSatelliteToolStripMenuItem.Click += new System.EventHandler(this.googleSatelliteToolStripMenuItem_Click);
+            // 
+            // googleHybridToolStripMenuItem
+            // 
+            this.googleHybridToolStripMenuItem.Name = "googleHybridToolStripMenuItem";
+            this.googleHybridToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.googleHybridToolStripMenuItem.Text = "GoogleHybrid";
+            this.googleHybridToolStripMenuItem.Click += new System.EventHandler(this.googleHybridToolStripMenuItem_Click);
+            // 
+            // googleTerrainToolStripMenuItem
+            // 
+            this.googleTerrainToolStripMenuItem.Name = "googleTerrainToolStripMenuItem";
+            this.googleTerrainToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.googleTerrainToolStripMenuItem.Text = "GoogleTerrain";
+            this.googleTerrainToolStripMenuItem.Click += new System.EventHandler(this.googleTerrainToolStripMenuItem_Click);
+            // 
+            // rosreestrToolStripMenuItem
+            // 
+            this.rosreestrToolStripMenuItem.Name = "rosreestrToolStripMenuItem";
+            this.rosreestrToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.rosreestrToolStripMenuItem.Text = "Rosreestr";
+            this.rosreestrToolStripMenuItem.Click += new System.EventHandler(this.rosreestrToolStripMenuItem_Click);
+            // 
+            // openHumanitarianMapToolStripMenuItem
+            // 
+            this.openHumanitarianMapToolStripMenuItem.Name = "openHumanitarianMapToolStripMenuItem";
+            this.openHumanitarianMapToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.openHumanitarianMapToolStripMenuItem.Text = "OpenHumanitarianMap";
+            this.openHumanitarianMapToolStripMenuItem.Click += new System.EventHandler(this.openHumanitarianMapToolStripMenuItem_Click);
+            // 
+            // mapQuestAerialToolStripMenuItem
+            // 
+            this.mapQuestAerialToolStripMenuItem.Name = "mapQuestAerialToolStripMenuItem";
+            this.mapQuestAerialToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.mapQuestAerialToolStripMenuItem.Text = "MapQuestAerial";
+            this.mapQuestAerialToolStripMenuItem.Click += new System.EventHandler(this.mapQuestAerialToolStripMenuItem_Click);
+            // 
+            // providerCustomToolStripMenuItem
+            // 
+            this.providerCustomToolStripMenuItem.Name = "providerCustomToolStripMenuItem";
+            this.providerCustomToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.providerCustomToolStripMenuItem.Text = "ProviderCustom";
+            this.providerCustomToolStripMenuItem.Click += new System.EventHandler(this.providerCustomToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -601,52 +774,52 @@ namespace MapWinGis_Demo_zhw
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Size = new System.Drawing.Size(971, 520);
-            dockPanelGradient4.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient4.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin2.DockStripGradient = dockPanelGradient4;
-            tabGradient8.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient8.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient8.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin2.TabGradient = tabGradient8;
-            autoHideStripSkin2.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            dockPanelSkin2.AutoHideStripSkin = autoHideStripSkin2;
-            tabGradient9.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.ActiveTabGradient = tabGradient9;
-            dockPanelGradient5.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient5.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient2.DockStripGradient = dockPanelGradient5;
-            tabGradient10.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.InactiveTabGradient = tabGradient10;
-            dockPaneStripSkin2.DocumentGradient = dockPaneStripGradient2;
-            dockPaneStripSkin2.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            tabGradient11.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient11.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient11.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient11.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient2.ActiveCaptionGradient = tabGradient11;
-            tabGradient12.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient12.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient12.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.ActiveTabGradient = tabGradient12;
-            dockPanelGradient6.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient6.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient2.DockStripGradient = dockPanelGradient6;
-            tabGradient13.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient13.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.InactiveCaptionGradient = tabGradient13;
-            tabGradient14.EndColor = System.Drawing.Color.Transparent;
-            tabGradient14.StartColor = System.Drawing.Color.Transparent;
-            tabGradient14.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient2.InactiveTabGradient = tabGradient14;
-            dockPaneStripSkin2.ToolWindowGradient = dockPaneStripToolWindowGradient2;
-            dockPanelSkin2.DockPaneStripSkin = dockPaneStripSkin2;
-            this.dockPanel1.Skin = dockPanelSkin2;
+            dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
+            tabGradient1.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient1.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin1.TabGradient = tabGradient1;
+            autoHideStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
+            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
+            dockPanelGradient2.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient2.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
+            tabGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
+            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
+            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
+            tabGradient5.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient5.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
+            dockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
+            tabGradient6.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
+            tabGradient7.EndColor = System.Drawing.Color.Transparent;
+            tabGradient7.StartColor = System.Drawing.Color.Transparent;
+            tabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
+            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
+            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
+            this.dockPanel1.Skin = dockPanelSkin1;
             this.dockPanel1.TabIndex = 0;
             // 
             // _toolStripLayer
@@ -793,53 +966,73 @@ namespace MapWinGis_Demo_zhw
             this.toolRemoveLayer.Size = new System.Drawing.Size(37, 38);
             this.toolRemoveLayer.Text = "移除图层";
             // 
-            // ContextMenu
+            // ShpContextMenu
             // 
-            this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShpContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ShpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeItem,
             this.symbolItem,
             this.labelItem,
             this.prosperityItem,
             this.table});
-            this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(139, 124);
-            this.ContextMenu.Text = "符号设置";
+            this.ShpContextMenu.Name = "contextMenuStrip1";
+            this.ShpContextMenu.Size = new System.Drawing.Size(158, 134);
+            this.ShpContextMenu.Text = "符号设置";
             // 
             // removeItem
             // 
+            this.removeItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_remove;
             this.removeItem.Name = "removeItem";
-            this.removeItem.Size = new System.Drawing.Size(138, 24);
-            this.removeItem.Text = "移除";
+            this.removeItem.Size = new System.Drawing.Size(157, 26);
+            this.removeItem.Text = "移除图层";
             this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
             // 
             // symbolItem
             // 
+            this.symbolItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_symbology;
             this.symbolItem.Name = "symbolItem";
-            this.symbolItem.Size = new System.Drawing.Size(138, 24);
+            this.symbolItem.Size = new System.Drawing.Size(157, 26);
             this.symbolItem.Text = "符号设置";
             this.symbolItem.Click += new System.EventHandler(this.symbolItem_Click);
             // 
             // labelItem
             // 
+            this.labelItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.锚点;
             this.labelItem.Name = "labelItem";
-            this.labelItem.Size = new System.Drawing.Size(138, 24);
+            this.labelItem.Size = new System.Drawing.Size(157, 26);
             this.labelItem.Text = "标注设置";
             this.labelItem.Click += new System.EventHandler(this.lableItem_Click);
             // 
             // prosperityItem
             // 
+            this.prosperityItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.tutorials;
             this.prosperityItem.Name = "prosperityItem";
-            this.prosperityItem.Size = new System.Drawing.Size(138, 24);
-            this.prosperityItem.Text = "属性";
+            this.prosperityItem.Size = new System.Drawing.Size(157, 26);
+            this.prosperityItem.Text = "渲染设置";
             this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
             // 
             // table
             // 
+            this.table.Image = global::MapWinGis_Demo_zhw.Properties.Resources.table_editor;
             this.table.Name = "table";
-            this.table.Size = new System.Drawing.Size(138, 24);
-            this.table.Text = "表";
+            this.table.Size = new System.Drawing.Size(157, 26);
+            this.table.Text = "查看属性表";
             this.table.Click += new System.EventHandler(this.table_Click);
+            // 
+            // rasContextMenu
+            // 
+            this.rasContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.rasContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.渲染ToolStripMenuItem});
+            this.rasContextMenu.Name = "rasContextMenu";
+            this.rasContextMenu.Size = new System.Drawing.Size(109, 28);
+            // 
+            // 渲染ToolStripMenuItem
+            // 
+            this.渲染ToolStripMenuItem.Name = "渲染ToolStripMenuItem";
+            this.渲染ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.渲染ToolStripMenuItem.Text = "移除";
+            this.渲染ToolStripMenuItem.Click += new System.EventHandler(this.removeItem_Click);
             // 
             // Main
             // 
@@ -851,6 +1044,7 @@ namespace MapWinGis_Demo_zhw
             this.Controls.Add(this.toolStripPanel1);
             this.Controls.Add(this._menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this._menuStrip1;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -871,7 +1065,8 @@ namespace MapWinGis_Demo_zhw
             this.toolStripContainer1.PerformLayout();
             this._toolStripLayer.ResumeLayout(false);
             this._toolStripLayer.PerformLayout();
-            this.ContextMenu.ResumeLayout(false);
+            this.ShpContextMenu.ResumeLayout(false);
+            this.rasContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -943,7 +1138,7 @@ namespace MapWinGis_Demo_zhw
         private ToolStripButton toolSearch;
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripButton toolSetProjection;
-        private ContextMenuStrip ContextMenu;
+        private ContextMenuStrip ShpContextMenu;
         private ToolStripMenuItem removeItem;
         private ToolStripMenuItem symbolItem;
         private ToolStripMenuItem labelItem;
@@ -952,5 +1147,25 @@ namespace MapWinGis_Demo_zhw
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripButton2;
         private ToolStripSeparator toolStripSeparator11;
+        private ToolStripButton toolLegendButton;
+        private ToolStripButton toolPreviewButton;
+        private ToolStripSeparator toolStripSeparator12;
+        private ToolStripMenuItem 无ToolStripMenuItem;
+        private ToolStripMenuItem openStreetMapToolStripMenuItem;
+        private ToolStripMenuItem openCycleMapToolStripMenuItem;
+        private ToolStripMenuItem openTransportMapToolStripMenuItem;
+        private ToolStripMenuItem bingMapsToolStripMenuItem;
+        private ToolStripMenuItem bingSatelliteToolStripMenuItem;
+        private ToolStripMenuItem bingHybridToolStripMenuItem;
+        private ToolStripMenuItem googleMapsToolStripMenuItem;
+        private ToolStripMenuItem googleSatelliteToolStripMenuItem;
+        private ToolStripMenuItem googleHybridToolStripMenuItem;
+        private ToolStripMenuItem googleTerrainToolStripMenuItem;
+        private ToolStripMenuItem rosreestrToolStripMenuItem;
+        private ToolStripMenuItem openHumanitarianMapToolStripMenuItem;
+        private ToolStripMenuItem mapQuestAerialToolStripMenuItem;
+        private ToolStripMenuItem providerCustomToolStripMenuItem;
+        private ContextMenuStrip rasContextMenu;
+        private ToolStripMenuItem 渲染ToolStripMenuItem;
     }
 }

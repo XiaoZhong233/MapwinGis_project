@@ -20,7 +20,6 @@ using System;
 using System.Windows.Forms;
 using MWLite.Symbology.Classes;
 using MWLite.Symbology.Controls;
-using MWLite.Symbology.Classes;
 
 namespace MWLite.Symbology.Forms.Labels
 {
@@ -46,9 +45,9 @@ namespace MWLite.Symbology.Forms.Labels
             icbFontGradient.SelectedIndex = 0;
 
             if (fontGradient)
-                this.Text = "Font gradient";
+                this.Text = "字体 gradient";
             else
-                this.Text = "Frame gradient";
+                this.Text = "边框 gradient";
             _noEvents = false;
 
             Settings2GUI();

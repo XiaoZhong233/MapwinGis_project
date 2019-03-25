@@ -59,20 +59,11 @@ namespace MapWinGis_Demo_zhw
             Document = 32
         }
 
-        public enum DockState
+        public enum LayerTypeExt
         {
-            Unknown = 0,
-            Float = 1,
-            DockTopAutoHide = 2,
-            DockLeftAutoHide = 3,
-            DockBottomAutoHide = 4,
-            DockRightAutoHide = 5,
-            Document = 6,
-            DockTop = 7,
-            DockLeft = 8,
-            DockBottom = 9,
-            DockRight = 10,
-            Hidden = 11
+            shp,
+            tif,
+            png
         }
 
         /// <summary>
@@ -82,6 +73,13 @@ namespace MapWinGis_Demo_zhw
         {
             FullExtents = 0,
             CurrentMapView = 1
+        }
+
+
+        public enum FormStates
+        {
+            Closing = 0,
+            Closed =1
         }
 
     }

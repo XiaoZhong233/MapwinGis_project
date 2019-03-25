@@ -257,12 +257,12 @@ namespace MWLite.Symbology.Forms.Labels
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(300, 220);
+            this.label18.Location = new System.Drawing.Point(400, 220);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(127, 15);
+            this.label18.Size = new System.Drawing.Size(37, 15);
             this.label18.TabIndex = 48;
-            this.label18.Text = "Decimal places:";
+            this.label18.Text = "精度";
             // 
             // cboDecimalPlaces
             // 
@@ -285,7 +285,8 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupBox10.Size = new System.Drawing.Size(217, 39);
             this.groupBox10.TabIndex = 46;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Description";
+            this.groupBox10.Text = "描述";
+            this.groupBox10.Visible = false;
             // 
             // label13
             // 
@@ -307,7 +308,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupBox9.Size = new System.Drawing.Size(217, 60);
             this.groupBox9.TabIndex = 45;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Example";
+            this.groupBox9.Text = "例如";
             // 
             // label11
             // 
@@ -339,6 +340,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnNewLine.TabIndex = 42;
             this.btnNewLine.Text = "新线段";
             this.btnNewLine.UseVisualStyleBackColor = true;
+            this.btnNewLine.Visible = false;
             this.btnNewLine.Click += new System.EventHandler(this.btnNewLine_Click);
             // 
             // btnQuotes
@@ -423,7 +425,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.tabFont.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabFont.Size = new System.Drawing.Size(533, 371);
             this.tabFont.TabIndex = 0;
-            this.tabFont.Text = "字体";
+            this.tabFont.Text = "字体样式";
             this.tabFont.UseVisualStyleBackColor = true;
             // 
             // groupBox5
@@ -456,6 +458,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.cboTextRenderingHint.Name = "cboTextRenderingHint";
             this.cboTextRenderingHint.Size = new System.Drawing.Size(325, 23);
             this.cboTextRenderingHint.TabIndex = 127;
+            this.cboTextRenderingHint.Visible = false;
             // 
             // label32
             // 
@@ -466,6 +469,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.label32.Size = new System.Drawing.Size(119, 15);
             this.label32.TabIndex = 126;
             this.label32.Text = "Rendering hint";
+            this.label32.Visible = false;
             // 
             // label8
             // 
@@ -597,9 +601,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label9.Location = new System.Drawing.Point(371, 125);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 15);
+            this.label9.Size = new System.Drawing.Size(60, 15);
             this.label9.TabIndex = 122;
-            this.label9.Text = "Offset Y";
+            this.label9.Text = "Y偏移量";
             // 
             // udShadowOffsetY
             // 
@@ -668,9 +672,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label12.Location = new System.Drawing.Point(371, 85);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 15);
+            this.label12.Size = new System.Drawing.Size(60, 15);
             this.label12.TabIndex = 115;
-            this.label12.Text = "Offset X";
+            this.label12.Text = "X偏移量";
             // 
             // chkShadowVisible
             // 
@@ -678,9 +682,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.chkShadowVisible.Location = new System.Drawing.Point(33, 84);
             this.chkShadowVisible.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkShadowVisible.Name = "chkShadowVisible";
-            this.chkShadowVisible.Size = new System.Drawing.Size(77, 19);
+            this.chkShadowVisible.Size = new System.Drawing.Size(59, 19);
             this.chkShadowVisible.TabIndex = 113;
-            this.chkShadowVisible.Text = "Shadow";
+            this.chkShadowVisible.Text = "阴影";
             this.chkShadowVisible.UseVisualStyleBackColor = true;
             this.chkShadowVisible.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -690,19 +694,19 @@ namespace MWLite.Symbology.Forms.Labels
             this.label15.Location = new System.Drawing.Point(371, 38);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 15);
+            this.label15.Size = new System.Drawing.Size(37, 15);
             this.label15.TabIndex = 112;
-            this.label15.Text = "Size";
+            this.label15.Text = "大小";
             // 
             // chkHaloVisible
             // 
             this.chkHaloVisible.AutoSize = true;
-            this.chkHaloVisible.Location = new System.Drawing.Point(35, 37);
+            this.chkHaloVisible.Location = new System.Drawing.Point(31, 39);
             this.chkHaloVisible.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkHaloVisible.Name = "chkHaloVisible";
-            this.chkHaloVisible.Size = new System.Drawing.Size(61, 19);
+            this.chkHaloVisible.Size = new System.Drawing.Size(89, 19);
             this.chkHaloVisible.TabIndex = 111;
-            this.chkHaloVisible.Text = "Halo";
+            this.chkHaloVisible.Text = "字体晕染";
             this.chkHaloVisible.UseVisualStyleBackColor = true;
             this.chkHaloVisible.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -717,7 +721,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.tabFrameFill.Name = "tabFrameFill";
             this.tabFrameFill.Size = new System.Drawing.Size(533, 371);
             this.tabFrameFill.TabIndex = 2;
-            this.tabFrameFill.Text = "Frame";
+            this.tabFrameFill.Text = "边框样式";
             this.tabFrameFill.UseVisualStyleBackColor = true;
             // 
             // groupBox4
@@ -739,7 +743,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupBox4.Size = new System.Drawing.Size(491, 171);
             this.groupBox4.TabIndex = 142;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Style";
+            this.groupBox4.Text = "样式";
             // 
             // label10
             // 
@@ -766,9 +770,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label4.Location = new System.Drawing.Point(37, 28);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 15);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 118;
-            this.label4.Text = "Frame type";
+            this.label4.Text = "边框类型";
             // 
             // udFramePaddingX
             // 
@@ -806,9 +810,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label1.Location = new System.Drawing.Point(37, 118);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 15);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 131;
-            this.label1.Text = "Padding";
+            this.label1.Text = "内边距";
             // 
             // label21
             // 
@@ -816,9 +820,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label21.Location = new System.Drawing.Point(37, 70);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(47, 15);
+            this.label21.Size = new System.Drawing.Size(37, 15);
             this.label21.TabIndex = 78;
-            this.label21.Text = "Color";
+            this.label21.Text = "颜色";
             // 
             // icbFrameType
             // 
@@ -860,9 +864,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.chkUseFrame.Location = new System.Drawing.Point(404, 31);
             this.chkUseFrame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkUseFrame.Name = "chkUseFrame";
-            this.chkUseFrame.Size = new System.Drawing.Size(109, 19);
+            this.chkUseFrame.Size = new System.Drawing.Size(89, 19);
             this.chkUseFrame.TabIndex = 116;
-            this.chkUseFrame.Text = "Draw frame";
+            this.chkUseFrame.Text = "绘制边框";
             this.chkUseFrame.UseVisualStyleBackColor = true;
             this.chkUseFrame.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -881,7 +885,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupBox2.Size = new System.Drawing.Size(491, 108);
             this.groupBox2.TabIndex = 141;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Outline";
+            this.groupBox2.Text = "外框线";
             // 
             // label19
             // 
@@ -889,9 +893,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label19.Location = new System.Drawing.Point(37, 27);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 15);
+            this.label19.Size = new System.Drawing.Size(37, 15);
             this.label19.TabIndex = 140;
-            this.label19.Text = "Color";
+            this.label19.Text = "颜色";
             // 
             // label17
             // 
@@ -899,9 +903,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label17.Location = new System.Drawing.Point(37, 68);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 15);
+            this.label17.Size = new System.Drawing.Size(37, 15);
             this.label17.TabIndex = 136;
-            this.label17.Text = "Width";
+            this.label17.Text = "宽度";
             // 
             // label23
             // 
@@ -909,9 +913,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label23.Location = new System.Drawing.Point(264, 27);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(47, 15);
+            this.label23.Size = new System.Drawing.Size(37, 15);
             this.label23.TabIndex = 135;
-            this.label23.Text = "Style";
+            this.label23.Text = "样式";
             // 
             // icbLineWidth
             // 
@@ -974,7 +978,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.tabPosition.Name = "tabPosition";
             this.tabPosition.Size = new System.Drawing.Size(533, 371);
             this.tabPosition.TabIndex = 4;
-            this.tabPosition.Text = "Position";
+            this.tabPosition.Text = "位置";
             this.tabPosition.UseVisualStyleBackColor = true;
             // 
             // groupBox12
@@ -1019,7 +1023,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.lblScaleLabels.Name = "lblScaleLabels";
             this.lblScaleLabels.Size = new System.Drawing.Size(195, 16);
             this.lblScaleLabels.TabIndex = 1;
-            this.lblScaleLabels.Text = "Scale to use normal font size:";
+            this.lblScaleLabels.Text = "缩放级别";
             // 
             // chkScaleLabels
             // 
@@ -1027,9 +1031,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.chkScaleLabels.Location = new System.Drawing.Point(24, 40);
             this.chkScaleLabels.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkScaleLabels.Name = "chkScaleLabels";
-            this.chkScaleLabels.Size = new System.Drawing.Size(125, 19);
+            this.chkScaleLabels.Size = new System.Drawing.Size(104, 19);
             this.chkScaleLabels.TabIndex = 0;
-            this.chkScaleLabels.Text = "Scale labels";
+            this.chkScaleLabels.Text = "标签可缩放";
             this.chkScaleLabels.UseVisualStyleBackColor = true;
             this.chkScaleLabels.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -1053,9 +1057,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.chkAviodCollisions.Location = new System.Drawing.Point(24, 132);
             this.chkAviodCollisions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkAviodCollisions.Name = "chkAviodCollisions";
-            this.chkAviodCollisions.Size = new System.Drawing.Size(157, 19);
+            this.chkAviodCollisions.Size = new System.Drawing.Size(89, 19);
             this.chkAviodCollisions.TabIndex = 129;
-            this.chkAviodCollisions.Text = "Avoid collisions";
+            this.chkAviodCollisions.Text = "避免重叠";
             this.chkAviodCollisions.UseVisualStyleBackColor = true;
             this.chkAviodCollisions.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -1065,9 +1069,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.chkLabelsRemoveDuplicates.Location = new System.Drawing.Point(24, 91);
             this.chkLabelsRemoveDuplicates.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkLabelsRemoveDuplicates.Name = "chkLabelsRemoveDuplicates";
-            this.chkLabelsRemoveDuplicates.Size = new System.Drawing.Size(165, 19);
+            this.chkLabelsRemoveDuplicates.Size = new System.Drawing.Size(119, 19);
             this.chkLabelsRemoveDuplicates.TabIndex = 128;
-            this.chkLabelsRemoveDuplicates.Text = "Remove duplicates";
+            this.chkLabelsRemoveDuplicates.Text = "去除重复标签";
             this.chkLabelsRemoveDuplicates.UseVisualStyleBackColor = true;
             this.chkLabelsRemoveDuplicates.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -1077,9 +1081,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.lblLabelVerticalPosition.Location = new System.Drawing.Point(17, 24);
             this.lblLabelVerticalPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLabelVerticalPosition.Name = "lblLabelVerticalPosition";
-            this.lblLabelVerticalPosition.Size = new System.Drawing.Size(151, 15);
+            this.lblLabelVerticalPosition.Size = new System.Drawing.Size(63, 15);
             this.lblLabelVerticalPosition.TabIndex = 126;
-            this.lblLabelVerticalPosition.Text = "Vertical position:";
+            this.lblLabelVerticalPosition.Text = "Z-index";
             // 
             // cboLabelsVerticalPosition
             // 
@@ -1116,7 +1120,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupLabelAlignment.Size = new System.Drawing.Size(484, 141);
             this.groupLabelAlignment.TabIndex = 164;
             this.groupLabelAlignment.TabStop = false;
-            this.groupLabelAlignment.Text = "Alignment";
+            this.groupLabelAlignment.Text = "对齐";
             // 
             // udLabelOffsetY
             // 
@@ -1181,9 +1185,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label14.Location = new System.Drawing.Point(264, 97);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(127, 15);
+            this.label14.Size = new System.Drawing.Size(67, 15);
             this.label14.TabIndex = 156;
-            this.label14.Text = "Buffer distance";
+            this.label14.Text = "缓冲距离";
             // 
             // optAlignBottomRight
             // 
@@ -1204,9 +1208,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.lblLabelsOffsetY.Location = new System.Drawing.Point(264, 63);
             this.lblLabelsOffsetY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLabelsOffsetY.Name = "lblLabelsOffsetY";
-            this.lblLabelsOffsetY.Size = new System.Drawing.Size(127, 15);
+            this.lblLabelsOffsetY.Size = new System.Drawing.Size(67, 15);
             this.lblLabelsOffsetY.TabIndex = 154;
-            this.lblLabelsOffsetY.Text = "Vertical offset";
+            this.lblLabelsOffsetY.Text = "垂直位移";
             // 
             // optAlignBottomCenter
             // 
@@ -1227,9 +1231,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.lblLabelsOffsetX.Location = new System.Drawing.Point(264, 28);
             this.lblLabelsOffsetX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLabelsOffsetX.Name = "lblLabelsOffsetX";
-            this.lblLabelsOffsetX.Size = new System.Drawing.Size(143, 15);
+            this.lblLabelsOffsetX.Size = new System.Drawing.Size(67, 15);
             this.lblLabelsOffsetX.TabIndex = 150;
-            this.lblLabelsOffsetX.Text = "Horizontal offset";
+            this.lblLabelsOffsetX.Text = "水平位移";
             // 
             // optAlignBottomLeft
             // 
@@ -1331,7 +1335,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.tabVisibility.Name = "tabVisibility";
             this.tabVisibility.Size = new System.Drawing.Size(533, 371);
             this.tabVisibility.TabIndex = 5;
-            this.tabVisibility.Text = "Visibility";
+            this.tabVisibility.Text = "可见性";
             this.tabVisibility.UseVisualStyleBackColor = true;
             // 
             // groupBox13
@@ -1345,7 +1349,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupBox13.Size = new System.Drawing.Size(489, 164);
             this.groupBox13.TabIndex = 176;
             this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Dynamic visibility";
+            this.groupBox13.Text = "动态可见性";
             // 
             // panel1
             // 
@@ -1368,7 +1372,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnSetMaxScale.Name = "btnSetMaxScale";
             this.btnSetMaxScale.Size = new System.Drawing.Size(116, 28);
             this.btnSetMaxScale.TabIndex = 5;
-            this.btnSetMaxScale.Text = "Current";
+            this.btnSetMaxScale.Text = "当前";
             this.btnSetMaxScale.UseVisualStyleBackColor = true;
             this.btnSetMaxScale.Click += new System.EventHandler(this.btnSetMaxScale_Click);
             // 
@@ -1389,7 +1393,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnSetMinScale.Name = "btnSetMinScale";
             this.btnSetMinScale.Size = new System.Drawing.Size(116, 28);
             this.btnSetMinScale.TabIndex = 6;
-            this.btnSetMinScale.Text = "Current";
+            this.btnSetMinScale.Text = "当前";
             this.btnSetMinScale.UseVisualStyleBackColor = true;
             this.btnSetMinScale.Click += new System.EventHandler(this.btnSetMinScale_Click);
             // 
@@ -1399,9 +1403,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label20.Location = new System.Drawing.Point(20, 53);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(175, 15);
+            this.label20.Size = new System.Drawing.Size(112, 15);
             this.label20.TabIndex = 2;
-            this.label20.Text = "Maximal visible scale";
+            this.label20.Text = "最大可见比例尺";
             // 
             // label16
             // 
@@ -1409,9 +1413,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.label16.Location = new System.Drawing.Point(20, 18);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(175, 15);
+            this.label16.Size = new System.Drawing.Size(112, 15);
             this.label16.TabIndex = 1;
-            this.label16.Text = "Minimal visible scale";
+            this.label16.Text = "最小可见比例尺";
             // 
             // cboMinScale
             // 
@@ -1429,9 +1433,9 @@ namespace MWLite.Symbology.Forms.Labels
             this.chkDynamicVisibility.Location = new System.Drawing.Point(39, 37);
             this.chkDynamicVisibility.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkDynamicVisibility.Name = "chkDynamicVisibility";
-            this.chkDynamicVisibility.Size = new System.Drawing.Size(205, 19);
+            this.chkDynamicVisibility.Size = new System.Drawing.Size(149, 19);
             this.chkDynamicVisibility.TabIndex = 0;
-            this.chkDynamicVisibility.Text = "Use dynamic visibility";
+            this.chkDynamicVisibility.Text = "使用标签动态可见";
             this.chkDynamicVisibility.UseVisualStyleBackColor = true;
             this.chkDynamicVisibility.CheckedChanged += new System.EventHandler(this.Gui2LabelStyle);
             // 
@@ -1447,7 +1451,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.groupBox11.Size = new System.Drawing.Size(491, 164);
             this.groupBox11.TabIndex = 172;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Visibility expression";
+            this.groupBox11.Text = "构建可见标签表达式";
             // 
             // txtLabelExpression
             // 
@@ -1467,7 +1471,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnLabelExpression.Name = "btnLabelExpression";
             this.btnLabelExpression.Size = new System.Drawing.Size(107, 30);
             this.btnLabelExpression.TabIndex = 169;
-            this.btnLabelExpression.Text = "Change...";
+            this.btnLabelExpression.Text = "构建SQL...";
             this.btnLabelExpression.UseVisualStyleBackColor = true;
             this.btnLabelExpression.Click += new System.EventHandler(this.btnLabelExpression_Click);
             // 
@@ -1478,7 +1482,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnClearLabelsExpression.Name = "btnClearLabelsExpression";
             this.btnClearLabelsExpression.Size = new System.Drawing.Size(89, 30);
             this.btnClearLabelsExpression.TabIndex = 170;
-            this.btnClearLabelsExpression.Text = "Clear";
+            this.btnClearLabelsExpression.Text = "清除";
             this.btnClearLabelsExpression.UseVisualStyleBackColor = true;
             this.btnClearLabelsExpression.Click += new System.EventHandler(this.btnClearLabelsExpression_Click);
             // 
@@ -1499,7 +1503,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(127, 30);
             this.btnOk.TabIndex = 0;
-            this.btnOk.Text = "Ok";
+            this.btnOk.Text = "确认";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -1511,7 +1515,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 30);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -1787,7 +1791,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(127, 30);
             this.btnApply.TabIndex = 135;
-            this.btnApply.Text = "Apply";
+            this.btnApply.Text = "应用";
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
@@ -1813,7 +1817,7 @@ namespace MWLite.Symbology.Forms.Labels
             this.Name = "LabelStyleForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Label style";
+            this.Text = "标签设置";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLabelStyle_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabExpression.ResumeLayout(false);

@@ -317,3 +317,7 @@ D:\C project\MapWinGIS\MapwinGis_project\MWLite.Symbology\obj\Debug\MapWinGis.Sy
 D:\C project\MapWinGIS\MapwinGis_project\MWLite.Symbology\obj\Debug\MapWinGis.Symbology.csproj.CoreCompileInputs.cache
 D:\C project\MapWinGIS\MapwinGis_project\MWLite.Symbology\obj\Debug\MWLite.Symbology.dll
 D:\C project\MapWinGIS\MapwinGis_project\MWLite.Symbology\obj\Debug\MWLite.Symbology.pdb
+E:\Desktop\youyuan\DEMO\888我要发\MWLite.Symbology\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+E:\Desktop\youyuan\DEMO\888我要发\MWLite.Symbology\obj\Debug\MapWinGis.Symbology.csproj.CopyComplete
+C:\Users\he100\Desktop\MapwinGis_project\MWLite.Symbology\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+C:\Users\he100\Desktop\MapwinGis_project\MWLite.Symbology\obj\Debug\MapWinGis.Symbology.csproj.CopyComplete

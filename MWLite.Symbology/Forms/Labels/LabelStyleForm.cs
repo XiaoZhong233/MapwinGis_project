@@ -574,6 +574,8 @@ namespace MWLite.Symbology.Forms.Labels
 
             Globals.SaveLayerOptions(m_handle);
 
+            //App.SnapshotForm.GetPictureFromMap(true);
+
             this.DialogResult = DialogResult.OK;
         }
 
@@ -806,6 +808,8 @@ namespace MWLite.Symbology.Forms.Labels
         {
             if (ApplyOptions())
             {
+                
+                //App.SnapshotForm.GetPictureFromMap(true);
                 if (m_legend != null)
                 {
                     m_legend.FireLayerPropertiesChanged(m_handle);

@@ -45,8 +45,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking">
-      <HintPath>..\..\..\MapWinGIS-4.9.6.0\demo\packages\DockPanelSuite.2.9.0.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +56,12 @@
     </Compile>
     <Compile Include="Controls\IdentifierContextMenu.Designer.cs">
       <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mAttributesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mAttributesForm.Designer.cs">
+      <DependentUpon>mAttributesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FieldsAppendForm.cs">
       <SubType>Form</SubType>
@@ -74,6 +81,12 @@
     <Compile Include="Forms\FieldsVisibleForm.Designer.cs">
       <DependentUpon>FieldsVisibleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IdentifyResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IdentifyResultForm.Designer.cs">
+      <DependentUpon>IdentifyResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LegendDockForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +104,12 @@
     </Compile>
     <Compile Include="Forms\MeasuringForm.Designer.cs">
       <DependentUpon>MeasuringForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QueryBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QueryBuilderForm.Designer.cs">
+      <DependentUpon>QueryBuilderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SnapShotForm.cs">
       <SubType>Form</SubType>
@@ -134,6 +153,9 @@
     <EmbeddedResource Include="Controls\IdentifierContextMenu.resx">
       <DependentUpon>IdentifierContextMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mAttributesForm.resx">
+      <DependentUpon>mAttributesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FieldsAppendForm.resx">
       <DependentUpon>FieldsAppendForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,11 +165,20 @@
     <EmbeddedResource Include="Forms\FieldsVisibleForm.resx">
       <DependentUpon>FieldsVisibleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IdentifyResultForm.resx">
+      <DependentUpon>IdentifyResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LegendDockForm.resx">
+      <DependentUpon>LegendDockForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MapDockForm.resx">
       <DependentUpon>MapDockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MeasuringForm.resx">
       <DependentUpon>MeasuringForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QueryBuilderForm.resx">
+      <DependentUpon>QueryBuilderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SnapShotForm.resx">
       <DependentUpon>SnapShotForm.cs</DependentUpon>
@@ -318,6 +349,10 @@
     <None Include="Resources\手指.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\减号.png" />
+    <None Include="Resources\锚点.png" />
+    <None Include="Resources\关闭.png" />
+    <None Include="Resources\layer-more.png" />
     <None Include="Resources\github %281%29.png" />
     <None Include="Resources\github.png" />
     <None Include="Resources\question.png" />

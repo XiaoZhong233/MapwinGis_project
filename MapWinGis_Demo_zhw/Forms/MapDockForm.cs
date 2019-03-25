@@ -64,7 +64,6 @@ namespace MapWinGis_Demo_zhw.Forms
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
-            
         }
 
 
@@ -115,6 +114,7 @@ namespace MapWinGis_Demo_zhw.Forms
 
         private void AxMap1_LayerRemoved(object sender, _DMapEvents_LayerRemovedEvent e)
         {
+            App.SnapshotForm.GetPictureFromMap(true);
             refreshPreview();
             if (App.Map.NumLayers <= 0)
             {
@@ -126,7 +126,9 @@ namespace MapWinGis_Demo_zhw.Forms
 
         private void AxMap1_LayerAdded(object sender, _DMapEvents_LayerAddedEvent e)
         {
+            App.SnapshotForm.GetPictureFromMap(true);
             refreshPreview();
+
             //App.PreviewMap.AddLayer(e.layerHandle, true);
         }
 
@@ -142,8 +144,10 @@ namespace MapWinGis_Demo_zhw.Forms
         {
             try
             {
+                if (App.SnapshotForm.IsDisposed)
+                    return;
                 App.SnapshotForm.UpdateLocatorBox();
-                App.SnapshotForm.GetPictureFromMap(true);
+                //App.SnapshotForm.GetPictureFromMap(true);
             }
             catch
             {
@@ -362,6 +366,7 @@ namespace MapWinGis_Demo_zhw.Forms
         private void axMap1_ProjectionChanged(object sender, System.EventArgs e)
         {
             var gp = axMap1.GeoProjection;
+            
             lblProjection.Text = gp.IsEmpty ? "无" : "info: " + gp.ExportToProj4();
         }
 
@@ -449,7 +454,8 @@ namespace MapWinGis_Demo_zhw.Forms
                 {
                     _DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(HightLightlayerHandle, HightLightshapeIndex);
                     InformationForm informationForm = new InformationForm(Map, ee);
-                    informationForm.Show();
+                    App.getIdentifyResultForm(informationForm, DockState.Document);
+                    //informationForm.Show();
                 }
             }
         }
@@ -498,7 +504,8 @@ namespace MapWinGis_Demo_zhw.Forms
                 {
                     //_DMapEvents_ShapeHighlightedEvent ee = new _DMapEvents_ShapeHighlightedEvent(HightLightlayerHandle, HightLightshapeIndex);
                     InformationForm informationForm = new InformationForm(Map, App.Legend.SelectedLayer,shapes);
-                    informationForm.Show();
+                    App.getIdentifyResultForm(informationForm, DockState.Document, sf.Filename);
+                    //informationForm.Show();
                 }
 
             }

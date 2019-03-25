@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,39 @@ namespace MapWinGis_Demo_zhw.Helper
             return AxHost.GetPictureFromIPicture(image);
         }
 
+        //图像透明度
+        public static Bitmap alphaImage(Bitmap fImage, Bitmap bImage, double alpha)
+        {
+            //输入fImage为前景图，bImage为背景图，alpha为透明度
+            int height = fImage.Height;
+            int width = bImage.Width;
+            Bitmap aImage = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int Ra = (int)Math.Round((1 - (alpha / 100.0)) * fImage.GetPixel(x, y).R + (alpha / 100.0) * bImage.GetPixel(x, y).R);
+                    int Ga = (int)Math.Round((1 - (alpha / 100.0)) * fImage.GetPixel(x, y).G + (alpha / 100.0) * bImage.GetPixel(x, y).G);
+                    int Ba = (int)Math.Round((1 - (alpha / 100.0)) * fImage.GetPixel(x, y).B + (alpha / 100.0) * bImage.GetPixel(x, y).B);
+                    Color RGB = Color.FromArgb(Ra, Ga, Ba);
+                    aImage.SetPixel(x, y, RGB);
+                }
+            }
+            return aImage;
+        }
+
+        //色彩度最大为255，最小为0
+        public static Bitmap img_alpha(Bitmap src, int alpha)
+        {
+            Bitmap bmp = new Bitmap(src.Width, src.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            for (int h = 0; h < src.Height; h++)
+                for (int w = 0; w < src.Width; w++)
+                {
+                    Color c = src.GetPixel(w, h);
+                    bmp.SetPixel(w, h, Color.FromArgb(alpha, c.R, c.G, c.B));
+                }
+            return bmp;
+        }
 
     }
 }
