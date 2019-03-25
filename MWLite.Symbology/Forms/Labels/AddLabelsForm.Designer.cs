@@ -69,7 +69,7 @@
             this.groupBox5.Size = new System.Drawing.Size(439, 173);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Position";
+            this.groupBox5.Text = "位置";
             // 
             // panel1
             // 
@@ -203,9 +203,9 @@
             this.optPosition4.Location = new System.Drawing.Point(43, 135);
             this.optPosition4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.optPosition4.Name = "optPosition4";
-            this.optPosition4.Size = new System.Drawing.Size(140, 19);
+            this.optPosition4.Size = new System.Drawing.Size(58, 19);
             this.optPosition4.TabIndex = 3;
-            this.optPosition4.Text = "Interior point";
+            this.optPosition4.Text = "内部";
             this.optPosition4.UseVisualStyleBackColor = true;
             // 
             // optPosition3
@@ -214,9 +214,9 @@
             this.optPosition3.Location = new System.Drawing.Point(43, 102);
             this.optPosition3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.optPosition3.Name = "optPosition3";
-            this.optPosition3.Size = new System.Drawing.Size(140, 19);
+            this.optPosition3.Size = new System.Drawing.Size(58, 19);
             this.optPosition3.TabIndex = 2;
-            this.optPosition3.Text = "Interior point";
+            this.optPosition3.Text = "内部";
             this.optPosition3.UseVisualStyleBackColor = true;
             // 
             // optPosition2
@@ -262,9 +262,9 @@
             this.chkLabelEveryPart.Location = new System.Drawing.Point(31, 73);
             this.chkLabelEveryPart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkLabelEveryPart.Name = "chkLabelEveryPart";
-            this.chkLabelEveryPart.Size = new System.Drawing.Size(149, 19);
+            this.chkLabelEveryPart.Size = new System.Drawing.Size(89, 19);
             this.chkLabelEveryPart.TabIndex = 21;
-            this.chkLabelEveryPart.Text = "Label all parts";
+            this.chkLabelEveryPart.Text = "标签分离";
             this.chkLabelEveryPart.UseVisualStyleBackColor = true;
             // 
             // cboLineOrientation
@@ -296,7 +296,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(123, 30);
             this.btnOk.TabIndex = 24;
-            this.btnOk.Text = "Ok";
+            this.btnOk.Text = "确认";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -309,7 +309,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(123, 30);
             this.btnCancel.TabIndex = 25;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // AddLabelsForm

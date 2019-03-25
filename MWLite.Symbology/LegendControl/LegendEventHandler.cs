@@ -92,6 +92,7 @@ namespace MWLite.Symbology.LegendControl
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         // do something
+                        //App.SnapshotForm.GetPictureFromMap(true);
                     }
                     form.Dispose();
                     

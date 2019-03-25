@@ -160,6 +160,8 @@ namespace MapWinGis_Demo_zhw
             InitDockLayout();
             InitLegend();
             RegisterToolEvt();
+
+
             this.FormClosed += (s, e) =>
             {
                 this.Tag = FormStates.Closing;
@@ -316,6 +318,7 @@ namespace MapWinGis_Demo_zhw
             //_mainToolStrip.Click += _mainToolStrip_Click;
             toolSelect.Click += ToolSelect_Click;
             toolClearSelection.Click += ToolClearSelection_Click;
+
         }
 
 
@@ -583,6 +586,9 @@ namespace MapWinGis_Demo_zhw
 
         #endregion
 
+
+        //private System.Timers.Timer t;
+
         #region 窗体事件
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -591,6 +597,8 @@ namespace MapWinGis_Demo_zhw
             //recover_btn.Enabled = false;
             //removeAll_btn.Enabled = false;
             toolRemoveLayer.Enabled = false;
+            
+
         }
         #endregion
 
@@ -1522,7 +1530,7 @@ namespace MapWinGis_Demo_zhw
             toolRemoveLayer.Enabled = hasLayer || Legend.Groups.Count>0;
 
             //App.RefreshUI();
-
+            App.SnapshotForm.GetPictureFromMap(true);
             Map.Focus();
             Map.Redraw();
         }

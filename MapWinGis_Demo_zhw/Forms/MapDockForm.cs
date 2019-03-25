@@ -64,7 +64,6 @@ namespace MapWinGis_Demo_zhw.Forms
             Map.ShapeEditor.HighlightVertices = tkLayerSelection.lsNoLayer;
             Map.ShapeEditor.SnapBehavior = tkLayerSelection.lsNoLayer;
             axMap1.Measuring.UndoButton = tkUndoShortcut.usCtrlZ;
-            
         }
 
 
