@@ -225,9 +225,9 @@
             this.optPosition2.Location = new System.Drawing.Point(43, 68);
             this.optPosition2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.optPosition2.Name = "optPosition2";
-            this.optPosition2.Size = new System.Drawing.Size(92, 19);
+            this.optPosition2.Size = new System.Drawing.Size(58, 19);
             this.optPosition2.TabIndex = 1;
-            this.optPosition2.Text = "Centroid";
+            this.optPosition2.Text = "质心";
             this.optPosition2.UseVisualStyleBackColor = true;
             // 
             // optPosition1
@@ -283,9 +283,9 @@
             this.label9.Location = new System.Drawing.Point(27, 31);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 15);
+            this.label9.Size = new System.Drawing.Size(112, 15);
             this.label9.TabIndex = 19;
-            this.label9.Text = "Relative to line:";
+            this.label9.Text = "与线要素的关系";
             // 
             // btnOk
             // 

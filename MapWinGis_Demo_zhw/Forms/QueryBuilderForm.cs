@@ -103,7 +103,14 @@ namespace MapWinGis_Demo_zhw.Forms
             }
 
             fieldsBox.SelectedIndexChanged += FieldsBox_SelectedIndexChanged;
+            //fieldsBox.MouseDoubleClick += FieldsBox_DoubleClick;
         }
+
+        //private void FieldsBox_DoubleClick(object sender, EventArgs e)
+        //{
+        //    ValueBox.Items.Clear();
+        //    sqlBox.Text += " [" + fieldsBox.SelectedItem.ToString() + "] ";
+        //}
 
         private void initValueBox()
         {
@@ -215,6 +222,8 @@ namespace MapWinGis_Demo_zhw.Forms
             Result = result;
             if (success)
             {
+
+                vetifyInfo.ForeColor = Color.Green;
                 shapefile.SelectNone();
                 int[] shapes = result as int[];
                 if (shapes != null)
@@ -230,15 +239,36 @@ namespace MapWinGis_Demo_zhw.Forms
             else
             {
                 MessageHelper.Warn(error);
+                vetifyInfo.ForeColor = Color.Red;
             }
         }
 
         private bool query(ref object result,ref string error)
         {
+
+            //vetifyInfo.ForeColor = Color.Green;
             bool success = shapefile.Table.Query(sql,ref result,ref error);
             Result = result;
             vetifyInfo.Text = error;
             //MessageHelper.Info(sql +"\n"+ success);
+            if (success)
+            {
+                vetifyInfo.ForeColor = Color.Green;
+                vetifyInfo.Text = "valid";
+            }
+            else
+            {
+                vetifyInfo.ForeColor = Color.Red;
+                if (error.ToLower().Equals("selection is empty"))
+                {
+                    vetifyInfo.ForeColor = Color.Blue;
+                    vetifyInfo.Text = error;
+                }
+
+           
+                
+            }
+
             return success;
         }
 
@@ -296,13 +326,16 @@ namespace MapWinGis_Demo_zhw.Forms
         private void FieldsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValueBox.Items.Clear();
-            //sqlBox.Clear();
-            sqlBox.Text += " ["+fieldsBox.SelectedItem.ToString()+"] ";
+            sqlBox.Text += " [" + fieldsBox.SelectedItem.ToString() + "] ";
             int index = fieldsBox.SelectedIndex;
             if(index != -1)
             {
                 for(int i = 0; i < shapefile.Table.NumRows; i++)
                 {
+                    if(shapefile.Table.CellValue[index, i] == null)
+                    {
+                        continue;
+                    }
                     ValueBox.Items.Add(shapefile.Table.CellValue[index, i]);
                 }
             }

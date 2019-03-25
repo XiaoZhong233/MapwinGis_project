@@ -313,10 +313,10 @@
             // vetifyInfo
             // 
             this.vetifyInfo.AutoSize = true;
-            this.vetifyInfo.Font = new System.Drawing.Font("宋体", 6.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.vetifyInfo.Font = new System.Drawing.Font("宋体", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.vetifyInfo.Location = new System.Drawing.Point(12, 502);
             this.vetifyInfo.Name = "vetifyInfo";
-            this.vetifyInfo.Size = new System.Drawing.Size(47, 12);
+            this.vetifyInfo.Size = new System.Drawing.Size(55, 14);
             this.vetifyInfo.TabIndex = 7;
             this.vetifyInfo.Text = "label3";
             // 
@@ -335,7 +335,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "QueryBuilderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QueryBuilderForm";
+            this.Text = "查询构建窗口";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

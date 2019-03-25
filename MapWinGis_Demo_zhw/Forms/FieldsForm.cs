@@ -664,7 +664,7 @@ namespace MapWinGis.ShapeEditor.Forms
                         
                     }
 
-                    editInfo.Text = " select" + shapes.Length + "records";
+                    editInfo.Text = " select " + shapes.Length + " records";
                 }
             };
 

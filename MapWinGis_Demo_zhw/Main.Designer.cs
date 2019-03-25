@@ -127,12 +127,14 @@ namespace MapWinGis_Demo_zhw
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolCreateLayer = new System.Windows.Forms.ToolStripButton();
             this.toolRemoveLayer = new System.Windows.Forms.ToolStripButton();
-            this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ShpContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.symbolItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prosperityItem = new System.Windows.Forms.ToolStripMenuItem();
             this.table = new System.Windows.Forms.ToolStripMenuItem();
+            this.rasContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.渲染ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._mainToolStrip.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -141,7 +143,8 @@ namespace MapWinGis_Demo_zhw
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this._toolStripLayer.SuspendLayout();
-            this.ContextMenu.SuspendLayout();
+            this.ShpContextMenu.SuspendLayout();
+            this.rasContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // _mainToolStrip
@@ -175,7 +178,7 @@ namespace MapWinGis_Demo_zhw
             this._mainToolStrip.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this._mainToolStrip.Name = "_mainToolStrip";
             this._mainToolStrip.Padding = new System.Windows.Forms.Padding(0);
-            this._mainToolStrip.Size = new System.Drawing.Size(680, 41);
+            this._mainToolStrip.Size = new System.Drawing.Size(641, 41);
             this._mainToolStrip.TabIndex = 0;
             this._mainToolStrip.Text = "toolStrip1";
             // 
@@ -326,13 +329,13 @@ namespace MapWinGis_Demo_zhw
             // toolSelect
             // 
             this.toolSelect.Name = "toolSelect";
-            this.toolSelect.Size = new System.Drawing.Size(216, 26);
+            this.toolSelect.Size = new System.Drawing.Size(178, 26);
             this.toolSelect.Text = "By Rectangle";
             // 
             // toolSelectByPolygon
             // 
             this.toolSelectByPolygon.Name = "toolSelectByPolygon";
-            this.toolSelectByPolygon.Size = new System.Drawing.Size(216, 26);
+            this.toolSelectByPolygon.Size = new System.Drawing.Size(178, 26);
             this.toolSelectByPolygon.Text = "By SQL";
             this.toolSelectByPolygon.Click += new System.EventHandler(this.toolSelectByPolygon_Click);
             // 
@@ -447,13 +450,13 @@ namespace MapWinGis_Demo_zhw
             this.mnuCloseProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuCloseProject.Name = "mnuCloseProject";
             this.mnuCloseProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mnuCloseProject.Size = new System.Drawing.Size(206, 30);
+            this.mnuCloseProject.Size = new System.Drawing.Size(220, 30);
             this.mnuCloseProject.Text = "新建地图";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuOpen
             // 
@@ -461,7 +464,7 @@ namespace MapWinGis_Demo_zhw
             this.mnuOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuOpen.Name = "mnuOpen";
             this.mnuOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mnuOpen.Size = new System.Drawing.Size(206, 30);
+            this.mnuOpen.Size = new System.Drawing.Size(220, 30);
             this.mnuOpen.Text = "打开文件";
             // 
             // mnuAddVector
@@ -469,7 +472,7 @@ namespace MapWinGis_Demo_zhw
             this.mnuAddVector.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_vector_add;
             this.mnuAddVector.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAddVector.Name = "mnuAddVector";
-            this.mnuAddVector.Size = new System.Drawing.Size(206, 30);
+            this.mnuAddVector.Size = new System.Drawing.Size(220, 30);
             this.mnuAddVector.Text = "打开要素文件";
             // 
             // mnuAddRaster
@@ -477,14 +480,14 @@ namespace MapWinGis_Demo_zhw
             this.mnuAddRaster.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_raster_add;
             this.mnuAddRaster.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuAddRaster.Name = "mnuAddRaster";
-            this.mnuAddRaster.Size = new System.Drawing.Size(206, 30);
+            this.mnuAddRaster.Size = new System.Drawing.Size(220, 30);
             this.mnuAddRaster.Text = "打开栅格文件";
-            this.mnuAddRaster.Click += new System.EventHandler(this.mnuAddRaster_Click);
+            this.mnuAddRaster.Click += new System.EventHandler(this.openRaster_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuLoadProject
             // 
@@ -492,13 +495,13 @@ namespace MapWinGis_Demo_zhw
             this.mnuLoadProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuLoadProject.Name = "mnuLoadProject";
             this.mnuLoadProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.mnuLoadProject.Size = new System.Drawing.Size(206, 30);
+            this.mnuLoadProject.Size = new System.Drawing.Size(220, 30);
             this.mnuLoadProject.Text = "加载文件";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuSaveProject
             // 
@@ -506,7 +509,7 @@ namespace MapWinGis_Demo_zhw
             this.mnuSaveProject.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSaveProject.Name = "mnuSaveProject";
             this.mnuSaveProject.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSaveProject.Size = new System.Drawing.Size(206, 30);
+            this.mnuSaveProject.Size = new System.Drawing.Size(220, 30);
             this.mnuSaveProject.Text = "保存文件";
             // 
             // mnuSaveProjectAs
@@ -514,20 +517,20 @@ namespace MapWinGis_Demo_zhw
             this.mnuSaveProjectAs.Image = global::MapWinGis_Demo_zhw.Properties.Resources.save_as1;
             this.mnuSaveProjectAs.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuSaveProjectAs.Name = "mnuSaveProjectAs";
-            this.mnuSaveProjectAs.Size = new System.Drawing.Size(206, 30);
+            this.mnuSaveProjectAs.Size = new System.Drawing.Size(220, 30);
             this.mnuSaveProjectAs.Text = "另存为";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(217, 6);
             // 
             // mnuCloseApp
             // 
             this.mnuCloseApp.Image = global::MapWinGis_Demo_zhw.Properties.Resources.quit1;
             this.mnuCloseApp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mnuCloseApp.Name = "mnuCloseApp";
-            this.mnuCloseApp.Size = new System.Drawing.Size(206, 30);
+            this.mnuCloseApp.Size = new System.Drawing.Size(220, 30);
             this.mnuCloseApp.Text = "关闭";
             // 
             // mnuMap
@@ -963,53 +966,73 @@ namespace MapWinGis_Demo_zhw
             this.toolRemoveLayer.Size = new System.Drawing.Size(37, 38);
             this.toolRemoveLayer.Text = "移除图层";
             // 
-            // ContextMenu
+            // ShpContextMenu
             // 
-            this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShpContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ShpContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeItem,
             this.symbolItem,
             this.labelItem,
             this.prosperityItem,
             this.table});
-            this.ContextMenu.Name = "contextMenuStrip1";
-            this.ContextMenu.Size = new System.Drawing.Size(139, 124);
-            this.ContextMenu.Text = "符号设置";
+            this.ShpContextMenu.Name = "contextMenuStrip1";
+            this.ShpContextMenu.Size = new System.Drawing.Size(158, 134);
+            this.ShpContextMenu.Text = "符号设置";
             // 
             // removeItem
             // 
+            this.removeItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_remove;
             this.removeItem.Name = "removeItem";
-            this.removeItem.Size = new System.Drawing.Size(138, 24);
-            this.removeItem.Text = "移除";
+            this.removeItem.Size = new System.Drawing.Size(157, 26);
+            this.removeItem.Text = "移除图层";
             this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
             // 
             // symbolItem
             // 
+            this.symbolItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.layer_symbology;
             this.symbolItem.Name = "symbolItem";
-            this.symbolItem.Size = new System.Drawing.Size(138, 24);
+            this.symbolItem.Size = new System.Drawing.Size(157, 26);
             this.symbolItem.Text = "符号设置";
             this.symbolItem.Click += new System.EventHandler(this.symbolItem_Click);
             // 
             // labelItem
             // 
+            this.labelItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.锚点;
             this.labelItem.Name = "labelItem";
-            this.labelItem.Size = new System.Drawing.Size(138, 24);
+            this.labelItem.Size = new System.Drawing.Size(157, 26);
             this.labelItem.Text = "标注设置";
             this.labelItem.Click += new System.EventHandler(this.lableItem_Click);
             // 
             // prosperityItem
             // 
+            this.prosperityItem.Image = global::MapWinGis_Demo_zhw.Properties.Resources.tutorials;
             this.prosperityItem.Name = "prosperityItem";
-            this.prosperityItem.Size = new System.Drawing.Size(138, 24);
-            this.prosperityItem.Text = "属性";
+            this.prosperityItem.Size = new System.Drawing.Size(157, 26);
+            this.prosperityItem.Text = "渲染设置";
             this.prosperityItem.Click += new System.EventHandler(this.prosperityItem_Click);
             // 
             // table
             // 
+            this.table.Image = global::MapWinGis_Demo_zhw.Properties.Resources.table_editor;
             this.table.Name = "table";
-            this.table.Size = new System.Drawing.Size(138, 24);
-            this.table.Text = "表";
+            this.table.Size = new System.Drawing.Size(157, 26);
+            this.table.Text = "查看属性表";
             this.table.Click += new System.EventHandler(this.table_Click);
+            // 
+            // rasContextMenu
+            // 
+            this.rasContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.rasContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.渲染ToolStripMenuItem});
+            this.rasContextMenu.Name = "rasContextMenu";
+            this.rasContextMenu.Size = new System.Drawing.Size(109, 28);
+            // 
+            // 渲染ToolStripMenuItem
+            // 
+            this.渲染ToolStripMenuItem.Name = "渲染ToolStripMenuItem";
+            this.渲染ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.渲染ToolStripMenuItem.Text = "移除";
+            this.渲染ToolStripMenuItem.Click += new System.EventHandler(this.removeItem_Click);
             // 
             // Main
             // 
@@ -1042,7 +1065,8 @@ namespace MapWinGis_Demo_zhw
             this.toolStripContainer1.PerformLayout();
             this._toolStripLayer.ResumeLayout(false);
             this._toolStripLayer.PerformLayout();
-            this.ContextMenu.ResumeLayout(false);
+            this.ShpContextMenu.ResumeLayout(false);
+            this.rasContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1114,7 +1138,7 @@ namespace MapWinGis_Demo_zhw
         private ToolStripButton toolSearch;
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripButton toolSetProjection;
-        private ContextMenuStrip ContextMenu;
+        private ContextMenuStrip ShpContextMenu;
         private ToolStripMenuItem removeItem;
         private ToolStripMenuItem symbolItem;
         private ToolStripMenuItem labelItem;
@@ -1141,5 +1165,7 @@ namespace MapWinGis_Demo_zhw
         private ToolStripMenuItem openHumanitarianMapToolStripMenuItem;
         private ToolStripMenuItem mapQuestAerialToolStripMenuItem;
         private ToolStripMenuItem providerCustomToolStripMenuItem;
+        private ContextMenuStrip rasContextMenu;
+        private ToolStripMenuItem 渲染ToolStripMenuItem;
     }
 }

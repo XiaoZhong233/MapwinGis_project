@@ -156,14 +156,14 @@
             // 清空选择ToolStripMenuItem
             // 
             this.清空选择ToolStripMenuItem.Name = "清空选择ToolStripMenuItem";
-            this.清空选择ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.清空选择ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.清空选择ToolStripMenuItem.Text = "清空选择";
             this.清空选择ToolStripMenuItem.Click += new System.EventHandler(this.清空选择ToolStripMenuItem_Click);
             // 
             // sQL查询ToolStripMenuItem
             // 
             this.sQL查询ToolStripMenuItem.Name = "sQL查询ToolStripMenuItem";
-            this.sQL查询ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.sQL查询ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.sQL查询ToolStripMenuItem.Text = "SQL查询";
             this.sQL查询ToolStripMenuItem.Click += new System.EventHandler(this.sQL查询ToolStripMenuItem_Click);
             // 
@@ -277,7 +277,7 @@
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MainMenuStrip = this.editMenuStrip;
             this.Name = "AttributesForm";
-            this.Text = "AttributesForm";
+            this.Text = "属性表";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AttributesForm_FormClosing);
             this.Load += new System.EventHandler(this.AttributesForm_Load);
             this.panel1.ResumeLayout(false);

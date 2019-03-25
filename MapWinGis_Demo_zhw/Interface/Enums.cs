@@ -59,7 +59,12 @@ namespace MapWinGis_Demo_zhw
             Document = 32
         }
 
-
+        public enum LayerTypeExt
+        {
+            shp,
+            tif,
+            png
+        }
 
         /// <summary>
         /// 枚举可能的preview map更新的类型

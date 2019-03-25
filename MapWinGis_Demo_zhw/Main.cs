@@ -4,6 +4,7 @@ using MapWinGIS;
 using MapWinGis_Demo_zhw.Forms;
 using MapWinGis_Demo_zhw.Helper;
 using MapWinGis_Demo_zhw.Manager;
+using MapWinGis_Demo_zhw.Model;
 using MWLite.Symbology.Forms;
 using MWLite.Symbology.LegendControl;
 using System;
@@ -259,9 +260,48 @@ namespace MapWinGis_Demo_zhw
         /// </summary>
         private void RegisterToolEvt()
         {
-            mnuOpen.Click += openVectorLayer_Click;
+            mnuOpen.Click += openLayer_Click;
             mnuAddVector.Click += openVectorLayer_Click;
             //TODO:打开栅格文件,加载工程文件，保存工程文件...
+
+
+            toolAddRaster.Click += openRaster_Click;
+            toolLoadProject.Click += (s, e) =>
+            {
+                //String[] files = openShapefileDialog();
+
+                //string filename = files[0];
+                //var fm = new FileManager();
+                //if (!fm.get_IsSupported(filename))
+                //{
+                //    MessageBox.Show("Datasource isn't supported by MapWinGIS");
+                //}
+                //else
+                //{
+                //    var obj = fm.Open(filename, tkFileOpenStrategy.fosAutoDetect, null);
+                //    if (fm.LastOpenIsSuccess)
+                //    {
+                //        if (fm.LastOpenStrategy == tkFileOpenStrategy.fosVectorLayer)
+                //        {
+                //            var shapefile = obj as Shapefile;
+                //            if (shapefile != null)
+                //                MessageBox.Show("Shapefile was opened.");
+                //        }
+                //        else
+                //        {
+                //            var image = obj as MapWinGIS.Image;
+                //            if (image != null)
+                //                MessageBox.Show("Image was opened.");
+                //        }
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Failed to open datasource: " + fm.get_ErrorMsg(fm.LastErrorCode));
+                //    }
+                //}
+                
+            };
+
             toolZoomIn.Click += zoomIn_btn_Click;
             toolZoomOut.Click += zoomOut_btn_Click;
             toolZoomMax.Click += recover_btn_Click;
@@ -291,7 +331,7 @@ namespace MapWinGis_Demo_zhw
         private void InitLegend()
         {
             _dispatcher = new LegendDispatcher(Legend);
-            _dispatcher.InitMenu(ContextMenu.Items);
+            _dispatcher.InitMenu(ShpContextMenu.Items);
 
 
             Legend.Map = Map.GetOcx() as Map;
@@ -386,10 +426,15 @@ namespace MapWinGis_Demo_zhw
             {
                 Legend.SelectedLayer = Handle;
                 var layer = Legend.Layers.ItemByHandle(Handle);
-                if (layer != null)
+                if (layer != null && layer.Type == MWLite.Symbology.Classes.eLayerType.PolygonShapefile || layer.Type == MWLite.Symbology.Classes.eLayerType.LineShapefile || layer.Type == MWLite.Symbology.Classes.eLayerType.PointShapefile)
                 {
                     _dispatcher.LayerHandle = Handle;
-                    ContextMenu.Show(Control.MousePosition);
+                    ShpContextMenu.Show(Control.MousePosition);
+                }else if(layer != null && layer.Type == MWLite.Symbology.Classes.eLayerType.Grid || layer != null && layer.Type == MWLite.Symbology.Classes.eLayerType.Image)
+                {
+                    _dispatcher.LayerHandle = Handle;
+                    rasContextMenu.Show(MousePosition);
+
                 }
             }
         }
@@ -608,6 +653,506 @@ namespace MapWinGis_Demo_zhw
         }
 
         /// <summary>
+        /// 打开栅格图层
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openRaster_Click(object sender, EventArgs e)
+        {
+            String[] files = openRasterDialog();
+            if (files != null)
+            {
+                try
+                {
+                    foreach(string file in files)
+                    {
+                        if (file.ToLower().Trim().EndsWith(".shp"))
+                        {
+
+                            Shapefile sf = new Shapefile();
+
+                            if (sf.Open(file, null))
+                            {
+
+                                Map.CursorMode = MapWinGIS.tkCursorMode.cmPan;
+
+                                //layerHandle = axMap1.AddLayer(sf, true);    //加入sf图层
+
+                                if (true)
+                                {
+                                    string directoryName = Path.GetDirectoryName(file);//目录名
+                                    string fileName = Path.GetFileNameWithoutExtension(file);//文件名
+
+
+                                    Node target = findNode(x => {
+                                        if (x.Path != "")
+                                            return x.NodeType == NodeType.group && Path.GetDirectoryName(x.Path) == directoryName;
+                                        return false;
+                                    });
+                                    //当前目录是存在的 因此是子节点,不需要新增数据框
+                                    if (target != null)
+                                    {
+                                        //把图层加载组中的最顶端
+                                        addLayer(sf, target.LegendHandle);
+                                        Node node = new Node(curLegendLayerHandle, target.LegendHandle, curLayerHandle, file);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+
+                                        //将对应的层赋值
+                                        node.ParentGroupHandle = GroupIndex;
+                                        LegendNodes.Add(node);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入旧层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + node.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //当前目录为新目录，需要重新创建根节点
+                                    else
+                                    {
+                                        addGroup(directoryName);
+                                        addLayer(sf, curLegendGroupHandle);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+                                        Node groupNode = new Node(GroupIndex, curLayerHandle, file);
+                                        Node layerNode = new Node(curLegendLayerHandle, GroupIndex, curLayerHandle, file);
+                                        layerNode.ParentGroupHandle = groupNode.LegendHandle;
+                                        LegendNodes.Add(groupNode);
+                                        LegendNodes.Add(layerNode);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入新层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + layerNode.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //输出加载信息
+                                    App.LoadMapState(file);
+                                    //默认图例
+                                    Map.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
+                                    //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    Map.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
+                                    //缩放至第一个图层
+                                    Map.ZoomToLayer(Legend.Layers.First().Handle);
+
+
+
+                                }
+
+
+                            }
+                            else if (file == null)
+                            {
+                                MessageBox.Show("路径为空");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(sf.ErrorMsg[sf.LastErrorCode]);
+                                MessageBox.Show("错误");
+                            }
+
+                        }
+
+                        if (file.ToLower().Trim().EndsWith(".tif") || file.ToLower().Trim().EndsWith(".png"))
+                        {
+                            MapWinGIS.Image img = new MapWinGIS.Image();
+
+                            if (img.Open(file, ImageType.TIFF_FILE, false, null))
+                            {
+
+                                Map.CursorMode = MapWinGIS.tkCursorMode.cmPan;
+
+                                //layerHandle = axMap1.AddLayer(sf, true);    //加入sf图层
+
+                                if (true)
+                                {
+                                    string directoryName = Path.GetDirectoryName(file);//目录名
+                                    string fileName = Path.GetFileNameWithoutExtension(file);//文件名
+
+
+                                    Node target = findNode(x => {
+                                        if (x.Path != "")
+                                            return x.NodeType == NodeType.group && Path.GetDirectoryName(x.Path) == directoryName;
+                                        return false;
+                                    });
+                                    //当前目录是存在的 因此是子节点,不需要新增数据框
+                                    if (target != null)
+                                    {
+                                        //把图层加载组中的最顶端
+                                        addLayer(img, target.LegendHandle);
+                                        Node node = new Node(curLegendLayerHandle, target.LegendHandle, curLayerHandle, file);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+
+                                        //将对应的层赋值
+                                        node.ParentGroupHandle = GroupIndex;
+                                        LegendNodes.Add(node);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入旧层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + node.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //当前目录为新目录，需要重新创建根节点
+                                    else
+                                    {
+                                        addGroup(directoryName);
+                                        addLayer(img, curLegendGroupHandle);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+                                        Node groupNode = new Node(GroupIndex, curLayerHandle, file);
+                                        Node layerNode = new Node(curLegendLayerHandle, GroupIndex, curLayerHandle, file);
+                                        layerNode.ParentGroupHandle = groupNode.LegendHandle;
+                                        LegendNodes.Add(groupNode);
+                                        LegendNodes.Add(layerNode);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入新层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + layerNode.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //输出加载信息
+                                    App.LoadMapState(file);
+                                    //默认图例
+                                    Map.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
+                                    //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    Map.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
+                                    //缩放至第一个图层
+                                    Map.ZoomToLayer(Legend.Layers.First().Handle);
+
+
+
+                                }
+
+
+                            }
+                            else if (file == null)
+                            {
+                                MessageBox.Show("路径为空");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(img.ErrorMsg[img.LastErrorCode]);
+                                MessageBox.Show("错误");
+                            }
+
+
+
+                            if (curLayerHandle != -1)
+                            {
+                                Map.set_LayerName(curLayerHandle, Path.GetFileName(file));
+                            }
+                        }
+
+                       
+
+                        if (curLayerHandle != -1)
+                        {
+                            Map.set_LayerName(curLayerHandle, Path.GetFileName(file));
+                        }
+                    }
+
+                }catch(Exception ee)
+                {
+
+                }
+                finally
+                {
+                    SortLayersByType();
+
+                    Map.LockWindow(tkLockMode.lmUnlock);
+                    Debug.Print("Layers added to the map: " + Map.NumLayers);
+                    RefreshUI();
+                }
+
+
+
+            }
+        }
+
+        private void openLayer_Click(object sender, EventArgs e)
+        {
+            String[] files = openLayerDialog();
+            if (files != null)
+            {
+                try
+                {
+                    foreach (string file in files)
+                    {
+                        if (file.ToLower().Trim().EndsWith(".shp"))
+                        {
+
+                            Shapefile sf = new Shapefile();
+
+                            if (sf.Open(file, null))
+                            {
+
+                                Map.CursorMode = MapWinGIS.tkCursorMode.cmPan;
+
+                                //layerHandle = axMap1.AddLayer(sf, true);    //加入sf图层
+
+                                if (true)
+                                {
+                                    string directoryName = Path.GetDirectoryName(file);//目录名
+                                    string fileName = Path.GetFileNameWithoutExtension(file);//文件名
+
+
+                                    Node target = findNode(x => {
+                                        if (x.Path != "")
+                                            return x.NodeType == NodeType.group && Path.GetDirectoryName(x.Path) == directoryName;
+                                        return false;
+                                    });
+                                    //当前目录是存在的 因此是子节点,不需要新增数据框
+                                    if (target != null)
+                                    {
+                                        //把图层加载组中的最顶端
+                                        addLayer(sf, target.LegendHandle);
+                                        Node node = new Node(curLegendLayerHandle, target.LegendHandle, curLayerHandle, file);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+
+                                        //将对应的层赋值
+                                        node.ParentGroupHandle = GroupIndex;
+                                        LegendNodes.Add(node);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入旧层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + node.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //当前目录为新目录，需要重新创建根节点
+                                    else
+                                    {
+                                        addGroup(directoryName);
+                                        addLayer(sf, curLegendGroupHandle);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+                                        Node groupNode = new Node(GroupIndex, curLayerHandle, file);
+                                        Node layerNode = new Node(curLegendLayerHandle, GroupIndex, curLayerHandle, file);
+                                        layerNode.ParentGroupHandle = groupNode.LegendHandle;
+                                        LegendNodes.Add(groupNode);
+                                        LegendNodes.Add(layerNode);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入新层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + layerNode.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //输出加载信息
+                                    App.LoadMapState(file);
+                                    //默认图例
+                                    Map.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
+                                    //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    Map.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
+                                    //缩放至第一个图层
+                                    Map.ZoomToLayer(Legend.Layers.First().Handle);
+
+
+
+                                }
+
+
+                            }
+                            else if (file == null)
+                            {
+                                MessageBox.Show("路径为空");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(sf.ErrorMsg[sf.LastErrorCode]);
+                                MessageBox.Show("错误");
+                            }
+
+                        }
+
+                        if (file.ToLower().Trim().EndsWith(".tif") || file.ToLower().Trim().EndsWith(".png"))
+                        {
+                            MapWinGIS.Image img = new MapWinGIS.Image();
+
+                            if (img.Open(file, ImageType.TIFF_FILE, false, null))
+                            {
+
+                                Map.CursorMode = MapWinGIS.tkCursorMode.cmPan;
+
+                                //layerHandle = axMap1.AddLayer(sf, true);    //加入sf图层
+
+                                if (true)
+                                {
+                                    string directoryName = Path.GetDirectoryName(file);//目录名
+                                    string fileName = Path.GetFileNameWithoutExtension(file);//文件名
+
+
+                                    Node target = findNode(x => {
+                                        if (x.Path != "")
+                                            return x.NodeType == NodeType.group && Path.GetDirectoryName(x.Path) == directoryName;
+                                        return false;
+                                    });
+                                    //当前目录是存在的 因此是子节点,不需要新增数据框
+                                    if (target != null)
+                                    {
+                                        //把图层加载组中的最顶端
+                                        addLayer(img, target.LegendHandle);
+                                        Node node = new Node(curLegendLayerHandle, target.LegendHandle, curLayerHandle, file);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+
+                                        //将对应的层赋值
+                                        node.ParentGroupHandle = GroupIndex;
+                                        LegendNodes.Add(node);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入旧层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + node.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //当前目录为新目录，需要重新创建根节点
+                                    else
+                                    {
+                                        addGroup(directoryName);
+                                        addLayer(img, curLegendGroupHandle);
+
+
+                                        int GroupIndex = -1;
+                                        int LayerIndex = -1;
+                                        getLayerInLegendInfo(curLegendLayerHandle, ref GroupIndex, ref LayerIndex);
+
+                                        Node groupNode = new Node(GroupIndex, curLayerHandle, file);
+                                        Node layerNode = new Node(curLegendLayerHandle, GroupIndex, curLayerHandle, file);
+                                        layerNode.ParentGroupHandle = groupNode.LegendHandle;
+                                        LegendNodes.Add(groupNode);
+                                        LegendNodes.Add(layerNode);
+                                        if (debug)
+                                        {
+                                            Debug.Print("加入新层\n");
+                                            Debug.Print("组数：" + Legend.Groups.Count() + "\n" +
+                                                            "图层树的图层数：" + Legend.Layers.Count() + "\n" +
+                                                            "对应的group handle" + layerNode.ParentGroupHandle + "\n" +
+                                                            "实际图层数：" + Map.NumLayers);
+                                        }
+
+                                    }
+                                    //输出加载信息
+                                    App.LoadMapState(file);
+                                    //默认图例
+                                    Map.set_ShapeLayerLineColor(curLayerHandle, ParseRGB(Color.Black));//线颜色
+                                    //axMap1.set_ShapeLayerLineStipple(curLayerHandle, tkLineStipple.lsCustom);//点样式
+                                    Map.set_ShapeLayerLineWidth(curLayerHandle, 1.5f);//线宽度
+                                    //缩放至第一个图层
+                                    Map.ZoomToLayer(Legend.Layers.First().Handle);
+
+
+
+                                }
+
+
+                            }
+                            else if (file == null)
+                            {
+                                MessageBox.Show("路径为空");
+
+                            }
+                            else
+                            {
+                                MessageBox.Show(img.ErrorMsg[img.LastErrorCode]);
+                                MessageBox.Show("错误");
+                            }
+
+
+
+                            if (curLayerHandle != -1)
+                            {
+                                Map.set_LayerName(curLayerHandle, Path.GetFileName(file));
+                            }
+                        }
+
+
+
+                        if (curLayerHandle != -1)
+                        {
+                            Map.set_LayerName(curLayerHandle, Path.GetFileName(file));
+                        }
+                    }
+
+                }
+                catch (Exception ee)
+                {
+
+                }
+                finally
+                {
+                    SortLayersByType();
+
+                    Map.LockWindow(tkLockMode.lmUnlock);
+                    Debug.Print("Layers added to the map: " + Map.NumLayers);
+                    RefreshUI();
+                }
+
+
+
+            }
+        }
+
+
+
+        /// <summary>
         /// 打开矢量图层回调
         /// </summary>
         /// <param name="sender"></param>
@@ -632,8 +1177,7 @@ namespace MapWinGis_Demo_zhw
                     {
                         if (file.ToLower().Trim().EndsWith(".shp"))
                         {
-
-
+                            
                             Shapefile sf = new Shapefile();
 
                             if (sf.Open(file, null))
@@ -850,7 +1394,9 @@ namespace MapWinGis_Demo_zhw
         /// <param name="e"></param>
         private void recover_btn_Click(object sender, EventArgs e)
         {
-            LayerHelper.ZoomToLayer();
+            //LayerHelper.ZoomToLayer();
+            //Extents ext = MapExt.MaxVisibleExtents(App.Map);
+            App.Map.ZoomToMaxExtents();
             RefreshUI();
         }
 
@@ -1018,6 +1564,7 @@ namespace MapWinGis_Demo_zhw
 
             using (OpenFileDialog openDialog = new OpenFileDialog())
             {
+                
                 openDialog.Multiselect = true;
                 openDialog.InitialDirectory = @"c:/";
                 openDialog.Filter = "ShapeFile文件|*.shp";//定义文件筛选器,只显示扩展名为.shp的文件；
@@ -1031,6 +1578,51 @@ namespace MapWinGis_Demo_zhw
             return files;
 
         }
+
+
+        /// <summary>
+        /// 打开栅格图层
+        /// </summary>
+        /// <param name="layerTypeExt"></param>
+        /// <returns></returns>
+        private string[] openRasterDialog()
+        {
+            DialogResult result;
+            String[] files;
+
+            using(OpenFileDialog openDialog = new OpenFileDialog())
+            {
+                openDialog.Multiselect = true;
+                openDialog.InitialDirectory = @"c:/";
+                openDialog.Filter = ".tif|*.tif| .png|*.png";//定义文件筛选器,只显示扩展名为.shp的文件；
+                openDialog.Title = "请打开栅格";
+                result = openDialog.ShowDialog();//返回用户选择
+                openDialog.RestoreDirectory = true;//关闭前对话框恢复当前目录
+                files = openDialog.FileNames;//保存选中文件路径
+            }
+            return files;
+
+        }
+
+        private string[] openLayerDialog()
+        {
+            DialogResult result;
+            String[] files;
+
+            using (OpenFileDialog openDialog = new OpenFileDialog())
+            {
+                openDialog.Multiselect = true;
+                openDialog.InitialDirectory = @"c:/";
+                openDialog.Filter = ".shp|*.shp| .tif|*.tif| .png|*.png";//定义文件筛选器,只显示扩展名为.shp的文件；
+                openDialog.Title = "请打开图层文件";
+                result = openDialog.ShowDialog();//返回用户选择
+                openDialog.RestoreDirectory = true;//关闭前对话框恢复当前目录
+                files = openDialog.FileNames;//保存选中文件路径
+            }
+            return files;
+
+        }
+
 
         /// <summary>
         /// 移除所以图层，包括图层树
@@ -1159,15 +1751,7 @@ namespace MapWinGis_Demo_zhw
             System.Diagnostics.Process.Start("https://github.com/XiaoZhong233/MapwinGis_project");
         }
 
-        /// <summary>
-        /// 加入栅格文件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mnuAddRaster_Click(object sender, EventArgs e)
-        {
-            //Map.AddLayerFromFilename("D:/MyDownloads/Download/GDPGrid_China2010.tif", tkFileOpenStrategy.fosDirectGrid, true);
-        }
+
 
 
         /// <summary>
@@ -1333,5 +1917,7 @@ namespace MapWinGis_Demo_zhw
             Map.TileProvider = tkTileProvider.ProviderCustom;
             RefreshUI();
         }
+
+   
     }
 }
