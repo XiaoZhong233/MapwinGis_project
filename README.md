@@ -1,3 +1,3 @@
 # MapwinGis_demo
-Mapwingis is opensouce GIS solution and this prohect builded for learning and fun
+Mapwingis is opensouce GIS solution
 ![demo](img/mapwinGisDemo.png)
